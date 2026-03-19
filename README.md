@@ -16,8 +16,17 @@
 |    1    |27/08     | [Introduction to the Project and Open Source](01._introduction/README.md)|
 |    2    |3/09      | [Code Quality and Infrastructure](02._code_quality_infrastructure/README.md)          |
 |    3    |10/09     | [Feature Development with AI Assistance](03._feature_development/README.md)              |
-|    4    |17/09     | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
-|    5    |24/09     | [Final Project and Reflection](05._final_project/README.md)     |
+|    4    |17/09     | [Feature Development with AI Assistance](03._feature_development/README.md)              |
+|    5    |24/09     | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
+|    6    |1/10      | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
+|    7    |8/10      | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
+|    8    |15/10     | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
+|    9    |22/10     | [Final Project and Reflection](05._final_project/README.md)     |
+|    10   |29/10     | [Final Project and Reflection](05._final_project/README.md)     |
+|    11   |5/11      | [Final Project and Reflection](05._final_project/README.md)     |
+|    12   |12/11     | [Final Project and Reflection](05._final_project/README.md)     |
+|    13   |19/11     | [Final Project and Reflection](05._final_project/README.md)     |
+|    14   |26/11     | [Final Project and Reflection](05._final_project/README.md)     |
 
 
 ---

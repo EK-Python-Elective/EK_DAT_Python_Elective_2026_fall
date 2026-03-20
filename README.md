@@ -2,31 +2,23 @@
 
 ## Semester Plan: Fork of mistral-vibe
 
-**Goal:**
-- Students learn to analyze, understand, and contribute to a larger Python project.
-- They learn to use AI and CLI tools to **accelerate development, debugging, and documentation**.
-- They gain experience with **open-source culture, code reviews, and collaboration**.
-- They learn to **assess code quality, architecture, and infrastructure**.
-- They become familiar with **Python syntax and programming concepts** through hands-on practice.
-
-### Semester Overview
-
-| #       |   Date   | Topics |
-|:-------:|:--------:|:-----|
-|    1    |27/08     | [Introduction to the Project and Open Source](01._introduction/README.md)|
-|    2    |3/09      | [Code Quality and Infrastructure](02._code_quality_infrastructure/README.md)          |
-|    3    |10/09     | [Feature Development with AI Assistance](03._feature_development/README.md)              |
-|    4    |17/09     | [Feature Development with AI Assistance](03._feature_development/README.md)              |
-|    5    |24/09     | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
-|    6    |1/10      | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
-|    7    |8/10      | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
-|    8    |15/10     | [Collaboration, Code Reviews, and PRs](04._collaboration_prs/README.md)     |
-|    9    |22/10     | [Final Project and Reflection](05._final_project/README.md)     |
-|    10   |29/10     | [Final Project and Reflection](05._final_project/README.md)     |
-|    11   |5/11      | [Final Project and Reflection](05._final_project/README.md)     |
-|    12   |12/11     | [Final Project and Reflection](05._final_project/README.md)     |
-|    13   |19/11     | [Final Project and Reflection](05._final_project/README.md)     |
-|    14   |26/11     | [Final Project and Reflection](05._final_project/README.md)     |
+| # | Week | Topic |
+|:-:|:----:|-------|
+| 1 | 36 | [Kickoff: Open Source Culture & Project Setup](01._open_source_and_project_setup/README.md) |
+| 2 | 37 | [Reading Code: Project Structure & Python Packaging](02._project_structure_and_packaging/README.md) |
+| 3 | 38 | [Python Tooling: uv, ruff, and the Modern Ecosystem](03._python_tooling/README.md) |
+| 4 | 39 | [Type System: Type Hints, Dataclasses, and Pydantic](04._type_system/README.md) |
+| 5 | 40 | [CLI Development: How the CLI Works](05._cli_development/README.md) |
+| 6 | 41 | [File I/O and pathlib](06._file_io_and_pathlib/README.md) |
+| 7 | 42 | [APIs and HTTP Clients: Talking to Mistral AI](07._apis_and_http_clients/README.md) |
+| 8 | 43 | [Async Python](08._async_python/README.md) |
+| 9 | 44 | [Configuration Management: TOML, ENV, and Profiles](09._configuration_management/README.md) |
+| 10 | 45 | [The Skills/Plugin System: Extensibility Patterns](10._skills_plugin_system/README.md) |
+| 11 | 46 | [Testing: pytest and How to Test CLI Tools](11._testing/README.md) |
+| 12 | 47 | [Feature Sprint I](12._feature_sprint_1/README.md) |
+| 13 | 48 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
+| 14 | 49 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
+| 15 | 50 | [Demo Day & Reflection](15._demo_day/README.md) |
 
 
 ---

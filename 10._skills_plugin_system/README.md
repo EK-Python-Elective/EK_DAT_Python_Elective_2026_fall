@@ -118,6 +118,8 @@ Ideas:
 
 ## After Class
 
-- Your fork should have at least one new skill file committed
+- Your fork should have at least one new skill file committed (place it in `.vibe/skills/<your-skill-name>/SKILL.md` at the project root)
 - Test your skill: prompt `vibe` in a way that triggers the skill and verify it works
 - Think about your main feature for the sprint: does it fit naturally as a skill, or does it require changes to the core?
+
+> **Note:** Adding a skill to your fork is a great way to learn the system, but `.vibe/skills/` is user/project configuration — not source code. A PR to the upstream mistral-vibe repo would not include this folder. If you want to contribute upstream, you need to extend the Python source code itself (e.g. a new tool, a CLI flag, an improvement to the core). Keep this in mind when planning your feature for sessions 12–14.

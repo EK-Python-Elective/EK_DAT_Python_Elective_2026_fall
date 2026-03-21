@@ -18,8 +18,8 @@
 
 ## Before Class
 
-- Read the `SKILL.md` file in the mistral-vibe repo carefully
-- Look at any existing example skills in the `skills/` directory
+- Read the **Skills System** section in the mistral-vibe `README.md` (search for `## Skills System`) — this explains the `SKILL.md` format, discovery rules, and configuration
+- Browse `vibe/core/skills/` in the repo — `models.py` defines the skill schema, `manager.py` shows how skills are discovered and loaded
 - Think of one skill you would find genuinely useful — bring the idea to class
 
 ---
@@ -38,21 +38,40 @@
 - Skills can invoke shell commands, call APIs, read files, etc.
 
 ### Anatomy of a skill file
+
+Each skill lives in its own directory with a `SKILL.md` file. The file has YAML frontmatter followed by freeform Markdown instructions. Example: `~/.vibe/skills/web-search/SKILL.md`:
+
 ```markdown
-# Skill: web-search
+---
+name: web-search
+description: Search the web for up-to-date information when the user asks about recent events.
+license: MIT
+compatibility: Python 3.12+
+user-invocable: true
+allowed-tools:
+  - bash
+---
 
-## Description
-Search the web for up-to-date information when the user asks about recent events.
+# Web Search Skill
 
-## When to use
-Use this skill when the user asks about news, current events, or anything that
-might have changed after your training cutoff.
+Search the web for up-to-date information.
 
 ## Instructions
 1. Extract the search query from the user's message
-2. Run: `curl "https://api.search.example.com?q={query}"`
-3. Summarise the top 3 results for the user
+2. Run the search and retrieve results
+3. Summarise the top results for the user
 ```
+
+**Frontmatter fields** (defined in `vibe/core/skills/models.py`):
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `name` | yes | Lowercase, hyphens only. Must match the directory name. |
+| `description` | yes | What the skill does and when to use it (up to 1024 chars). |
+| `user-invocable` | no | `true` by default — makes the skill appear as a `/slash` command. |
+| `allowed-tools` | no | List of tools the skill is pre-approved to use. |
+| `license` | no | License name or path to a bundled license file. |
+| `compatibility` | no | Environment requirements. |
 
 ### Python extensibility patterns
 
@@ -82,7 +101,10 @@ for skill_file in Path("skills/").glob("*.py"):
 ```
 
 ### How mistral-vibe loads and calls skills
-- Walk through the skill loading and dispatch code
+- Walk through `vibe/core/skills/manager.py`: `SkillManager._discover_skills()` walks the search paths, finds `SKILL.md` files, and builds a registry
+- Walk through `vibe/core/skills/models.py`: `SkillMetadata` (Pydantic) validates the frontmatter; `SkillInfo` is the runtime representation
+- **Discovery order**: custom `skill_paths` from `config.toml` → `.agents/skills/` → `.vibe/skills/` (both project-local, trusted folders only) → `~/.vibe/skills/` (global)
+- The skill name **must match the directory name** — the manager warns if they differ
 - How does the LLM "call" a skill? (tool use / function calling)
 - Mistral function calling format: name, description, parameters schema
 

@@ -27,6 +27,20 @@
 
 This course focuses on contributing to an open-source Python project, [mistral-vibe](https://github.com/mistralai/mistral-vibe). Students will learn to analyze, improve, and extend the project using AI and CLI tools. Along the way, they will become familiar with Python syntax and programming concepts.
 
+## AI Policy
+
+**AI tools are 100% allowed — and actively encouraged.**
+
+This course is built around the reality that professional developers use AI tools every day. You are expected to use them too:
+
+- [mistral-vibe](https://github.com/mistralai/mistral-vibe) — the project you are working on is itself an AI coding assistant. Use it on itself.
+- [Claude Code](https://claude.ai/claude-code) — for exploring the codebase, writing code, and getting unstuck
+- GitHub Copilot, Cursor, ChatGPT, or any other tool you find useful
+
+Using AI is not cheating. It is a skill. The goal is to learn how to use these tools effectively and critically — knowing when to trust them, when to question them, and how to take responsibility for the code you ship.
+
+You will be asked to reflect on your use of AI at the end of the semester: what helped, what misled you, and what you learned about working alongside these tools.
+
 ## Exam
 
 The exam will involve presenting a feature or improvement made to the mistral-vibe project, demonstrating understanding of the codebase, and reflecting on the use of AI in the development process.

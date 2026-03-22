@@ -48,7 +48,7 @@ git fetch origin
 git rebase origin/main
 
 # Small, focused commits
-git add src/mistral_vibe/memory.py
+git add vibe/memory.py
 git commit -m "add SessionMemory class with JSON persistence"
 ```
 

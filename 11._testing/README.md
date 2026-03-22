@@ -2,7 +2,7 @@
 
 **Week 46 | Python Elective 2026 Fall**
 
-> Add tests to the fork. Learn `pytest`, `pytest-asyncio`, mocking, fixtures, testing CLI tools with `click.testing` or subprocess.
+> Add tests to the fork. Learn `pytest`, `pytest-asyncio`, mocking, fixtures, testing CLI tools with subprocess.
 
 ---
 
@@ -11,15 +11,15 @@
 - Write tests using `pytest` for real Python code
 - Test async functions with `pytest-asyncio`
 - Mock external dependencies (API calls, file system) in tests
-- Test CLI tools by invoking them as subprocesses or via a test runner
+- Test CLI tools by invoking them as subprocesses
 - Add a meaningful test suite to your fork
 
 ---
 
 ## Before Class
 
-- Check if mistral-vibe has any existing tests — where are they, what do they cover?
-- Install pytest in your fork: `uv add --dev pytest pytest-asyncio`
+- Check the `tests/` directory in mistral-vibe — where are the tests, what do they cover?
+- Dev dependencies (`pytest`, `pytest-asyncio`, `pytest-xdist`, `respx`, etc.) are already in `pyproject.toml` — run `uv sync` to make sure they are installed
 - Run `uv run pytest` — what happens?
 - Optional: read [pytest getting started](https://docs.pytest.org/en/stable/getting-started.html)
 
@@ -70,7 +70,7 @@ async def test_stream_response():
     assert len(chunks) > 0
 ```
 
-Configure in `pyproject.toml`:
+Configure in `pyproject.toml` (you will need to add this to your fork):
 ```toml
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
@@ -81,13 +81,15 @@ asyncio_mode = "auto"
 from unittest.mock import patch, AsyncMock
 
 def test_api_call_uses_correct_model():
-    with patch("mistral_vibe.api.httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post = AsyncMock(
-            return_value=mock_response(model="mistral-large")
+    with patch("vibe.core.llm.backend.mistral.Mistral") as mock_client:
+        mock_client.return_value.chat.stream_async = AsyncMock(
+            return_value=mock_stream_response(model="mistral-large")
         )
         result = call_api(model="mistral-large", prompt="test")
     assert result.model == "mistral-large"
 ```
+
+The project also uses `respx` (already in dev deps) for mocking HTTP requests at the transport layer — look at `tests/` for examples.
 
 ### Testing CLI tools
 ```python

@@ -47,8 +47,8 @@ Currently all context is lost when `vibe` exits. For long-running tasks or
 frequent users, the ability to resume a session reduces friction significantly.
 
 ## Changes
-- `src/mistral_vibe/memory.py`: new `SessionMemory` class
-- `src/mistral_vibe/cli.py`: add `--resume` and `--clear-history` flags
+- `vibe/memory.py`: new `SessionMemory` class
+- `vibe/cli/entrypoint.py`: add `--resume` and `--clear-history` flags
 - `config.toml`: new `[memory]` section with `enabled` and `max_sessions` keys
 - `tests/test_memory.py`: full test coverage for the new module
 

@@ -33,7 +33,7 @@ This course focuses on contributing to an open-source Python project, [mistral-v
 
 This course is built around the reality that professional developers use AI tools every day. You are expected to use them too.
 
-We will use [mistral-vibe](https://github.com/mistralai/mistral-vibe) as the course's primary AI coding assistant — it is also the project you are studying, so you get to learn from it and with it at the same time. That said, you are free to use whichever AI tools you prefer: Claude Code, GitHub Copilot, Cursor, ChatGPT, or anything else.
+We will use [mistral-vibe](https://github.com/mistralai/mistral-vibe) as the course's primary AI coding assistant — it is also the project you are studying, so you get to learn from it and with it at the same time. That said, you are free to use whichever AI tools you prefer. Other popular CLI-based AI coding assistants include [Claude Code](https://claude.ai/claude-code), [GitHub Copilot CLI](https://githubnext.com/projects/copilot-cli), and [Cursor](https://www.cursor.com/) — or any other tool you find useful.
 
 Using AI is not cheating. It is a skill. The goal is to learn how to use these tools effectively and critically — knowing when to trust them, when to question them, and how to take responsibility for the code you ship.
 

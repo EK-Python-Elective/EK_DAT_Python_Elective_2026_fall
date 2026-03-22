@@ -71,7 +71,10 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
 - Server-Sent Events (SSE) format: `data: {...}\n\n`
 
 ### How mistral-vibe handles the API
-- Walk through the API call code together
+- The project uses the **`mistralai` Python SDK** (`from mistralai.client import Mistral`) — not raw `httpx` calls. The SDK wraps the HTTP layer for you.
+- `httpx` is still a direct dependency (used for error handling and lower-level HTTP in some places), which is why it is worth knowing.
+- Walk through `vibe/core/llm/backend/mistral.py` together: where is the SDK client created? How is a streaming request sent? How are chunks yielded back?
+- **Bonus:** the backend supports multiple providers — `vibe/core/llm/backend/` has separate files for Mistral, a generic OpenAI-compatible API, and others. This is a good example of an abstraction layer.
 - Identify: where is the API key loaded? How is the request built? How is the stream consumed?
 
 ### Exercise: extend the API integration

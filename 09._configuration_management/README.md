@@ -79,9 +79,10 @@ api_key = os.environ["MISTRAL_API_KEY"]          # raises if missing
 debug = os.environ.get("DEBUG", "false") == "true"  # with default
 ```
 
-### Profiles in mistral-vibe
-- How does `--profile coding` change the behaviour?
-- Walk through the profile loading code
+### Configuration loading in mistral-vibe
+- The config system uses **`pydantic_settings`** (`BaseSettings`) with a custom `TomlFileSettingsSource` — when you read the source you will see Pydantic models, not bare `tomllib` calls
+- Walk through `vibe/core/config/_settings.py` to see how TOML + env vars are merged
+- How does `--agent` change the behaviour? (there is no `--profile` flag — agents serve a similar purpose)
 - Design principle: one config dataclass, populated from multiple sources
 
 ### Exercise: add a configurable feature

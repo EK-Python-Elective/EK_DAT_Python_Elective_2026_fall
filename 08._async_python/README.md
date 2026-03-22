@@ -72,8 +72,10 @@ async def main():
 ```
 
 ### How mistral-vibe uses async
-- The main REPL loop is async
-- API streaming uses async generators
+- The **agent loop** (`vibe/core/agent_loop.py`) is async — this is the core of the program
+- The interactive UI is Textual, which manages its own event loop internally
+- API streaming uses async generators (look in `vibe/core/llm/backend/mistral.py`)
+- `asyncio.run()` is the entry point into async code — find it in `vibe/core/programmatic.py` and `vibe/core/utils.py`
 - Walk through the event loop lifecycle in the codebase
 
 ### Common async pitfalls

@@ -52,17 +52,17 @@ target-version = "py312"
 select = ["E", "F", "I", "UP"]
 ```
 
-### Type checking with mypy / pyright
+### Type checking with pyright
 - Python is dynamically typed — but type hints + a checker catch bugs at "compile time"
-- `mypy`: the classic checker
-- `pyright` / `pylance`: faster, used by VS Code by default
+- `pyright` / `pylance`: fast, used by VS Code by default — and what mistral-vibe uses
+- `mypy`: the classic alternative, worth knowing about
 ```bash
-uv run mypy src/
+uv run pyright
 ```
 - How to read type errors and what they mean
 
 ### Configuring your fork's tooling
-- Students add or adjust `[tool.ruff]` and `[tool.mypy]` sections in their `pyproject.toml`
+- Students add or adjust `[tool.ruff]` and `[tool.pyright]` sections in their `pyproject.toml`
 - Run a full lint pass and fix all warnings
 
 ### Pre-commit hooks (preview)
@@ -75,5 +75,5 @@ uv run mypy src/
 
 - Run `ruff check --fix .` and `ruff format .` on your entire fork — commit the result
 - Add a `[tool.ruff]` section to your `pyproject.toml` with at least 3 configured rules
-- Try to introduce a deliberate type error and confirm that `mypy` catches it
+- Try to introduce a deliberate type error and confirm that `pyright` catches it
 - Optional: set up the `ruff` VS Code extension (or equivalent for your editor)

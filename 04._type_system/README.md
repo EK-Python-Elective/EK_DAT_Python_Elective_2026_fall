@@ -87,13 +87,13 @@ cfg = Config(model="mistral-large", temperature=1.2)
 - Discuss: why would you choose one over another?
 
 ### Exercise: add type hints
-- Find a function in the codebase that lacks type annotations
-- Add complete type hints and verify with `mypy`
+- Write a new helper function and add complete type annotations to it
+- Verify it with `pyright` — make sure it passes clean
 
 ---
 
 ## After Class
 
-- Add full type annotations to at least one file in your fork that is currently untyped
-- Run `mypy` and fix all errors in that file
+- Add a new typed function or small module to your fork — annotate it fully from the start
+- Run `pyright` and fix any errors
 - Write a short explanation (as a comment or in your notes): when would you use `TypedDict` vs `dataclass` vs `Pydantic`?

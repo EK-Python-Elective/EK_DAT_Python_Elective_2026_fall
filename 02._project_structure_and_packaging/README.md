@@ -31,17 +31,18 @@
 mistral-vibe/
 ├── pyproject.toml       # project metadata, dependencies, tool config
 ├── uv.lock              # locked dependency tree
-├── src/                 # source layout (or flat layout)
-│   └── mistral_vibe/
-│       ├── __init__.py
-│       └── ...
+├── vibe/                # flat layout — the main package
+│   ├── cli/             # CLI entry point, argument parsing, Textual UI
+│   ├── core/            # agent loop, tools, config, LLM backend
+│   ├── acp/             # Agent Client Protocol (IDE integration)
+│   └── setup/           # first-run setup wizard
 └── tests/
 ```
 
 ### pyproject.toml deep dive
 - `[project]` — name, version, requires-python, dependencies
 - `[project.scripts]` — how `vibe` becomes a terminal command after install
-- `[tool.ruff]`, `[tool.mypy]` — tool configuration lives here too
+- `[tool.ruff]`, `[tool.pyright]` — tool configuration lives here too
 - Compare with the old `setup.py` / `requirements.txt` approach
 
 ### Entry points

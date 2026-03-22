@@ -34,9 +34,10 @@
 ### How mistral-vibe parses arguments
 - Trace the CLI entry point to where arguments are parsed
 - Identify: which flags exist, what are their types, which have defaults?
-- How does the `--agent` or `--profile` flag affect program behaviour?
+- How does the `--agent` flag affect program behaviour? What built-in agent names are available?
 
-### The REPL loop
+### The interactive loop
+mistral-vibe uses **Textual** — a full TUI (terminal UI) framework — rather than a simple `input()` loop. The entry point calls `run_textual_ui()` in `vibe/cli/textual_ui/`. A simple REPL looks like this for reference:
 ```python
 while True:
     user_input = input("> ")
@@ -45,8 +46,8 @@ while True:
     response = process(user_input)
     print(response)
 ```
-- Where is this pattern in mistral-vibe?
-- How does it handle Ctrl+C and Ctrl+D gracefully?
+- Explore `vibe/cli/textual_ui/` to see how Textual handles user input
+- How does it handle Ctrl+C and Ctrl+D gracefully? (look in `vibe/cli/cli.py`)
 - How does it stream responses token by token?
 
 ### Rich terminal output

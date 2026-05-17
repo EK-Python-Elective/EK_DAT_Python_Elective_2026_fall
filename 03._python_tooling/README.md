@@ -74,6 +74,6 @@ uv run pyright
 ## After Class
 
 - Run `uv run ruff check --fix .` and `uv run ruff format .` on your entire fork — commit the result
-- Add a `[tool.ruff]` section to your `pyproject.toml` with at least 3 configured rules
+- Inspect the existing `[tool.ruff]` section in `pyproject.toml` — find at least 3 configured rules and write a short comment (in your notes, not the file) explaining what each one does, then extend the ruff configuration with one new rule of your own
 - Try to introduce a deliberate type error and confirm that `pyright` catches it
 - Optional: set up the `ruff` VS Code extension (or equivalent for your editor)

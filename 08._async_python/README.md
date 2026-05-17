@@ -20,7 +20,7 @@
 
 - Find all `async def` functions in mistral-vibe — how many are there?
 - Find where `asyncio.run()` is called — this is where async code enters the program
-- Optional: read [Python asyncio docs](https://docs.python.org/3/library/asyncio.html) — just the overview section
+- Optional: read [A Conceptual Overview of asyncio](https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html) — gentle, concept-first introduction
 
 ---
 

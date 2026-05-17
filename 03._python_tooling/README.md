@@ -18,8 +18,8 @@
 
 ## Before Class
 
-- Make sure `uv` and `ruff` are installed: `uv --version` and `ruff --version`
-- Run `ruff check .` inside your fork — what does it report?
+- Make sure `uv` is installed: `uv --version`. Then verify ruff is available in the project: `uv run ruff --version`
+- Run `uv run ruff check .` inside your fork — what does it report?
 - Optional: read the [ruff docs](https://docs.astral.sh/ruff/) introduction
 
 ---
@@ -73,7 +73,7 @@ uv run pyright
 
 ## After Class
 
-- Run `ruff check --fix .` and `ruff format .` on your entire fork — commit the result
+- Run `uv run ruff check --fix .` and `uv run ruff format .` on your entire fork — commit the result
 - Add a `[tool.ruff]` section to your `pyproject.toml` with at least 3 configured rules
 - Try to introduce a deliberate type error and confirm that `pyright` catches it
 - Optional: set up the `ruff` VS Code extension (or equivalent for your editor)

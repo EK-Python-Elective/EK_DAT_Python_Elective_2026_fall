@@ -84,8 +84,20 @@ async def main():
 - Forgetting to `await` a coroutine — creates it but never runs it
 
 ### Exercise
-- Refactor a synchronous function in your fork to be async
-- Or: use `asyncio.gather` to make two API calls in parallel and compare timing
+
+**Option A — `asyncio.gather`: two API calls in parallel**
+
+The update notifier has two async gateways that each check a different source for the latest version:
+- `vibe/cli/update_notifier/adapters/github_update_gateway.py` — `GitHubUpdateGateway.fetch_update()` hits the GitHub Releases API
+- `vibe/cli/update_notifier/adapters/pypi_update_gateway.py` — `PyPIUpdateGateway.fetch_update()` hits the PyPI Simple API
+
+In `vibe/cli/update_notifier/update.py:96`, only one gateway is used. Write a function that queries **both in parallel** using `asyncio.gather` and compares timing vs. sequential awaits.
+
+For a production example of the same pattern, read `vibe/core/tools/mcp/registry.py:55-72` — `MCPRegistry._discover_all()` uses `asyncio.gather` to discover multiple MCP servers concurrently.
+
+**Option B — Refactor sync → async**
+
+Find a synchronous function in your fork that does I/O (file read, subprocess call, etc.) and refactor it to be async using `anyio` or `asyncio`. Compare the before/after.
 
 ---
 

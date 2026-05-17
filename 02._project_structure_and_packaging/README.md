@@ -61,6 +61,10 @@ mistral-vibe/
 - Walk through the top-level modules in mistral-vibe together
 - Identify: where is the CLI defined? Where are API calls made? Where is config loaded?
 
+### Exercise
+
+[Scavenger Hunt in pyproject.toml](exercise_scavenger_hunt.md)
+
 ---
 
 ## After Class

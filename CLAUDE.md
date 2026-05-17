@@ -140,6 +140,23 @@ The teacher wants to add a "publish to PyPI" topic somewhere in the semester. Th
 
 When the teacher returns to this topic, update `02._project_structure_and_packaging/README.md` with the exercise and add PyPI/TestPyPI to the learning goals.
 
+### MCP server setup — not yet in the teaching material
+MCP (Model Context Protocol) is a second extensibility mechanism in mistral-vibe alongside the skills system — it lets students connect external tool servers that the agent can call at runtime.
+
+- **Where**: Session 10 (Skills/Plugin System) is the natural slot — both skills and MCP answer "how do you extend mistral-vibe?"
+- **How**: add an MCP section to `10._skills_plugin_system/README.md` covering what MCP is, how to configure a server in `config.toml`, and a hands-on exercise using `mcp-server-fetch` via stdio transport (zero infrastructure, just `uvx`)
+- **Config example** (already in mistral-vibe `README.md` under `MCP Server Configuration`):
+  ```toml
+  [[mcp_servers]]
+  name = "fetch_server"
+  transport = "stdio"
+  command = "uvx"
+  args = ["mcp-server-fetch"]
+  ```
+- **Good codebase pointer**: `vibe/core/tools/mcp/registry.py:55-72` — `_discover_all()` shows `asyncio.gather` used to discover multiple servers in parallel (also relevant to session 8)
+
+When the teacher returns to this topic, add an MCP section to `10._skills_plugin_system/README.md`.
+
 ---
 
 ## Notes

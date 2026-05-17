@@ -84,6 +84,10 @@ uv run vibe --help    # runs *your local version* of the tool
 - `LICENSE` — what you can and cannot do with the code
 - `CONTRIBUTING.md` — how to submit changes back upstream
 
+### Exercise
+
+[Your First Prompt to Vibe](exercise_first_prompt.md)
+
 ---
 
 ## After Class

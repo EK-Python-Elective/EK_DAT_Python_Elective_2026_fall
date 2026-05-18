@@ -12,4 +12,4 @@ Answer these questions using only `pyproject.toml` and `uv.lock` — no googling
 2. Which dependency handles the terminal UI? (hint: look for something UI-related in the dependencies list)
 3. What function does typing `vibe` in the terminal actually call? (hint: `[project.scripts]`)
 4. How many direct dependencies does the project have?
-5. Pick any one package from `uv.lock` — how many packages does it depend on, and how many packages does its dependencies depend on? (Hint: create a dependency graph and count)
+5. Pick any one package from `uv.lock` — how many packages does it depend on? How many packages does its dependencies depend on? (Hint: create a dependency graph and count)

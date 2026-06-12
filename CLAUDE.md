@@ -153,7 +153,7 @@ MCP (Model Context Protocol) is a second extensibility mechanism in mistral-vibe
   command = "uvx"
   args = ["mcp-server-fetch"]
   ```
-- **Good codebase pointer**: `vibe/core/tools/mcp/registry.py:55-72` — `_discover_all()` shows `asyncio.gather` used to discover multiple servers in parallel (also relevant to session 8)
+- **Good codebase pointer**: `vibe/core/tools/mcp/registry.py:61-78` — `_discover_all()` shows `asyncio.gather` used to discover multiple servers in parallel (also relevant to session 8)
 
 When the teacher returns to this topic, add an MCP section to `10._skills_plugin_system/README.md`.
 

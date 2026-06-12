@@ -91,9 +91,9 @@ The update notifier has two async gateways that each check a different source fo
 - `vibe/cli/update_notifier/adapters/github_update_gateway.py` — `GitHubUpdateGateway.fetch_update()` hits the GitHub Releases API
 - `vibe/cli/update_notifier/adapters/pypi_update_gateway.py` — `PyPIUpdateGateway.fetch_update()` hits the PyPI Simple API
 
-In `vibe/cli/update_notifier/update.py:96`, only one gateway is used. Write a function that queries **both in parallel** using `asyncio.gather` and compares timing vs. sequential awaits.
+In `vibe/cli/update_notifier/update.py:135`, only one gateway is used. Write a function that queries **both in parallel** using `asyncio.gather` and compares timing vs. sequential awaits.
 
-For a production example of the same pattern, read `vibe/core/tools/mcp/registry.py:55-72` — `MCPRegistry._discover_all()` uses `asyncio.gather` to discover multiple MCP servers concurrently.
+For a production example of the same pattern, read `vibe/core/tools/mcp/registry.py:61-78` — `MCPRegistry._discover_all()` uses `asyncio.gather` to discover multiple MCP servers concurrently.
 
 **Option B — Refactor sync → async**
 

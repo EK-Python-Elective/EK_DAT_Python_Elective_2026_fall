@@ -60,6 +60,19 @@ git checkout -b feature/my-experiment
 
 `main` should only ever receive changes via a PR or a deliberate merge — never a direct commit.
 
+#### Out of sync? Reset in four commands
+
+At the start of each session we all run `git describe --tags` on our `dev` branch — the output should start with `v2.14.1`. If yours shows something else (you updated by accident, cloned late, ended up somewhere strange), don't try to repair the branch. Rename it out of the way and create a fresh one from the tag:
+
+```bash
+git fetch upstream --tags        # make sure the course tag is available locally
+git branch -m dev dev-backup     # park your current dev under a backup name
+git checkout -b dev v2.14.1      # fresh dev, based on the course release
+git describe --tags              # check: should print v2.14.1
+```
+
+Nothing is deleted: all your old commits are still on `dev-backup`, and you can bring individual ones over later with `git cherry-pick <sha>`. If git refuses the checkout because of uncommitted changes, run `git stash` first.
+
 ### Installing with uv
 
 **Step 1 — install globally** so the `vibe` command is available anywhere in your terminal:

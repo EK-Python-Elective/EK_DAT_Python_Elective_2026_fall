@@ -45,9 +45,12 @@
 ### Working on a branch — always
 Never commit directly to `main`. From the moment you clone your fork, create a development branch and do all your work there. This keeps `main` clean and in sync with upstream, making it easy to pull in future updates from the original project.
 
+We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Base your development branch on this semester's tag:
+
 ```bash
 cd mistral-vibe
-git checkout -b dev   # a personal development branch you use throughout the course
+git fetch upstream --tags
+git checkout -b dev v2.14.1   # a personal development branch you use throughout the course, pinned to this semester's release
 ```
 
 For each new feature or experiment, branch off from there:

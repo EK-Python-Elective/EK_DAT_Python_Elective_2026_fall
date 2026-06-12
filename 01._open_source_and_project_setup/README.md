@@ -111,6 +111,7 @@ uv run vibe --help    # runs *your local version* of the tool
 ## After Class
 
 - Make sure your fork is running and you can invoke `vibe` from the terminal
+- Re-read "Working on a branch — always" until you can answer these without looking: which two branches do you never commit to, and what does each one mirror? Where does your own work live? What do you do if `git describe --tags` doesn't start with `v2.14.1`? This branch model is the foundation for the whole semester — every session starts from it, and getting it wrong is the #1 way to lose an afternoon to git archaeology
 - Write 3-5 bullet points in your own words: what does mistral-vibe do, and how does it work at a high level?
 - Browse the source files — don't read deeply yet, just get a feel for the shape of the codebase
 - Think about what feature you might want to add this semester — come to next class with at least one idea

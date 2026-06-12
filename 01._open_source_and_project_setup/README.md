@@ -43,22 +43,24 @@
 - Add the upstream remote: `git remote add upstream https://github.com/mistralai/mistral-vibe`
 
 ### Working on a branch — always
-Never commit directly to `main`. From the moment you clone your fork, create a development branch and do all your work there. This keeps `main` clean and in sync with upstream, making it easy to pull in future updates from the original project.
+Never commit directly to `main`. It stays clean and in sync with upstream, making it easy to pull in future updates from the original project.
 
-We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Base your development branch on this semester's tag:
+We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Create a `dev` branch based on this semester's tag:
 
 ```bash
 cd mistral-vibe
 git fetch upstream --tags
-git checkout -b dev v2.14.1   # a personal development branch you use throughout the course, pinned to this semester's release
+git checkout -b dev v2.14.1   # your stable base for the whole semester
 ```
 
-For each new feature or experiment, branch off from there:
+**`dev` is a base, not a workbench — never commit to it either.** All actual work — exercises, experiments, features — happens on branches off `dev`:
+
 ```bash
+git checkout -b exercise/session-04   # one branch per exercise or experiment
 git checkout -b feature/my-experiment
 ```
 
-`main` should only ever receive changes via a PR or a deliberate merge — never a direct commit.
+So you have two branches you never commit to, each mirroring something stable: `main` mirrors upstream, `dev` mirrors the course release. Everything you write lives on your own branches off `dev`. The payoff: if your `dev` ever drifts from the course release, it can be reset in seconds without touching a single line of your work (see below).
 
 #### Out of sync? Reset in four commands
 
@@ -71,7 +73,7 @@ git checkout -b dev v2.14.1      # fresh dev, based on the course release
 git describe --tags              # check: should print v2.14.1
 ```
 
-Nothing is deleted: all your old commits are still on `dev-backup`, and you can bring individual ones over later with `git cherry-pick <sha>`. If git refuses the checkout because of uncommitted changes, run `git stash` first.
+Nothing is deleted, and none of your work is touched: your exercise and feature branches are separate from `dev`, so they survive this reset completely unchanged — there is nothing to move over. The old `dev` is kept as `dev-backup` just in case; once the new `dev` checks out fine, you can delete it (`git branch -D dev-backup`). If git refuses the checkout because of uncommitted changes, run `git stash` first.
 
 ### Installing with uv
 

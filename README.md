@@ -1,5 +1,7 @@
 # EK_DAT Python Elective 2026 Fall
 
+> 📌 **Course release: `v2.14.1`** — all materials this semester are written against [mistral-vibe](https://github.com/mistralai/mistral-vibe) at tag `v2.14.1`. Your `v2026-base` branch must be based on this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup and the out-of-sync reset. (Sessions 12–14 deliberately move to upstream `main` for the feature sprint.)
+
 ## Semester Plan: Fork of mistral-vibe
 
 | # | Week | Topic |

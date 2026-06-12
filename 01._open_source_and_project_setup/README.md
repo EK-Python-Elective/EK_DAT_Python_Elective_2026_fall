@@ -45,35 +45,35 @@
 ### Working on a branch — always
 Never commit directly to `main`. It stays clean and in sync with upstream, making it easy to pull in future updates from the original project.
 
-We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Create a `dev` branch based on this semester's tag:
+We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Create a `v2026-base` branch based on this semester's tag:
 
 ```bash
 cd mistral-vibe
 git fetch upstream --tags
-git checkout -b dev v2.14.1   # your stable base for the whole semester
+git checkout -b v2026-base v2.14.1   # your stable base for the whole semester
 ```
 
-**`dev` is a base, not a workbench — never commit to it either.** All actual work — exercises, experiments, features — happens on branches off `dev`:
+**`v2026-base` is a base, not a workbench — never commit to it either.** All actual work — exercises, experiments, features — happens on branches off `v2026-base`:
 
 ```bash
 git checkout -b exercise/session-04   # one branch per exercise or experiment
 git checkout -b feature/my-experiment
 ```
 
-So you have two branches you never commit to, each mirroring something stable: `main` mirrors upstream, `dev` mirrors the course release. Everything you write lives on your own branches off `dev`. The payoff: if your `dev` ever drifts from the course release, it can be reset in seconds without touching a single line of your work (see below).
+So you have two branches you never commit to, each mirroring something stable: `main` mirrors upstream, `v2026-base` mirrors the course release. Everything you write lives on your own branches off `v2026-base`. The payoff: if your `v2026-base` ever drifts from the course release, it can be reset in seconds without touching a single line of your work (see below).
 
 #### Out of sync? Reset in four commands
 
-At the start of each session we all run `git describe --tags` on our `dev` branch — the output should start with `v2.14.1`. If yours shows something else (you updated by accident, cloned late, ended up somewhere strange), don't try to repair the branch. Rename it out of the way and create a fresh one from the tag:
+At the start of each session we all run `git describe --tags` on our `v2026-base` branch — the output should start with `v2.14.1`. If yours shows something else (you updated by accident, cloned late, ended up somewhere strange), don't try to repair the branch. Rename it out of the way and create a fresh one from the tag:
 
 ```bash
-git fetch upstream --tags        # make sure the course tag is available locally
-git branch -m dev dev-backup     # park your current dev under a backup name
-git checkout -b dev v2.14.1      # fresh dev, based on the course release
-git describe --tags              # check: should print v2.14.1
+git fetch upstream --tags                    # make sure the course tag is available locally
+git branch -m v2026-base v2026-base-old     # park your current base under a backup name
+git checkout -b v2026-base v2.14.1          # fresh base from the course release
+git describe --tags                          # check: should print v2.14.1
 ```
 
-Nothing is deleted, and none of your work is touched: your exercise and feature branches are separate from `dev`, so they survive this reset completely unchanged — there is nothing to move over. The old `dev` is kept as `dev-backup` just in case; once the new `dev` checks out fine, you can delete it (`git branch -D dev-backup`). If git refuses the checkout because of uncommitted changes, run `git stash` first.
+Nothing is deleted, and none of your work is touched: your exercise and feature branches are separate from `v2026-base`, so they survive this reset completely unchanged — there is nothing to move over. The old branch is kept as `v2026-base-old` just in case; once the new one checks out fine, you can delete it (`git branch -D v2026-base-old`). If git refuses the checkout because of uncommitted changes, run `git stash` first.
 
 ### Installing with uv
 

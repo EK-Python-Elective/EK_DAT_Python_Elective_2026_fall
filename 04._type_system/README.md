@@ -53,7 +53,7 @@ This course does not teach object-oriented programming from scratch, but the thr
 
 ```python
 class Counter:
-    def __init__(self, start: int = 0):   # runs when you create one
+    def __init__(self, start: int = 0):   # runs when you create an instance of the class
         self.value = start                 # an attribute, stored on the instance
 
     def increment(self) -> None:           # a method; `self` is the instance

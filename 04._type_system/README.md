@@ -47,6 +47,29 @@ def process(value: str | int) -> None:  # Python 3.10+ union syntax
     ...
 ```
 
+### A quick primer: reading `class` syntax
+
+This course does not teach object-oriented programming from scratch, but the three constructs below all use Python's `class` keyword — so here is the minimum you need to *read* them. A plain class bundles some data together with the functions that work on it:
+
+```python
+class Counter:
+    def __init__(self, start: int = 0):   # runs when you create one
+        self.value = start                 # an attribute, stored on the instance
+
+    def increment(self) -> None:           # a method; `self` is the instance
+        self.value += 1
+
+c = Counter(10)        # create an instance
+c.increment()          # call a method
+print(c.value)         # read an attribute -> 11
+```
+
+Two more pieces of syntax you will see in this session:
+- **Inheritance** — `class Config(BaseModel):` means `Config` *is a* `BaseModel` and inherits its behaviour. The name in parentheses is the parent class.
+- **Decorators** — `@dataclass` on the line above a class transforms it. `@dataclass` writes the `__init__` for you, which is why the dataclass below has no visible `__init__`. The `@` marks a decorator.
+
+You will rarely write a plain class like `Counter` in this course — mistral-vibe leans on `dataclass` and Pydantic instead — but you need to recognise the shape to read what follows.
+
 ### TypedDict — typed dictionaries
 ```python
 from typing import TypedDict

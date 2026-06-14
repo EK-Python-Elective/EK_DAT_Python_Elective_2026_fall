@@ -1,6 +1,6 @@
 # EK_DAT Python Elective 2026 Fall
 
-> 📌 **Course release: `v2.14.1`** — all materials this semester are written against [mistral-vibe](https://github.com/mistralai/mistral-vibe) at tag `v2.14.1`. Your `v2026-base` branch must be based on this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup and the out-of-sync reset. (Sessions 12–14 deliberately move to upstream `main` for the feature sprint.)
+> 📌 **Course release: `v2.14.1`** — all materials this semester are written against [mistral-vibe](https://github.com/mistralai/mistral-vibe) at tag `v2.14.1`, and the whole semester stays on it: the feature sprint and the exam hand-in are all built on this release. Your `v2026-base` branch must be based on this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup and the out-of-sync reset. (Contributing your feature upstream is an optional stretch goal — see [session 14](14._pr_preparation/README.md).)
 
 ## Semester Plan: Fork of mistral-vibe
 
@@ -20,7 +20,7 @@
 | 12 | 47 | [Feature Sprint I](12._feature_sprint_1/README.md) |
 | 13 | 48 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
 | 14 | 49 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
-| 15 | 50 | [Demo Day & Reflection](15._demo_day/README.md) |
+| 15 | 50 | [Exam — Feature Presentation & Defense](15._demo_day/README.md) |
 
 
 ---
@@ -43,4 +43,9 @@ You will be asked to reflect on your use of AI at the end of the semester: what 
 
 ## Exam
 
-The exam will involve presenting a feature or improvement made to the mistral-vibe project, demonstrating understanding of the codebase, and reflecting on the use of AI in the development process.
+The exam is an **individual oral examination** built on a **group feature**:
+
+- **Group hand-in:** each group submits one PR — their feature branch merged against `v2026-base` (pinned at `v2.14.1`). The examiner merges it beforehand as an initial evaluation of the feature.
+- **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
+
+The work is collaborative (sessions 12–14), but the grade is individual. See [the exam page](15._demo_day/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).

@@ -22,43 +22,36 @@
 - Write a one-paragraph feature description and bring it to class
 - Make sure your fork is clean, tests pass, and tooling is configured
 - Skim upstream's `CHANGELOG.md` and open issues/PRs since `v2.14.1`: has your feature (or part of it) already shipped, or is someone building it right now?
-- Do **not** create your feature branch yet — we do that together in class, and it does *not* start from your pinned `v2026-base` (see "Rejoining upstream" below)
+- Decide your feature scope as a group; we create the feature branch off `v2026-base` together in class (see "Starting your feature" below)
 
 ---
 
 ## Today's Teachings
 
-### Rejoining upstream
+### Starting your feature
 
-All semester you have worked on the pinned `v2.14.1` release so that the course materials match the code in front of you. A pull request, however, is a request to merge into upstream's `main` *as it is today* — so from this session on, feature work is built against the live project, not the pin.
+Your feature is built on the **same pinned `v2.14.1` release** you have used all semester. Keeping every group on one base is deliberate: the file/line references from sessions 1–11 still apply, your group's PR merges against a known state, and the exam evaluation is uniform across groups (see [the exam](../15._demo_day/README.md)).
 
-First, see how far the project has moved while we were learning:
+**First, due diligence — check upstream for prior art.** Even though you build on the pin, look at what the live project is doing before you lock your plan:
 
 ```bash
 git fetch upstream --tags
-git log --oneline v2.14.1..upstream/main | wc -l    # number of commits since our pin
+git log --oneline v2.14.1..upstream/main | wc -l    # how much has shipped since our pin
 git diff v2.14.1..upstream/main -- CHANGELOG.md     # what shipped, in the project's own words
 ```
 
-Read that CHANGELOG diff as a team before locking in your feature plan. You are checking two things:
-- **Has your feature already shipped?** Projects that release weekly implement ideas fast — finding yours in the CHANGELOG now costs five minutes; finding it after a two-week sprint costs the sprint.
-- **Did the code you plan to touch change?** If your feature extends a subsystem that was just rewritten, your design doc should describe the new shape, not the v2.14.1 shape.
+Read that CHANGELOG diff as a team and skim the open issues/PRs. You are checking one thing: **has your feature (or part of it) already shipped, or is someone building it right now?** Projects that release weekly implement ideas fast — finding yours now costs five minutes; finding it after a two-week sprint costs the sprint. This is research, not a base change — you are *not* building on `main`.
 
-Then create your feature branch **from upstream's `main`**, not from `v2026-base`:
+**Then create your feature branch off `v2026-base`:**
 
 ```bash
-git checkout -b feature/<your-feature-name> upstream/main
+git checkout -b feature/<your-feature-name> v2026-base
 git push -u origin feature/<your-feature-name>
 ```
 
-Your `v2026-base` branch stays pinned at `v2.14.1` — it is still your learning base, and every file/line reference from sessions 1–11 still matches it. The mental model: `v2026-base` lives on the stable snapshot, feature branches live on the moving stream. This split — the version you studied vs. the version you contribute to — is exactly how professionals work against fast-moving open source projects.
+Each team member works on their own branch off `v2026-base` and merges into the group's shared feature branch as you go. That group branch, opened as a PR against `v2026-base`, is your **exam hand-in** — see [the exam](../15._demo_day/README.md).
 
-During the sprint, keep your drift from upstream small so the final rebase before your PR (session 14) is trivial:
-
-```bash
-git fetch upstream
-git rebase upstream/main
-```
+> **Going further (optional, beyond the exam):** contributing your feature to the real `mistralai/mistral-vibe` means rebasing it onto upstream's *current* release (now ahead of `v2.14.1`) and opening a PR there. That is a genuine open-source contribution and a great stretch goal — but it is not required and is separate from your exam hand-in. Session 14 covers what that takes.
 
 ### Feature planning
 Before writing code, answer these questions:
@@ -105,7 +98,7 @@ Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 - Nice-to-haves go in a follow-up issue, not the first PR
 
 ### Today's working session
-- 15 min: rejoin upstream together — CHANGELOG diff, feature-still-novel check, create feature branches from `upstream/main`
+- 15 min: due diligence + branch — check upstream for prior art (CHANGELOG diff, issues/PRs), then create feature branches off `v2026-base`
 - 20 min: present your feature plan to another group, get feedback
 - Remaining time: implement — teacher circulates to help unblock
 

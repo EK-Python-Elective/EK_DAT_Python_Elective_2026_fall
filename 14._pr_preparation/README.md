@@ -1,8 +1,8 @@
-# Session 14: PR Preparation — Contributing Back
+# Session 14: PR Preparation — Finalizing Your Hand-In
 
 **Week 49 | Python Elective 2026 Fall**
 
-> Polish the fork. Write a proper PR description. Evaluate whether the feature is suitable to submit upstream. Optional: open the PR against `mistralai/mistral-vibe`.
+> Polish the feature to production quality and finalize the group PR — this PR (your feature branch → `v2026-base`) is your **exam hand-in**. Then, optionally, evaluate whether the feature is also worth contributing upstream to `mistralai/mistral-vibe`.
 
 ---
 
@@ -10,9 +10,9 @@
 
 - Polish a feature branch to production-ready quality
 - Write a high-quality PR description suitable for an open source project
-- Evaluate whether a feature is suitable for upstream contribution
+- Produce the clean group PR that serves as your exam hand-in
+- Evaluate whether a feature is *also* suitable for upstream contribution (optional, beyond the exam)
 - Understand upstream contribution etiquette and expectations
-- Optionally open a PR against `mistralai/mistral-vibe`
 
 ---
 
@@ -27,14 +27,15 @@
 
 ## Today's Teachings
 
-### What makes a PR ready to submit upstream?
+### What makes a PR ready to hand in?
 
-An upstream maintainer will ask:
-- Does this feature align with the project's goals?
-- Is it well-tested?
-- Does it follow the project's code style?
-- Is the PR description clear enough that a maintainer can review it without asking questions?
+Your group PR is graded, and your instructor will merge it before the oral exam as an initial evaluation of the feature (see [the exam](../15._demo_day/README.md)). So aim for the same bar a real maintainer would apply:
+- Does this feature do something clear and useful?
+- Is it well-tested? (`uv run pytest` passes)
+- Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)
+- Is the PR description clear enough to review without asking questions?
 - Does it add unnecessary complexity?
+- Does it merge cleanly into `v2026-base`?
 
 ### Writing a great PR description
 ```markdown
@@ -67,14 +68,17 @@ frequent users, the ability to resume a session reduces friction significantly.
 
 ### Squashing and cleaning up commits
 ```bash
-# Interactive rebase to clean up messy commits before submitting upstream
-git rebase -i origin/main
+# Interactive rebase to clean up messy commits before handing in
+# (v2026-base is what your feature branched from)
+git rebase -i v2026-base
 
 # Combine all feature commits into one clean commit
 # (pick the first, squash the rest)
 ```
 
-### Is your feature suitable for upstream?
+### Optional: is your feature also suitable for upstream?
+Your exam hand-in is the PR against `v2026-base`. Contributing upstream is an optional stretch goal *on top of that* — and because the course pin (`v2.14.1`) now sits behind upstream's latest release, a real upstream PR means first rebasing your feature onto upstream's current `main`, then opening the PR against `mistralai/mistral-vibe`. Worth it if your feature is genuinely broadly useful.
+
 Criteria for upstream contribution:
 - General usefulness (not just for your specific use case)
 - Follows the project's design philosophy
@@ -90,15 +94,16 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 - Be gracious — if rejected, the learnings were still valuable
 
 ### Today's working session
-- Polish your PR: fix last issues, clean up commits, finalize description
-- Decision time: does your group want to open the PR upstream? If yes, do it now
-- If not suitable for upstream: make sure your fork's README clearly describes your feature
+- Polish your PR: fix last issues, clean up commits, finalize the description
+- Make sure the PR merges cleanly into `v2026-base`, tests pass, and the linter is clean
+- Optional: decide whether your group also wants to contribute upstream (rebase onto upstream `main`, open against `mistralai/mistral-vibe`)
 
 ---
 
 ## After Class
 
+- **Hand in the group PR** (feature branch → `v2026-base`) by the exam deadline — this is your exam deliverable
 - Your PR should be in a state you are proud of — clean, tested, documented
-- If submitting upstream: open the PR and share the link
-- Write a short reflection (half a page): what was the hardest part of this feature? What would you do differently?
-- Prepare your demo for next session — 10 minutes per group, live demo + explanation
+- Optional: if contributing upstream, rebase onto upstream `main` and open the PR there
+- Write a short individual reflection (half a page): what was the hardest part of this feature? What would you do differently? How did AI tools help or mislead you?
+- **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../15._demo_day/README.md))

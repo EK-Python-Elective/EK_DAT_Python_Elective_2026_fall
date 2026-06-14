@@ -38,32 +38,35 @@ Your group PR is graded, and your instructor will merge it before the oral exam 
 - Does it merge cleanly into `v2026-base`?
 
 ### Writing a great PR description
+
+Here is a worked example for a small, realistic feature: an `/export` command that saves the conversation to a Markdown file. **It is illustrative — your feature and the exact files will differ — but notice the structure** (Summary / Motivation / Changes / How to test / Notes) and how the *Changes* section points at the real files the feature touches.
+
 ```markdown
 ## Summary
-Add session memory that persists conversation history to a local JSON file.
-Users can resume a previous session with `vibe --resume`.
+Add an `/export` command that writes the current conversation to a Markdown
+file, so a user can save a session transcript for notes or sharing.
 
 ## Motivation
-Currently all context is lost when `vibe` exits. For long-running tasks or
-frequent users, the ability to resume a session reduces friction significantly.
+`/copy` puts the last agent message on the clipboard, but there is no way to
+save a whole conversation. A transcript is useful for keeping a record of a
+debugging session or sharing what the agent did.
 
 ## Changes
-- `vibe/memory.py`: new `SessionMemory` class
-- `vibe/cli/entrypoint.py`: add `--resume` and `--clear-history` flags
-- `config.toml`: new `[memory]` section with `enabled` and `max_sessions` keys
-- `tests/test_memory.py`: full test coverage for the new module
+- `vibe/cli/commands.py`: register a new `export` command (alias `/export`),
+  alongside the existing `copy` command
+- `vibe/cli/textual_ui/app.py`: add the `_export_conversation` handler, next
+  to the existing `_copy_last_agent_message`
+- `tests/cli/test_export.py`: cover the handler, including the empty-conversation case
 
 ## How to test
 1. Start a session: `vibe`
 2. Ask a few questions
-3. Exit with Ctrl+D
-4. Resume: `vibe --resume`
-5. Verify that previous context is available to the model
+3. Run `/export`
+4. Confirm a Markdown file is written and contains the conversation
 
 ## Notes
-- History is stored in `~/.local/share/vibe/history/`
-- Each session gets a UUID filename
-- Oldest sessions are pruned when `max_sessions` is exceeded
+- Written with `pathlib` to the working directory as `vibe-export-<timestamp>.md`
+- An empty conversation prints a friendly message instead of writing an empty file
 ```
 
 ### Squashing and cleaning up commits

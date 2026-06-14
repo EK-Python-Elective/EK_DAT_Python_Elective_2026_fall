@@ -20,7 +20,7 @@
 | 12 | 47 | [Feature Sprint I](12._feature_sprint_1/README.md) |
 | 13 | 48 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
 | 14 | 49 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
-| 15 | 50 | [Exam — Feature Presentation & Defense](15._demo_day/README.md) |
+| 15 | 50 | [Exam — Feature Presentation & Defense](15._exam/README.md) |
 
 
 ---
@@ -48,4 +48,4 @@ The exam is an **individual oral examination** built on a **group feature**:
 - **Group hand-in:** each group submits one PR — their feature branch merged against `v2026-base` (pinned at `v2.14.1`). The examiner merges it beforehand as an initial evaluation of the feature.
 - **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
 
-The work is collaborative (sessions 12–14), but the grade is individual. See [the exam page](15._demo_day/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).
+The work is collaborative (sessions 12–14), but the grade is individual. See [the exam page](15._exam/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).

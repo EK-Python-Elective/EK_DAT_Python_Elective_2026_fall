@@ -30,7 +30,7 @@
 
 ### Starting your feature
 
-Your feature is built on the **same pinned `v2.14.1` release** you have used all semester. Keeping every group on one base is deliberate: the file/line references from sessions 1–11 still apply, your group's PR merges against a known state, and the exam evaluation is uniform across groups (see [the exam](../15._demo_day/README.md)).
+Your feature is built on the **same pinned `v2.14.1` release** you have used all semester. Keeping every group on one base is deliberate: the file/line references from sessions 1–11 still apply, your group's PR merges against a known state, and the exam evaluation is uniform across groups (see [the exam](../15._exam/README.md)).
 
 **First, due diligence — check upstream for prior art.** Even though you build on the pin, look at what the live project is doing before you lock your plan:
 
@@ -49,7 +49,7 @@ git checkout -b feature/<your-feature-name> v2026-base
 git push -u origin feature/<your-feature-name>
 ```
 
-Each team member works on their own branch off `v2026-base` and merges into the group's shared feature branch as you go. That group branch, opened as a PR against `v2026-base`, is your **exam hand-in** — see [the exam](../15._demo_day/README.md).
+Each team member works on their own branch off `v2026-base` and merges into the group's shared feature branch as you go. That group branch, opened as a PR against `v2026-base`, is your **exam hand-in** — see [the exam](../15._exam/README.md).
 
 > **Going further (optional, beyond the exam):** contributing your feature to the real `mistralai/mistral-vibe` means rebasing it onto upstream's *current* release (now ahead of `v2.14.1`) and opening a PR there. That is a genuine open-source contribution and a great stretch goal — but it is not required and is separate from your exam hand-in. Session 14 covers what that takes.
 

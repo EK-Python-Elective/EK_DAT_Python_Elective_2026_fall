@@ -29,7 +29,7 @@
 
 ### What makes a PR ready to hand in?
 
-Your group PR is graded, and your instructor will merge it before the oral exam as an initial evaluation of the feature (see [the exam](../15._demo_day/README.md)). So aim for the same bar a real maintainer would apply:
+Your group PR is graded, and your instructor will merge it before the oral exam as an initial evaluation of the feature (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
 - Does this feature do something clear and useful?
 - Is it well-tested? (`uv run pytest` passes)
 - Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)
@@ -109,4 +109,4 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 - Your PR should be in a state you are proud of — clean, tested, documented
 - Optional: if contributing upstream, rebase onto upstream `main` and open the PR there
 - Write a short individual reflection (half a page): what was the hardest part of this feature? What would you do differently? How did AI tools help or mislead you?
-- **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../15._demo_day/README.md))
+- **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../15._exam/README.md))

@@ -29,13 +29,13 @@
 
 ### What makes a PR ready to hand in?
 
-Your group PR is graded, and your instructor will merge it before the oral exam as an initial evaluation of the feature (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
+Your group PR is graded. Before the oral exam your instructor evaluates it *as an artifact* — reviewing the diff and checking out the branch to run it — **without merging it** (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
 - Does this feature do something clear and useful?
 - Is it well-tested? (`uv run pytest` passes)
 - Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)
 - Is the PR description clear enough to review without asking questions?
 - Does it add unnecessary complexity?
-- Does it merge cleanly into `v2026-base`?
+- Is it mergeable into `v2026-base`? (GitHub reports no conflicts — even though the instructor won't actually merge it)
 
 ### Writing a great PR description
 
@@ -98,7 +98,7 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 
 ### Today's working session
 - Polish your PR: fix last issues, clean up commits, finalize the description
-- Make sure the PR merges cleanly into `v2026-base`, tests pass, and the linter is clean
+- Make sure the PR is mergeable into `v2026-base` (no conflicts), tests pass, and the linter is clean
 - Optional: decide whether your group also wants to contribute upstream (rebase onto upstream `main`, open against `mistralai/mistral-vibe`)
 
 ---

@@ -9,7 +9,7 @@
 ## Format at a glance
 
 - **Group hand-in (before the exam):** the group PR — your feature branch → `v2026-base` (still pinned at `v2.14.1`). One PR per group.
-- **Initial evaluation:** before the orals, the examiner merges each group's PR and checks that it merges cleanly, runs, is tested, and does what it claims. This is the shared starting point for the group's feature.
+- **Initial evaluation:** before the orals, the examiner evaluates each group's PR *as an artifact* — the PR is reviewed and run, **not merged**. The examiner reads the diff, checks out the feature branch and runs it (`uv sync`, runs the feature, `uv run pytest`, `uv run ruff check .`), and confirms GitHub reports no conflicts with `v2026-base`. This is the shared starting point for the group's feature.
 - **Individual oral (≈25 min per student):** 10-minute presentation + 15-minute Q&A. You present your group's *whole* feature; the questions establish *your individual* understanding.
 - **Grading is individual.** Two students from the same group can receive different grades — the Q&A is what separates "I understand this code" from "the group built it."
 
@@ -26,10 +26,21 @@
 
 ## Before the Exam
 
-- The group PR is handed in and merges cleanly into `v2026-base`; tests pass and the linter is clean
+- The group PR is handed in against `v2026-base` and is **mergeable** (GitHub reports no conflicts) — the examiner does not merge it, but it must be in a state that *could* be merged
+- `uv run pytest` passes and `uv run ruff check .` is clean on the feature branch
 - You can run the feature live from a terminal, including at least one edge case or error path
 - You can open and explain *any* part of the feature — not only the parts you personally wrote. Walk your teammates' code before exam day
 - Bring your individual AI reflection notes
+
+### How the PR is evaluated
+
+The examiner does not merge your PR — it is reviewed and run as an artifact. The bar (and the spine of the Q&A) is:
+- **Runs:** checks out cleanly and the feature works when launched
+- **Tested:** `uv run pytest` passes
+- **Clean:** `uv run ruff check .` is clean
+- **Mergeable:** GitHub reports no conflicts with `v2026-base`
+- **Coherent:** the PR description matches the diff
+- **Yours to defend:** every group member can explain and justify the code in the oral
 
 ---
 

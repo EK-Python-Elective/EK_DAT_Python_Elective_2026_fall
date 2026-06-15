@@ -1,6 +1,6 @@
 # EK_DAT Python Elective 2026 Fall
 
-> 📌 **Course release: `v2.14.1`** — all materials this semester are written against [mistral-vibe](https://github.com/mistralai/mistral-vibe) at tag `v2.14.1`, and the whole semester stays on it: the feature sprint and the exam hand-in are all built on this release. Your `v2026-base` branch must be based on this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup and the out-of-sync reset. (Contributing your feature upstream is an optional stretch goal — see [session 14](14._pr_preparation/README.md).)
+> 📌 **Course release: `v2.14.1`** — all materials this semester are written against mistral-vibe at release `v2.14.1`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal — see [session 14](14._pr_preparation/README.md).)
 
 ## Semester Plan: Fork of mistral-vibe
 
@@ -45,7 +45,7 @@ You will be asked to reflect on your use of AI at the end of the semester: what 
 
 The exam is an **individual oral examination** built on a **group feature**:
 
-- **Group hand-in:** each group submits one PR — their feature branch merged against `v2026-base` (pinned at `v2.14.1`). The examiner merges it beforehand as an initial evaluation of the feature.
+- **Group hand-in:** each group submits one PR — their feature branch → their fork's `main` (pinned at `v2.14.1`). A CI workflow runs the checks on the PR, and the examiner evaluates it beforehand by checking it out and running it (it is reviewed, not merged).
 - **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
 
 The work is collaborative (sessions 12–14), but the grade is individual. See [the exam page](15._exam/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).

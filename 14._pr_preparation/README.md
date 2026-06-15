@@ -2,7 +2,7 @@
 
 **Week 49 | Python Elective 2026 Fall**
 
-> Polish the feature to production quality and finalize the group PR — this PR (your feature branch → `v2026-base`) is your **exam hand-in**. Then, optionally, evaluate whether the feature is also worth contributing upstream to `mistralai/mistral-vibe`.
+> Polish the feature to production quality and finalize the group PR — this PR (your feature branch → `main`) is your **exam hand-in**. Then, optionally, evaluate whether the feature is also worth contributing upstream to `mistralai/mistral-vibe`.
 
 ---
 
@@ -35,7 +35,9 @@ Your group PR is evaluated. Before the oral exam your instructor reviews it *as 
 - Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)
 - Is the PR description clear enough to review without asking questions?
 - Does it add unnecessary complexity?
-- Is it mergeable into `v2026-base`? (GitHub reports no conflicts — even though the instructor won't actually merge it)
+- Is it mergeable into `main`? (GitHub reports no conflicts — even though the instructor won't actually merge it)
+
+**CI runs the checks for you.** When you open the PR, the repo's **Exam checks** workflow automatically runs `ruff`, `pyright`, and your tests (`pytest tests/exam`) and shows a green or red mark on the PR. Put your feature's tests in `tests/exam/` so they're picked up. Getting that check green is part of the bar — do it before the exam.
 
 ### Writing a great PR description
 
@@ -72,15 +74,15 @@ debugging session or sharing what the agent did.
 ### Squashing and cleaning up commits
 ```bash
 # Interactive rebase to clean up messy commits before handing in
-# (v2026-base is what your feature branched from)
-git rebase -i v2026-base
+# (main is what your feature branched from)
+git rebase -i main
 
 # Combine all feature commits into one clean commit
 # (pick the first, squash the rest)
 ```
 
 ### Optional: is your feature also suitable for upstream?
-Your exam hand-in is the PR against `v2026-base`. Contributing upstream is an optional stretch goal *on top of that* — and because the course pin (`v2.14.1`) now sits behind upstream's latest release, a real upstream PR means first rebasing your feature onto upstream's current `main`, then opening the PR against `mistralai/mistral-vibe`. Worth it if your feature is genuinely broadly useful.
+Your exam hand-in is the PR against `main`. Contributing upstream is an optional stretch goal *on top of that* — and because the course pin (`v2.14.1`) now sits behind upstream's latest release, a real upstream PR means first rebasing your feature onto upstream's current `main`, then opening the PR against `mistralai/mistral-vibe`. Worth it if your feature is genuinely broadly useful.
 
 Criteria for upstream contribution:
 - General usefulness (not just for your specific use case)
@@ -98,14 +100,14 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 
 ### Today's working session
 - Polish your PR: fix last issues, clean up commits, finalize the description
-- Make sure the PR is mergeable into `v2026-base` (no conflicts), tests pass, and the linter is clean
+- Make sure the PR is mergeable into `main` (no conflicts), tests pass, and the linter is clean
 - Optional: decide whether your group also wants to contribute upstream (rebase onto upstream `main`, open against `mistralai/mistral-vibe`)
 
 ---
 
 ## After Class
 
-- **Hand in the group PR** (feature branch → `v2026-base`) by the exam deadline — this is your exam deliverable
+- **Hand in the group PR** (feature branch → `main`) by the exam deadline — this is your exam deliverable
 - Your PR should be in a state you are proud of — clean, tested, documented
 - Optional: if contributing upstream, rebase onto upstream `main` and open the PR there
 - Write a short individual reflection (half a page): what was the hardest part of this feature? What would you do differently? How did AI tools help or mislead you?

@@ -38,42 +38,34 @@
 - Why companies open source their tools (and why Mistral AI did)
 
 ### Forking and cloning
-- Fork `mistralai/mistral-vibe` to your own GitHub account
-- Clone your fork locally: `git clone git@github.com:<you>/mistral-vibe.git`
-- Add the upstream remote: `git remote add upstream https://github.com/mistralai/mistral-vibe`
+- Fork the course repo, **`EK-Python-Elective/mistral-vibe-ek-python-elective`**, to your own GitHub account.
+- Clone your fork locally: `git clone git@github.com:<you>/mistral-vibe-ek-python-elective.git`
+- That's it. Your clone is on `main` — the course's pinned base: mistral-vibe at release `v2.14.1`, plus the course's CI checks and a `tests/exam/` folder. Everyone starts on identical code, so the file and line references in later sessions match what you see on screen.
+
+> The course repo is itself a fork of the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe). You don't need to touch the original at all this semester — but if you later want to contribute your feature back to it, that's an optional path covered in [session 14](../14._pr_preparation/README.md).
 
 ### Working on a branch — always
-Never commit directly to `main`. It stays clean and in sync with upstream, making it easy to pull in future updates from the original project.
+**Never commit to `main`.** It's your stable base — the pinned release everyone shares, and the branch your exam feature is reviewed against. Keep it clean.
 
-We all pin to the **same release** for the whole semester: mistral-vibe ships new releases weekly, and the course materials point at specific files and line numbers — if everyone runs a different version, those references won't match what you see. Create a `v2026-base` branch based on this semester's tag:
-
-```bash
-cd mistral-vibe
-git fetch upstream --tags
-git checkout -b v2026-base v2.14.1   # your stable base for the whole semester
-```
-
-**`v2026-base` is a base, not a workbench — never commit to it either.** All actual work — exercises, experiments, features — happens on branches off `v2026-base`:
+All your actual work — exercises, experiments, your feature — happens on branches off `main`:
 
 ```bash
 git checkout -b exercise/session-04   # one branch per exercise or experiment
 git checkout -b feature/my-experiment
 ```
 
-So you have two branches you never commit to, each mirroring something stable: `main` mirrors upstream, `v2026-base` mirrors the course release. Everything you write lives on your own branches off `v2026-base`. The payoff: if your `v2026-base` ever drifts from the course release, it can be reset in seconds without touching a single line of your work (see below).
+When something is ready, open a pull request from your branch into your own `main`. Because your work lives on its own branches, `main` stays pristine and can always be restored without touching anything you wrote.
 
-#### Out of sync? Reset in four commands
-
-At the start of each session we all run `git describe --tags` on our `v2026-base` branch — the output should start with `v2.14.1`. If yours shows something else (you updated by accident, cloned late, ended up somewhere strange), don't try to repair the branch. Rename it out of the way and create a fresh one from the tag:
+#### If `main` ever gets messed up
+You forked a pinned repo and you don't pull from anywhere else, so `main` shouldn't drift. If it ever does — a stray commit, a bad merge — reset it to the version you forked:
 
 ```bash
-git fetch upstream --tags                    # make sure the course tag is available locally
-git branch -m v2026-base v2026-base-old     # park your current base under a backup name
-git checkout -b v2026-base v2.14.1          # fresh base from the course release
-git describe --tags                          # check: should print v2.14.1
+git checkout main
+git fetch origin
+git reset --hard origin/main   # your exercise/feature branches are untouched
 ```
 
-Nothing is deleted, and none of your work is touched: your exercise and feature branches are separate from `v2026-base`, so they survive this reset completely unchanged — there is nothing to move over. The old branch is kept as `v2026-base-old` just in case; once the new one checks out fine, you can delete it (`git branch -D v2026-base-old`). If git refuses the checkout because of uncommitted changes, run `git stash` first.
+If it's truly tangled, the simplest fix is to delete your fork and fork again. Sanity check anytime with `git describe --tags` — it should start with `v2.14.1`.
 
 ### Installing with uv
 
@@ -86,9 +78,9 @@ This installs the published version from PyPI. Use this when you just want to *u
 
 **Step 2 — set up your local dev environment** inside your cloned fork so you can read, run, and modify the source code:
 ```bash
-cd mistral-vibe       # your cloned fork
-uv sync               # creates a local virtual environment and installs all dependencies
-uv run vibe --help    # runs *your local version* of the tool
+cd mistral-vibe-ek-python-elective   # your cloned fork
+uv sync                              # creates a local virtual environment and installs all dependencies
+uv run vibe --help                   # runs *your local version* of the tool
 ```
 `uv run` always uses the local virtual environment, so changes you make to the source code are reflected immediately — no reinstall needed.
 
@@ -111,7 +103,7 @@ uv run vibe --help    # runs *your local version* of the tool
 ## After Class
 
 - Make sure your fork is running and you can invoke `vibe` from the terminal
-- Re-read "Working on a branch — always" until you can answer these without looking: which two branches do you never commit to, and what does each one mirror? Where does your own work live? What do you do if `git describe --tags` doesn't start with `v2.14.1`? This branch model is the foundation for the whole semester — every session starts from it, and getting it wrong is the #1 way to lose an afternoon to git archaeology
+- Re-read "Working on a branch — always" until you can answer these without looking: why do you never commit to `main`, and what *is* `main` (where did it come from)? Where does your own work live instead? How do you restore `main` if it gets messed up? This branch model is the foundation for the whole semester — every session starts from it, and getting it wrong is the #1 way to lose an afternoon to git archaeology
 - Write 3-5 bullet points in your own words: what does mistral-vibe do, and how does it work at a high level?
 - Browse the source files — don't read deeply yet, just get a feel for the shape of the codebase
 - Think about what feature you might want to add this semester — come to next class with at least one idea

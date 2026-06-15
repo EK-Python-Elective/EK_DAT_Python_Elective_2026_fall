@@ -41,6 +41,8 @@ Your group PR is evaluated. Before the oral exam your instructor reviews it *as 
 
 ### Writing a great PR description
 
+When you open the PR, the repo's PR template pre-fills the description with the sections below and a hand-in checklist — fill it in, don't delete it.
+
 Here is a worked example for a small, realistic feature: an `/export` command that saves the conversation to a Markdown file. **It is illustrative — your feature and the exact files will differ — but notice the structure** (Summary / Motivation / Changes / How to test / Notes) and how the *Changes* section points at the real files the feature touches.
 
 ```markdown

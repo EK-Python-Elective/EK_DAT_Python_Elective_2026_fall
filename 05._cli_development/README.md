@@ -63,6 +63,6 @@ while True:
 
 ## After Class
 
-- Your fork should have at least one new CLI flag or option that you added yourself
+- On a branch off `main` (e.g. `exercise/session-05`), add at least one new CLI flag or option you wrote yourself — keep `main` clean, as always
 - Write a short description of the flag: what it does, how to use it, what code you changed
 - Try building a minimal standalone CLI tool from scratch using `argparse` or `typer` — it helps to understand the pattern outside of a large codebase

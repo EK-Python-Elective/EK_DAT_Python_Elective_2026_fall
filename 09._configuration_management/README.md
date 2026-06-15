@@ -94,6 +94,6 @@ debug = os.environ.get("DEBUG", "false") == "true"  # with default
 
 ## After Class
 
-- Your fork should have at least one new config key in `config.toml` that controls a real behaviour
+- On a branch off `main` (e.g. `exercise/session-09`), add at least one new config key in `config.toml` that controls a real behaviour — keep `main` clean
 - Document the new config key in your fork's README
 - Think about: what happens if the user has an old config file that is missing your new key? Handle it gracefully with a default

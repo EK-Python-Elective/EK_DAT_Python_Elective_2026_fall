@@ -103,6 +103,6 @@ Find a synchronous function in your fork that does I/O (file read, subprocess ca
 
 ## After Class
 
-- Find one place in your feature implementation where async would improve performance and apply it
+- On a branch off `main`, find one place in the code (or your own exercise code) where async would improve performance and apply it
 - Write a short note: in your own words, what is the event loop and why does it matter?
 - Optional: read about `asyncio.TaskGroup` (Python 3.11+) — the modern way to run concurrent tasks

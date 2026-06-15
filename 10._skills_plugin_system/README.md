@@ -118,7 +118,7 @@ Ideas:
 
 ## After Class
 
-- Your fork should have at least one new skill file committed (place it in `.vibe/skills/<your-skill-name>/SKILL.md` at the project root)
+- On a branch off `main`, add at least one new skill file (`.vibe/skills/<your-skill-name>/SKILL.md` at the project root) — keep `main` clean
 - Test your skill: prompt `vibe` in a way that triggers the skill and verify it works
 - Think about your main feature for the sprint: does it fit naturally as a skill, or does it require changes to the core?
 

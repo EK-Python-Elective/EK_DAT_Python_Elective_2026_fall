@@ -88,4 +88,4 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
 - Make sure you understand every line of the API call in mistral-vibe
 - Experiment: change the `temperature` or `max_tokens` parameter and observe the difference in responses
 - Add your API key to `.env` and verify `.env` is in `.gitignore` in your fork
-- Optional: read about [rate limiting](https://docs.mistral.ai/api/) and add basic retry logic to your fork
+- Optional: read about [rate limiting](https://docs.mistral.ai/api/) and add basic retry logic on a branch off `main` (the `.env` work above is fine on `main` — it's gitignored, never committed)

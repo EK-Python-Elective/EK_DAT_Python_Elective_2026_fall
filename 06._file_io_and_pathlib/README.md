@@ -88,7 +88,7 @@ Path("history.json").write_text(json.dumps(data, indent=2))
 
 ## After Class
 
-- Your fork should have a new feature that reads from or writes to disk
+- On a branch off `main` (e.g. `exercise/session-06`), add a small feature that reads from or writes to disk — keep `main` clean
 - Make sure file paths use `pathlib.Path`, not string concatenation
 - Handle the case where the file does not yet exist (create it or show a helpful error)
 - Test your feature manually: does it work on a fresh machine where the file doesn't exist yet?

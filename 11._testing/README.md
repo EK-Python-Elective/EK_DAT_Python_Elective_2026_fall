@@ -116,8 +116,8 @@ def test_cli_version():
 
 ## After Class
 
-- Add at least 5 meaningful tests to your fork
+- On a branch off `main`, add at least 5 meaningful tests — keep `main` clean
 - At least one test should use a fixture with `tmp_path`
 - At least one test should mock an external dependency
 - Run `uv run pytest -v` and make sure all tests pass
-- Optional: add a `pytest` step to your repo's CI (GitHub Actions) so tests run on every push
+- Optional: your fork already runs `ruff`/`pyright`/`pytest tests/exam` on pull requests via the **Exam checks** workflow — open `.github/workflows/exam-checks.yml` to see how CI works

@@ -29,7 +29,7 @@
 
 ### What makes a PR ready to hand in?
 
-Your group PR is graded. Before the oral exam your instructor evaluates it *as an artifact* — reviewing the diff and checking out the branch to run it — **without merging it** (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
+Your group PR is evaluated. Before the oral exam your instructor reviews it *as an artifact* — reviewing the diff and checking out the branch to run it — **without merging it** (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
 - Does this feature do something clear and useful?
 - Is it well-tested? (`uv run pytest` passes)
 - Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)

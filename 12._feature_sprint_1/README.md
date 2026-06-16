@@ -1,6 +1,6 @@
 # Session 12: Feature Sprint I
 
-**Week 47 | Python Elective 2026 Fall**
+**Week 46 | Python Elective 2026 Fall**
 
 > Teams plan and start implementing their chosen feature. AI tools in full swing. Focus: feature design, branching strategy, code review within team.
 

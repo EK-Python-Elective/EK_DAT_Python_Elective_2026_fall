@@ -1,6 +1,6 @@
 # Session 10: The Skills/Plugin System — Extensibility Patterns
 
-**Week 45 | Python Elective 2026 Fall**
+**Week 44 | Python Elective 2026 Fall**
 
 > Deep dive into `SKILL.md` and how skills extend the tool. Learn plugin architecture patterns in Python. Students implement a new skill.
 

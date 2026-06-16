@@ -1,6 +1,6 @@
 # Session 14: PR Preparation — Finalizing Your Hand-In
 
-**Week 49 | Python Elective 2026 Fall**
+**Week 48 | Python Elective 2026 Fall**
 
 > Polish the feature to production quality and finalize the group PR — this PR (your feature branch → `main`) is your **exam hand-in**. Then, optionally, evaluate whether the feature is also worth contributing upstream to `mistralai/mistral-vibe`.
 

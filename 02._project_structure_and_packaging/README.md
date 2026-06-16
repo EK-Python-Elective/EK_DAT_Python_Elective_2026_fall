@@ -1,6 +1,6 @@
 # Session 2: Reading Code — Project Structure & Python Packaging
 
-**Week 37 | Python Elective 2026 Fall**
+**Week 36 | Python Elective 2026 Fall**
 
 > Explore `pyproject.toml`, `uv.lock`, folder layout, entry points. Understand how a Python package is installed and run. Compare to `pip`/`requirements.txt`.
 

@@ -1,6 +1,6 @@
 # Session 13: Feature Sprint II & Code Review
 
-**Week 48 | Python Elective 2026 Fall**
+**Week 47 | Python Elective 2026 Fall**
 
 > Continue implementation. Peer code review between groups. Discuss what makes a good PR: small commits, clear descriptions, tests, docs.
 

@@ -1,6 +1,6 @@
 # Session 4: The Type System — Type Hints, Dataclasses, and Pydantic
 
-**Week 39 | Python Elective 2026 Fall**
+**Week 38 | Python Elective 2026 Fall**
 
 > Find and read all type annotations in mistral-vibe. Learn `TypedDict`, `dataclass`, `Optional`, `Union`. Students add type hints to an untyped part of the code.
 

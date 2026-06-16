@@ -1,6 +1,6 @@
 # Exam — Feature Presentation & Defense
 
-**Week 50 | Python Elective 2026 Fall**
+**Exam period | Python Elective 2026 Fall**
 
 > The final exam. Each student individually presents and defends their group's feature: a 10-minute presentation followed by 15 minutes of examiner questions. This is an individual oral exam, not a group session — it runs as a scheduled exam period across the week, roughly 25 minutes per student, not a single class slot.
 

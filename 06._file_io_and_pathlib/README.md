@@ -1,6 +1,6 @@
 # Session 6: File I/O and pathlib
 
-**Week 41 | Python Elective 2026 Fall**
+**Week 40 | Python Elective 2026 Fall**
 
 > Study all file read/write in the codebase (config, prompts, agents, skills). Learn `pathlib.Path`, context managers, JSON/TOML parsing. Students add a feature that persists something new to disk.
 

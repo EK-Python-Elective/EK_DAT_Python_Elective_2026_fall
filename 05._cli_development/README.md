@@ -1,6 +1,6 @@
 # Session 5: CLI Development — How the CLI Works
 
-**Week 40 | Python Elective 2026 Fall**
+**Week 39 | Python Elective 2026 Fall**
 
 > Understand how mistral-vibe builds its CLI (argument parsing, REPL loop, prompts). Students extend the CLI with a new flag or subcommand.
 

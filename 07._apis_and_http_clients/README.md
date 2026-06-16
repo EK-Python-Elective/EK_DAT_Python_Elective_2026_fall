@@ -1,6 +1,6 @@
 # Session 7: APIs and HTTP Clients — Talking to Mistral AI
 
-**Week 42 | Python Elective 2026 Fall**
+**Week 41 | Python Elective 2026 Fall**
 
 > Find where the API calls happen. Learn `httpx`/`requests`, async HTTP, API keys, `.env` files, error handling. Students swap or extend the API integration.
 

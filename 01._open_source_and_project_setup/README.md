@@ -1,6 +1,6 @@
 # Session 1: Kickoff — Open Source Culture & Project Setup
 
-**Week 36 | Python Elective 2026 Fall**
+**Week 35 | Python Elective 2026 Fall**
 
 > Fork `mistral-vibe`, clone locally, install with `uv`, run it. Read the README, CONTRIBUTING, and LICENSE. Discuss what open source means.
 

@@ -1,6 +1,6 @@
 # Session 8: Async Python
 
-**Week 43 | Python Elective 2026 Fall**
+**Week 42 | Python Elective 2026 Fall**
 
 > Understand `async`/`await` in mistral-vibe. Learn the event loop, `asyncio`, async generators, streaming responses. Students refactor or extend an async part.
 

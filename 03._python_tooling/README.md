@@ -1,6 +1,6 @@
 # Session 3: Python Tooling — uv, ruff, and the Modern Ecosystem
 
-**Week 38 | Python Elective 2026 Fall**
+**Week 37 | Python Elective 2026 Fall**
 
 > Deep dive into `uv` as package manager, `ruff` for linting/formatting, `mypy`/`pyright` for type checking. Students configure their fork's tooling.
 

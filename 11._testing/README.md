@@ -1,6 +1,6 @@
 # Session 11: Testing — pytest and How to Test CLI Tools
 
-**Week 45 | Python Elective 2026 Fall**
+**Week 46 | Python Elective 2026 Fall**
 
 > Add tests to the fork. Learn `pytest`, `pytest-asyncio`, mocking, fixtures, testing CLI tools with subprocess.
 

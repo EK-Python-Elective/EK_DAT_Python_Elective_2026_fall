@@ -1,6 +1,6 @@
 # Session 9: Configuration Management — TOML, ENV, and Profiles
 
-**Week 43 | Python Elective 2026 Fall**
+**Week 44 | Python Elective 2026 Fall**
 
 > Study `config.toml` and `.env` patterns. Learn `tomllib`/`tomli`, `python-dotenv`, environment variable best practices. Students add a new configurable feature.
 

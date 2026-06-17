@@ -13,14 +13,15 @@
 | 5 | 39 | [CLI Development: How the CLI Works](05._cli_development/README.md) |
 | 6 | 40 | [File I/O and pathlib](06._file_io_and_pathlib/README.md) |
 | 7 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](07._apis_and_http_clients/README.md) |
-| 8 | 42 | [Async Python](08._async_python/README.md) |
-| 9 | 43 | [Configuration Management: TOML, ENV, and Profiles](09._configuration_management/README.md) |
-| 10 | 44 | [The Skills/Plugin System: Extensibility Patterns](10._skills_plugin_system/README.md) |
-| 11 | 45 | [Testing: pytest and How to Test CLI Tools](11._testing/README.md) |
-| 12 | 46 | [Feature Sprint I](12._feature_sprint_1/README.md) |
-| 13 | 47 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
-| 14 | 48 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
-| 15 | — | [Exam — Feature Presentation & Defense](15._exam/README.md) |
+| 8 | 42 | _Easter break — no session_ |
+| 9 | 43 | [Async Python](08._async_python/README.md) |
+| 10 | 44 | [Configuration Management: TOML, ENV, and Profiles](09._configuration_management/README.md) |
+| 11 | 45 | [The Skills/Plugin System: Extensibility Patterns](10._skills_plugin_system/README.md) |
+| 12 | 46 | [Testing: pytest and How to Test CLI Tools](11._testing/README.md) |
+| 13 | 47 | [Feature Sprint I](12._feature_sprint_1/README.md) |
+| 14 | 48 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
+| 15 | 49 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
+| 16 | — | [Exam — Feature Presentation & Defense](15._exam/README.md) |
 
 
 ---

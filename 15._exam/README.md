@@ -65,14 +65,15 @@ Keep the structure simple — no slides required, just a working terminal and th
 
 ## The 15-minute Q&A
 
-The examiner will probe your individual understanding of the feature and the surrounding codebase. Expect questions like:
+The examiner will probe your individual understanding of the feature and the surrounding codebase. Your feature is the main focus, but questions aren't limited to it — the examiner may also ask about other parts of mistral-vibe and Python concepts covered earlier in the semester, to check your understanding of the codebase you've been working in all along. Expect questions like:
 - "Why did you use *this* approach here instead of an alternative?"
 - "What happens if this file doesn't exist / this input is empty / this call fails?"
 - "Walk me through what happens, step by step, when a user triggers this."
 - "Where does this connect to the rest of mistral-vibe?"
 - "Your teammate wrote this part — explain what it does and why."
+- "How does this compare to how [some earlier session's topic] was handled elsewhere in the codebase?"
 
-There is no way to prepare for this except to actually understand your group's feature and the code it touches. That is the point.
+There is no way to prepare for this except to actually understand your group's feature, the code it touches, and the mistral-vibe codebase more broadly. That is the point.
 
 ---
 

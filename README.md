@@ -13,7 +13,7 @@
 | 5 | 39 | [CLI Development: How the CLI Works](05._cli_development/README.md) |
 | 6 | 40 | [File I/O and pathlib](06._file_io_and_pathlib/README.md) |
 | 7 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](07._apis_and_http_clients/README.md) |
-|  | 42 | _Easter break — no session_ |
+|  | 42 | _Autumn Break — no session_ |
 | 8 | 43 | [Async Python](08._async_python/README.md) |
 | 9 | 44 | [Configuration Management: TOML, ENV, and Profiles](09._configuration_management/README.md) |
 | 10 | 45 | [The Skills/Plugin System: Extensibility Patterns](10._skills_plugin_system/README.md) |

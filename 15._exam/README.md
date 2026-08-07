@@ -8,7 +8,7 @@
 
 ## Format at a glance
 
-- **Group hand-in (before the exam):** the group PR — your feature branch → `main` (still pinned at `v2.14.1`). One PR per group.
+- **Group hand-in (before the exam):** the group PR — your feature branch → `main` (still pinned at `v2.24.0`). One PR per group.
 - **Initial evaluation:** before the orals, the examiner evaluates each group's PR *as an artifact* — the PR is reviewed and run, **not merged**. The examiner reads the diff, checks out the feature branch and runs it (`uv sync`, runs the feature, `uv run pytest`, `uv run ruff check .`), and confirms GitHub reports no conflicts with `main`. This is the shared starting point for the group's feature.
 - **Individual oral (≈25 min per student):** 10-minute presentation + 15-minute Q&A. You present your group's *whole* feature; the questions establish *your individual* understanding.
 - **Grading is individual.** Two students from the same group can receive different grades — the Q&A is what separates "I understand this code" from "the group built it."

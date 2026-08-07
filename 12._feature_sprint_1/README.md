@@ -30,7 +30,7 @@
 
 ### Starting your feature
 
-Your feature is built on the **same pinned `main` you have used all semester** (mistral-vibe at `v2.14.1`). Keeping every group on one base is deliberate: the file/line references from sessions 1–11 still apply, your group's PR sits on a known state, and the exam evaluation is uniform across groups (see [the exam](../15._exam/README.md)).
+Your feature is built on the **same pinned `main` you have used all semester** (mistral-vibe at `v2.24.0`). Keeping every group on one base is deliberate: the file/line references from sessions 1–11 still apply, your group's PR sits on a known state, and the exam evaluation is uniform across groups (see [the exam](../15._exam/README.md)).
 
 **First, due diligence — check the original project for prior art.** Before you lock your plan, look at what the live project is doing: browse the CHANGELOG and the open issues/pull requests at [github.com/mistralai/mistral-vibe](https://github.com/mistralai/mistral-vibe). You are checking one thing: **has your feature (or part of it) already shipped, or is someone building it right now?** Projects that release weekly implement ideas fast — finding yours now costs five minutes; finding it after a two-week sprint costs the sprint.
 
@@ -43,7 +43,7 @@ git push -u origin feature/<your-feature-name>
 
 Each team member works on their own branch off `main` and merges into the group's shared feature branch as you go. That group branch, opened as a PR into `main`, is your **exam hand-in** — see [the exam](../15._exam/README.md).
 
-> **Going further (optional, beyond the exam):** contributing your feature to the real `mistralai/mistral-vibe` means adding it as an `upstream` remote, rebasing your work onto upstream's *current* release (now ahead of `v2.14.1`), and opening a PR there. A genuine open-source contribution and a great stretch goal — but not required, and separate from your exam hand-in. Session 14 covers what that takes.
+> **Going further (optional, beyond the exam):** contributing your feature to the real `mistralai/mistral-vibe` means adding it as an `upstream` remote, rebasing your work onto upstream's *current* release (mistral-vibe releases often, so it will typically have moved past the course pin, `v2.24.0`, by the time you do this), and opening a PR there. A genuine open-source contribution and a great stretch goal — but not required, and separate from your exam hand-in. Session 14 covers what that takes.
 
 ### Feature planning
 Before writing code, answer these questions:

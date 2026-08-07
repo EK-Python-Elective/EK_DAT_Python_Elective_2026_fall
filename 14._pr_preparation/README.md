@@ -84,7 +84,7 @@ git rebase -i main
 ```
 
 ### Optional: is your feature also suitable for upstream?
-Your exam hand-in is the PR against `main`. Contributing upstream is an optional stretch goal *on top of that* — and because the course pin (`v2.14.1`) now sits behind upstream's latest release, a real upstream PR means first rebasing your feature onto upstream's current `main`, then opening the PR against `mistralai/mistral-vibe`. Worth it if your feature is genuinely broadly useful.
+Your exam hand-in is the PR against `main`. Contributing upstream is an optional stretch goal *on top of that* — and because the course pin (`v2.24.0`) will typically sit behind upstream's latest release by this point in the semester, a real upstream PR means first rebasing your feature onto upstream's current `main`, then opening the PR against `mistralai/mistral-vibe`. Worth it if your feature is genuinely broadly useful.
 
 Criteria for upstream contribution:
 - General usefulness (not just for your specific use case)

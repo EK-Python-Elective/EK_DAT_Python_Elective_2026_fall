@@ -80,10 +80,10 @@ debug = os.environ.get("DEBUG", "false") == "true"  # with default
 ```
 
 ### Configuration loading in mistral-vibe
-- The config system uses **`pydantic_settings`** (`BaseSettings`) with a custom `TomlFileSettingsSource` — when you read the source you will see Pydantic models, not bare `tomllib` calls
-- Walk through `vibe/core/config/_settings.py` to see how TOML + env vars are merged
+- The config system is a **layered merge**: `ConfigOrchestrator` combines `ConfigLayer`s in priority order (lowest → highest) — schema defaults, GrowthBook experiments, user TOML, project TOML, `VIBE_*` env vars, runtime overrides, agent-profile overrides. Walk through `vibe/core/config/default_orchestrator.py` to see the stack assembled
+- TOML loading is plain `tomllib` (`vibe/core/config/layers/_base.py`, used by `layers/user.py` and `layers/project.py`); env vars go through **`pydantic_settings`** (`BaseSettings`, prefix `VIBE_`) in `vibe/core/config/layers/environment.py` — Pydantic only handles env-var parsing/coercion here, not the whole system
 - How does `--agent` change the behaviour? (there is no `--profile` flag — agents serve a similar purpose)
-- Design principle: one config dataclass, populated from multiple sources
+- Design principle: one config schema (`VibeConfigSchema`), populated by merging multiple layers in priority order — same idea as before, different mechanism than a single `BaseSettings` class
 
 ### Exercise: add a configurable feature
 - Add a new section to `config.toml` for a feature you are building

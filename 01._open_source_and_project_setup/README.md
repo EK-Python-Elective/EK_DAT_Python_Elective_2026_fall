@@ -54,7 +54,7 @@ git checkout -b exercise/session-04   # one branch per exercise or experiment
 git checkout -b feature/my-experiment
 ```
 
-When something is ready, open a pull request from your branch into your own `main`. Because your work lives on its own branches, `main` stays pristine and can always be restored without touching anything you wrote.
+When an exercise is ready, open a pull request from your branch into your own `main` — **but do not merge it.** Opening the PR is a rehearsal for session 12, where this same motion happens for real: it gives you GitHub's diff view to review your own change, and it triggers the course's CI checks (ruff, pyright, pytest) automatically. Once you've looked it over, leave it open or close it — either way, don't click Merge. Because your work lives on its own branches and none of these PRs get merged, `main` stays pristine at the pinned release all semester, and can always be restored without touching anything you wrote.
 
 #### If `main` ever gets messed up
 You forked a pinned repo and you don't pull from anywhere else, so `main` shouldn't drift. If it ever does — a stray commit, a bad merge — reset it to the version you forked:
@@ -103,7 +103,7 @@ uv run vibe --help                   # runs *your local version* of the tool
 ## After Class
 
 - Make sure your fork is running and you can invoke `vibe` from the terminal
-- Re-read "Working on a branch — always" until you can answer these without looking: why do you never commit to `main`, and what *is* `main` (where did it come from)? Where does your own work live instead? How do you restore `main` if it gets messed up? This branch model is the foundation for the whole semester — every session starts from it, and getting it wrong is the #1 way to lose an afternoon to git archaeology
+- Re-read "Working on a branch — always" until you can answer these without looking: why do you never commit to `main`, and what *is* `main` (where did it come from)? Where does your own work live instead? How do you restore `main` if it gets messed up? Why do you open a PR for an exercise if you're never going to merge it? This branch model is the foundation for the whole semester — every session starts from it, and getting it wrong is the #1 way to lose an afternoon to git archaeology
 - Write 3-5 bullet points in your own words: what does mistral-vibe do, and how does it work at a high level?
 - Browse the source files — don't read deeply yet, just get a feel for the shape of the codebase
 - Think about what feature you might want to add this semester — come to next class with at least one idea

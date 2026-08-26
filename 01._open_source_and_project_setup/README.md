@@ -34,6 +34,13 @@
 
 ### What is open source?
 - Licences: MIT, Apache 2.0, GPL — what they allow and restrict
+
+  | | Use in proprietary/closed-source product | Must share your source code | Patent protection |
+  |---|---|---|---|
+  | MIT | Yes | No | No |
+  | Apache 2.0 | Yes | No | Yes |
+  | GPL | No (if distributed) | Yes | Yes (v3 only) |
+
 - The open source contribution lifecycle: issues → fork → branch → PR → merge
 - Why companies open source their tools (and why Mistral AI did)
 

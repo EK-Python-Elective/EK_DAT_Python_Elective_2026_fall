@@ -53,9 +53,9 @@
 - Why companies open source their tools (and why Mistral AI did — see [Mistral AI's own reasoning](https://mistral.ai/about))
 
 ### Forking and cloning
-- Fork the course repo, **`EK-Python-Elective/mistral-vibe-ek-python-elective`**, to your own GitHub account.
-- Clone your fork locally: `git clone git@github.com:<you>/mistral-vibe-ek-python-elective.git`
-- That's it. Your clone is on `main` — the course's pinned base: mistral-vibe at release `v2.24.0`, plus the course's CI checks and a `tests/exam/` folder. Everyone starts on identical code, so the file and line references in later sessions match what you see on screen.
+1. Fork the course repo, **`EK-Python-Elective/mistral-vibe-ek-python-elective`**, to your own GitHub account.
+2. Clone your fork locally: `git clone git@github.com:<you>/mistral-vibe-ek-python-elective.git`
+3. That's it. Your clone is on `main` — the course's pinned base: mistral-vibe at release `v2.24.0`, plus the course's CI checks and a `tests/exam/` folder. Everyone starts on identical code, so the file and line references in later sessions match what you see on screen.
 
 > The course repo is itself a fork of the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe). You don't need to touch the original at all this semester — but if you later want to contribute your feature back to it, that's an optional path covered in [session 14](../14._pr_preparation/README.md).
 

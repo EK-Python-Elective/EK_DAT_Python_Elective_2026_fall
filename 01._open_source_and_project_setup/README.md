@@ -41,7 +41,15 @@
   | Apache 2.0 | Yes | No | Yes |
   | GPL | No | Yes | Yes |
 
-- The open source contribution lifecycle: issues → fork → branch → PR → merge
+- The open source contribution lifecycle:
+
+  ```mermaid
+  flowchart LR
+      A[Issue] --> B[Fork]
+      B --> C[Branch]
+      C --> D[Pull Request]
+      D --> E[Merge]
+  ```
 - Why companies open source their tools (and why Mistral AI did)
 
 ### Forking and cloning

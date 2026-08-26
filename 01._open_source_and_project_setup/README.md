@@ -39,7 +39,7 @@
   |---|---|---|---|
   | MIT | Yes | No | No |
   | Apache 2.0 | Yes | No | Yes |
-  | GPL | No (if distributed) | Yes | Yes (v3 only) |
+  | GPL | No | Yes | Yes |
 
 - The open source contribution lifecycle: issues → fork → branch → PR → merge
 - Why companies open source their tools (and why Mistral AI did)

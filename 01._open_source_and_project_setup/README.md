@@ -50,7 +50,7 @@
       C --> D[Pull Request]
       D --> E[Merge]
   ```
-- Why companies open source their tools (and why Mistral AI did)
+- Why companies open source their tools (and why Mistral AI did — see [Mistral AI's own reasoning](https://mistral.ai/about))
 
 ### Forking and cloning
 - Fork the course repo, **`EK-Python-Elective/mistral-vibe-ek-python-elective`**, to your own GitHub account.

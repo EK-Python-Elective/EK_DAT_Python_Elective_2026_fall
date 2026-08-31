@@ -92,3 +92,14 @@ Path("history.json").write_text(json.dumps(data, indent=2))
 - Make sure file paths use `pathlib.Path`, not string concatenation
 - Handle the case where the file does not yet exist (create it or show a helpful error)
 - Test your feature manually: does it work on a fresh machine where the file doesn't exist yet?
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Python docs — `pathlib`](https://docs.python.org/3/library/pathlib.html) — the full `Path` API, including the correspondence table to the old `os.path` functions.
+- [optional] Trey Hunner, ["Why you should be using pathlib"](https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/) — a persuasive before/after tour.
+- [optional] [Python docs — `contextlib`](https://docs.python.org/3/library/contextlib.html) — how `with` works under the hood and how to write your own context manager.
+- [optional] [Python docs — `json`](https://docs.python.org/3/library/json.html) and [`tomllib`](https://docs.python.org/3/library/tomllib.html) — the two parsers from class, including the gotchas (`json` and non-string keys; `tomllib` needing binary mode).

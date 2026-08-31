@@ -87,4 +87,14 @@ By reaching this exam you have:
 
 ---
 
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] Simon Peyton Jones, ["How to give a great research talk"](https://www.microsoft.com/en-us/research/academic-program/give-great-research-talk/) — video and slides; the structure advice transfers straight to the 10-minute feature demo.
+- [optional] Julia Evans, ["How to ask good questions"](https://jvns.ca/blog/good-questions/) — framing for the Q&A: how to reason out loud when you're not certain.
+- [optional] [Pro Git — Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) — `git log`, `git blame`, `git show` for walking a teammate's code before exam day.
+
+---
+
 *End of Python Elective 2026 Fall — well done.*

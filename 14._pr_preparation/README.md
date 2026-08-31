@@ -114,3 +114,14 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 - Optional: if contributing upstream, rebase onto upstream `main` and open the PR there
 - Write a short individual reflection (half a page): what was the hardest part of this feature? What would you do differently? How did AI tools help or mislead you?
 - **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../15._exam/README.md))
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Pro Git — Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) — `rebase -i`, squash, fixup, reword, and how to recover when it goes wrong.
+- [optional] [GitHub Docs — About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) — draft PRs, review states, and the PR lifecycle.
+- [optional] [GitHub blog — How to write the perfect pull request](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/) — short, and still the canonical reference.
+- [optional] [opensource.guide — How to Contribute to Open Source](https://opensource.guide/how-to-contribute/) — upstream etiquette: open an issue first, keep scope tight, respond to maintainers.

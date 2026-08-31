@@ -106,3 +106,15 @@ Find a synchronous function in your fork that does I/O (file read, subprocess ca
 - On a branch off `main`, find one place in the code (or your own exercise code) where async would improve performance and apply it
 - Write a short note: in your own words, what is the event loop and why does it matter?
 - Optional: read about `asyncio.TaskGroup` (Python 3.11+) — the modern way to run concurrent tasks
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Python docs — A Conceptual Overview of asyncio](https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html) — the gentle, concept-first intro (linked above too; worth a slow second read).
+- [optional] [Python docs — Coroutines and Tasks](https://docs.python.org/3/library/asyncio-task.html) — `gather`, `TaskGroup`, `wait_for`, timeouts, and cancellation.
+- [optional] David Beazley, *Build Your Own Async* (2019 talk, on YouTube) — builds a tiny event loop from scratch; the clearest way to see what `await` actually does.
+- [optional] [PEP 525 — Asynchronous Generators](https://peps.python.org/pep-0525/) — the `async def` + `yield` construct behind streaming.
+- [optional] [AnyIO docs](https://anyio.readthedocs.io/) — the structured-concurrency library mentioned in exercise option B.

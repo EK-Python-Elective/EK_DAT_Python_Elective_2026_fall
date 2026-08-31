@@ -102,3 +102,14 @@ Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 - Open a draft PR on GitHub from your feature branch — even if it is not done yet
 - Write the PR description: what does this feature do, how do you test it, what is left to do?
 - Be ready to show progress next session
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Conventional Commits](https://www.conventionalcommits.org/) — the `feat:` / `fix:` / `refactor:` commit convention used in class, specified precisely.
+- [optional] [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow) — the lightweight branch-and-PR model this sprint follows.
+- [optional] [Pro Git — Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) — what `git rebase origin/main` actually does to a feature branch (previews session 14).
+- [optional] Simon Willison's [ai-assisted-programming](https://simonwillison.net/tags/ai-assisted-programming/) blog tag — an ongoing, practical record of what works and what breaks when coding with LLMs.

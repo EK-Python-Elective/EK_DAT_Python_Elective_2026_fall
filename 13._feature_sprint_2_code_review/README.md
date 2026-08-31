@@ -85,3 +85,14 @@ Structure: **observation + reason + suggestion**
 - Run the full test suite: `uv run pytest`
 - Run the linter: `uv run ruff check .`
 - Your feature should be functionally complete by end of next session (PR Preparation)
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Google Engineering Practices — Code Review](https://google.github.io/eng-practices/review/) — the reviewer's guide plus the [change author's guide](https://google.github.io/eng-practices/review/developer/), both short.
+- [optional] [Conventional Comments](https://conventionalcomments.org/) — labelling review feedback (`nit:`, `suggestion:`, `question:`) so intent is unambiguous.
+- [optional] Michael Lynch, ["How to Make Your Code Reviewer Fall in Love with You"](https://mtlynch.io/code-review-love/) — the same skill from the author's side.
+- [optional] [How to Write a Git Commit Message](https://cbea.ms/git-commit/) — the seven rules; pairs with the "small, focused commits" point.

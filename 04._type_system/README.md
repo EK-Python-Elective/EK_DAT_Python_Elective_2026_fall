@@ -120,3 +120,14 @@ cfg = Config(model="mistral-large", temperature=1.2)
 - Add a new typed function or small module to your fork — annotate it fully from the start
 - Run `pyright` and fix any errors
 - Write a short explanation (as a comment or in your notes): when would you use `TypedDict` vs `dataclass` vs `Pydantic`?
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [mypy type-hints cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html) — a compact one-page reference for annotation syntax; applies to pyright too.
+- [optional] [Python docs — `typing`](https://docs.python.org/3/library/typing.html) — the fuller vocabulary: `Literal`, `Protocol`, `TypeAlias`, generics, `cast`.
+- [optional] [Pydantic docs — Models](https://docs.pydantic.dev/latest/concepts/models/) — validation, type coercion, and how `BaseModel` differs from a plain `dataclass`.
+- [optional] [PEP 557 — Data Classes](https://peps.python.org/pep-0557/) and [PEP 589 — TypedDict](https://peps.python.org/pep-0589/) — the rationale for each and when to reach for which.

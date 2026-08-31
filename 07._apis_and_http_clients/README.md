@@ -89,3 +89,15 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
 - Experiment: change the `temperature` or `max_tokens` parameter and observe the difference in responses
 - Add your API key to `.env` and verify `.env` is in `.gitignore` in your fork
 - Optional: read about [rate limiting](https://docs.mistral.ai/api/) and add basic retry logic on a branch off `main` (the `.env` work above is fine on `main` — it's gitignored, never committed)
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [MDN — An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview) — methods, headers, and status codes from the ground up.
+- [optional] [HTTPX docs](https://www.python-httpx.org/) — sync vs. async clients, streaming, timeouts, and connection pooling.
+- [optional] [MDN — Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) — the `data: {...}` wire format behind token-by-token streaming.
+- [optional] [Mistral API reference](https://docs.mistral.ai/api/) — the chat completions endpoint the SDK wraps; skim the request and response schema.
+- [optional] [`python-dotenv`](https://pypi.org/project/python-dotenv/) — `.env` precedence rules and `.env.example` conventions.

@@ -66,3 +66,15 @@ while True:
 - On a branch off `main` (e.g. `exercise/session-05`), add at least one new CLI flag or option you wrote yourself — keep `main` clean, as always
 - Write a short description of the flag: what it does, how to use it, what code you changed
 - Try building a minimal standalone CLI tool from scratch using `argparse` or `typer` — it helps to understand the pattern outside of a large codebase
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [argparse tutorial](https://docs.python.org/3/howto/argparse.html) — the stdlib parser, end to end.
+- [optional] [Typer docs](https://typer.tiangolo.com/) — building a CLI from type hints; a useful contrast with how mistral-vibe does it.
+- [optional] [Click docs](https://click.palletsprojects.com/) — the library Typer builds on; the "Why Click?" page is a good short read on CLI design tradeoffs.
+- [optional] [Textual tutorial](https://textual.textualize.io/tutorial/) — build a small TUI step by step; demystifies `vibe/cli/textual_ui/`.
+- [optional] [Rich docs](https://rich.readthedocs.io/en/stable/) — `Console`, `Markdown`, `Panel`, `Progress`, with runnable examples.

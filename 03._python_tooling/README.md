@@ -77,3 +77,14 @@ uv run pyright
 - Inspect the existing `[tool.ruff]` section in `pyproject.toml` — find at least 3 configured rules and write a short comment (in your notes, not the file) explaining what each one does, then extend the ruff configuration with one new rule of your own
 - Try to introduce a deliberate type error and confirm that `pyright` catches it
 - Optional: set up the `ruff` VS Code extension (or equivalent for your editor)
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Ruff — Rules reference](https://docs.astral.sh/ruff/rules/) — every lint rule with a rationale and a before/after example; the menu you pick a `select` set from.
+- [optional] [uv — Concepts](https://docs.astral.sh/uv/concepts/) — projects, the lockfile, the resolver, and tools vs. project dependencies.
+- [optional] [pyright — Configuration](https://microsoft.github.io/pyright/#/configuration) — every `[tool.pyright]` setting and what each strictness level turns on.
+- [optional] [pre-commit.com](https://pre-commit.com/) — the hook framework we preview in class; the quickstart gets ruff running on every commit in a few minutes.

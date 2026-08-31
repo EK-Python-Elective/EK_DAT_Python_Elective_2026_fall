@@ -97,3 +97,14 @@ debug = os.environ.get("DEBUG", "false") == "true"  # with default
 - On a branch off `main` (e.g. `exercise/session-09`), add at least one new config key in `config.toml` that controls a real behaviour — keep `main` clean
 - Document the new config key in your fork's README
 - Think about: what happens if the user has an old config file that is missing your new key? Handle it gracefully with a default
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [TOML v1.0.0 specification](https://toml.io/en/v1.0.0) — short and readable; you can know the whole format in 15 minutes.
+- [optional] [`pydantic-settings` docs](https://docs.pydantic.dev/latest/concepts/pydantic_settings/) — env-var parsing, prefixes, and nested models — the `VIBE_*` mechanism from class.
+- [optional] [The Twelve-Factor App — Config](https://12factor.net/config) — the "keep config in the environment" principle and the reasoning behind it.
+- [optional] [Python docs — `tomllib`](https://docs.python.org/3/library/tomllib.html) and [`tomli-w`](https://pypi.org/project/tomli-w/) — reading (stdlib) and writing (third-party) TOML.

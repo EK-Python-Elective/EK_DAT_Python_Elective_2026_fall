@@ -121,3 +121,15 @@ def test_cli_version():
 - At least one test should mock an external dependency
 - Run `uv run pytest -v` and make sure all tests pass
 - Optional: your fork already runs `ruff`/`pyright`/`pytest tests/exam` on pull requests via the **Exam checks** workflow — open `.github/workflows/exam-checks.yml` to see how CI works
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [pytest — How-to guides](https://docs.pytest.org/en/stable/how-to/index.html) — fixtures, `parametrize`, `monkeypatch`, and temporary directories, in task-sized pieces.
+- [optional] [Python docs — `unittest.mock`](https://docs.python.org/3/library/unittest.mock.html) — `patch`, `MagicMock`, `AsyncMock`, and the "Where to patch" section (the #1 mocking gotcha).
+- [optional] [respx docs](https://lundberg.github.io/respx/) — mocking httpx at the transport layer, the way mistral-vibe's own tests do it.
+- [optional] [pytest-asyncio docs](https://pytest-asyncio.readthedocs.io/) — `asyncio_mode = "auto"` and how to test coroutines and async fixtures.
+- [optional] Brian Okken, *Python Testing with pytest* (2nd ed.) — the standard practical book if you want depth.

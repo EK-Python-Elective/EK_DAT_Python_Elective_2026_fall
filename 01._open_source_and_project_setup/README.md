@@ -122,3 +122,15 @@ uv run vibe --help                   # runs *your local version* of the tool
 - Write 3-5 bullet points in your own words: what does mistral-vibe do, and how does it work at a high level?
 - Browse the source files — don't read deeply yet, just get a feel for the shape of the codebase
 - Think about what feature you might want to add this semester — come to next class with at least one idea
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] *Pro Git* (Chacon & Straub), chapters 2–3 — free at [git-scm.com/book](https://git-scm.com/book/en/v2). Branches, `reset --hard`, and the object model behind "never commit to `main`".
+- [optional] [choosealicense.com](https://choosealicense.com) and [tldrlegal.com](https://tldrlegal.com) — plain-language breakdowns of MIT vs Apache 2.0 vs GPL, the same comparison as the licence table above.
+- [optional] *Producing Open Source Software* (Karl Fogel) — free at [producingoss.com](https://producingoss.com). How real open-source projects are actually run, governed, and funded.
+- [optional] *Working in Public* (Nadia Eghbal) — a book on the social and economic dynamics of maintaining open source; good if the "why do companies do this?" question stuck with you.
+- [optional] [uv — Features](https://docs.astral.sh/uv/getting-started/features/) — the full list of what uv replaces (pip, pipx, pyenv, virtualenv, poetry) and the command for each.

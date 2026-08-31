@@ -73,3 +73,15 @@ mistral-vibe/
 - Find the function that is called first when you run `vibe` — trace it from the entry point
 - Add one dependency to your fork using `uv add <package>` and observe what changes in `pyproject.toml` and `uv.lock`
 - Come to next class ready to explain what `uv sync` does and why it matters
+
+---
+
+## Optional
+
+For students who want to go further. None of this is required — pick whatever looks interesting.
+
+- [optional] [Python Packaging User Guide — Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/) — the end-to-end tutorial: turn a folder of code into a built package and install it back.
+- [optional] [PEP 621](https://peps.python.org/pep-0621/) — the spec for the `[project]` table in `pyproject.toml`. Short, and it's the source of truth for every field in the scavenger hunt.
+- [optional] [PEP 517 / PEP 518](https://peps.python.org/pep-0518/) — why `pyproject.toml` exists at all, and what a "build backend" is.
+- [optional] [Entry points specification](https://packaging.python.org/en/latest/specifications/entry-points/) — the mechanism behind `[project.scripts]` and how typing `vibe` ends up calling Python code.
+- [optional] [Astral — uv blog post](https://astral.sh/blog/uv) — the design rationale for uv and how it compares to pip and Poetry.

@@ -11,7 +11,7 @@
 - Understand how a modern Python project is structured on disk
 - Read and interpret a `pyproject.toml` file
 - Know what entry points are and how they make a CLI command available after install
-- Understand the difference between `uv`, `pip`, and `requirements.txt` workflows
+- Recognise `pip`, `requirements.txt`, and manual virtual environments when you meet them in other projects, and explain what problems `uv` solves over them
 - Be able to navigate a real codebase without getting lost
 
 ---
@@ -43,18 +43,23 @@ mistral-vibe/
 - `[project]` — name, version, requires-python, dependencies
 - `[project.scripts]` — how `vibe` becomes a terminal command after install
 - `[tool.ruff]`, `[tool.pyright]` — tool configuration lives here too
-- Compare with the old `setup.py` / `requirements.txt` approach
+- Aside: `setup.py` is the legacy predecessor — you'll see it in older repos, but new projects declare everything in `pyproject.toml`
 
 ### Entry points
 - How does typing `vibe` in the terminal call Python code?
 - Trace the call: shell → entry point → `__main__` or `main()` function
 
 ### uv vs pip
+
+You won't use `pip` in this course — we use `uv` everywhere. This section is so you can read the many projects (and tutorials, Dockerfiles, CI configs) that still use `pip` and `requirements.txt`, and so you can see *why* uv exists: every row below is a pip pain point that uv removes.
+
 | | `uv` | `pip` |
 |---|---|---|
 | Speed | Very fast (Rust) | Slower |
-| Lock file | `uv.lock` | `requirements.txt` (manual) |
-| Virtualenv | Automatic | Manual |
+| Lock file | `uv.lock` (automatic, exact) | `requirements.txt` (hand-maintained) |
+| Virtualenv | Created and used automatically | You create and activate it yourself (`python -m venv .venv`, then `source .venv/bin/activate`) |
+| Install from lock | `uv sync` | `pip install -r requirements.txt` |
+| Add a dependency | `uv add httpx` (updates `pyproject.toml` + lock) | `pip install httpx`, then remember to edit `requirements.txt` |
 | Editable install | `uv pip install -e .` | `pip install -e .` |
 
 ### Exploring the module structure

@@ -85,8 +85,6 @@ Pick a dependency in the fork's list that you'll actually meet later — `httpx`
 (session 6), `pydantic` (session 3) — and note it got there the same way you
 just added `segno`: `uv add`, then it's pinned in `uv.lock`.
 
-- Aside: `setup.py` is the legacy predecessor of `pyproject.toml` — you'll see it in older repos, but new projects declare everything in `pyproject.toml`.
-
 ### Entry points — the one trick
 
 - How does typing `vibe` (or `qr`) in the terminal call Python code?

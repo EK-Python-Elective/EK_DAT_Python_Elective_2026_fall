@@ -1,4 +1,4 @@
-# Session 14: PR Preparation — Finalizing Your Hand-In
+# Session 13: PR Preparation — Finalizing Your Hand-In
 
 **Week 49 | Python Elective 2026 Fall**
 
@@ -29,7 +29,7 @@
 
 ### What makes a PR ready to hand in?
 
-Your group PR is evaluated. Before the oral exam your instructor reviews it *as an artifact* — reviewing the diff and checking out the branch to run it — **without merging it** (see [the exam](../15._exam/README.md)). So aim for the same bar a real maintainer would apply:
+Your group PR is evaluated. Before the oral exam your instructor reviews it *as an artifact* — reviewing the diff and checking out the branch to run it — **without merging it** (see [the exam](../14._exam/README.md)). So aim for the same bar a real maintainer would apply:
 - Does this feature do something clear and useful?
 - Is it well-tested? (`uv run pytest` passes)
 - Does it follow the project's code style? (`ruff check .` and `ruff format .` clean)
@@ -113,7 +113,7 @@ If in doubt: open an issue first, ask if the feature is wanted before spending t
 - Your PR should be in a state you are proud of — clean, tested, documented
 - Optional: if contributing upstream, rebase onto upstream `main` and open the PR there
 - Write a short individual reflection (half a page): what was the hardest part of this feature? What would you do differently? How did AI tools help or mislead you?
-- **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../15._exam/README.md))
+- **Prepare for the exam:** every group member must be able to present *and defend the whole feature individually* — 10-minute presentation + 15-minute Q&A (see [the exam](../14._exam/README.md))
 
 ---
 

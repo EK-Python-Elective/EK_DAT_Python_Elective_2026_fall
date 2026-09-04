@@ -1,4 +1,4 @@
-# Session 11: Testing — pytest and How to Test CLI Tools
+# Session 10: Testing — pytest and How to Test CLI Tools
 
 **Week 46 | Python Elective 2026 Fall**
 

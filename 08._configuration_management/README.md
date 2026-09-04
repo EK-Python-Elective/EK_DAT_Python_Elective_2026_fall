@@ -1,4 +1,4 @@
-# Session 9: Configuration Management — TOML, ENV, and Profiles
+# Session 8: Configuration Management — TOML, ENV, and Profiles
 
 **Week 44 | Python Elective 2026 Fall**
 

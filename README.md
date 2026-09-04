@@ -1,27 +1,27 @@
 # EK_DAT Python Elective 2026 Fall
 
-> 📌 **Course release: `v2.24.0`** — all materials this semester are written against mistral-vibe at release `v2.24.0`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal — see [session 14](14._pr_preparation/README.md).)
+> 📌 **Course release: `v2.24.0`** — all materials this semester are written against mistral-vibe at release `v2.24.0`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal — see [session 13](13._pr_preparation/README.md).)
 
 ## Semester Plan: Fork of mistral-vibe
 
 | # | Week | Topic |
 |:-:|:----:|-------|
 | 1 | 35 | [Kickoff: Open Source Culture & Project Setup](01._open_source_and_project_setup/README.md) |
-| 2 | 36 | [Reading Code: Project Structure & Python Packaging](02._project_structure_and_packaging/README.md) |
-| 3 | 37 | [Python Tooling: uv, ruff, and the Modern Ecosystem](03._python_tooling/README.md) |
-| 4 | 38 | [Type System: Type Hints, Dataclasses, and Pydantic](04._type_system/README.md) |
-| 5 | 39 | [CLI Development: How the CLI Works](05._cli_development/README.md) |
-| 6 | 40 | [File I/O and pathlib](06._file_io_and_pathlib/README.md) |
-| 7 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](07._apis_and_http_clients/README.md) |
+|  | 36 | _No session — merged into session 2 (week 37)_ |
+| 2 | 37 | [Project Structure, Packaging & Tooling](02._project_structure_and_packaging/README.md) |
+| 3 | 38 | [Type System: Type Hints, Dataclasses, and Pydantic](03._type_system/README.md) |
+| 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
+| 5 | 40 | [File I/O and pathlib](05._file_io_and_pathlib/README.md) |
+| 6 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
-| 8 | 43 | [Async Python](08._async_python/README.md) |
-| 9 | 44 | [Configuration Management: TOML, ENV, and Profiles](09._configuration_management/README.md) |
-| 10 | 45 | [The Skills/Plugin System: Extensibility Patterns](10._skills_plugin_system/README.md) |
-| 11 | 46 | [Testing: pytest and How to Test CLI Tools](11._testing/README.md) |
-| 12 | 47 | [Feature Sprint I](12._feature_sprint_1/README.md) |
-| 13 | 48 | [Feature Sprint II + Code Review](13._feature_sprint_2_code_review/README.md) |
-| 14 | 49 | [PR Preparation: Contributing Back](14._pr_preparation/README.md) |
-| 15 | — | [Exam — Feature Presentation & Defense](15._exam/README.md) |
+| 7 | 43 | [Async Python](07._async_python/README.md) |
+| 8 | 44 | [Configuration Management: TOML, ENV, and Profiles](08._configuration_management/README.md) |
+| 9 | 45 | [The Skills/Plugin System: Extensibility Patterns](09._skills_plugin_system/README.md) |
+| 10 | 46 | [Testing: pytest and How to Test CLI Tools](10._testing/README.md) |
+| 11 | 47 | [Feature Sprint I](11._feature_sprint_1/README.md) |
+| 12 | 48 | [Feature Sprint II + Code Review](12._feature_sprint_2_code_review/README.md) |
+| 13 | 49 | [PR Preparation: Contributing Back](13._pr_preparation/README.md) |
+| 14 | — | [Exam — Feature Presentation & Defense](14._exam/README.md) |
 
 
 ---
@@ -49,4 +49,4 @@ The exam is an **individual oral examination** built on a **group feature**:
 - **Group hand-in:** each group submits one PR — their feature branch → their fork's `main` (pinned at `v2.24.0`). A CI workflow runs the checks on the PR, and the examiner evaluates it beforehand by checking it out and running it (it is reviewed, not merged).
 - **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
 
-The work is collaborative (sessions 12–14), but the grade is individual. See [the exam page](15._exam/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).
+The work is collaborative (sessions 11–13), but the grade is individual. See [the exam page](14._exam/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).

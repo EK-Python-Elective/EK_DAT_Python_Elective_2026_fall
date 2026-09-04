@@ -1,4 +1,4 @@
-# Session 5: CLI Development — How the CLI Works
+# Session 4: CLI Development — How the CLI Works
 
 **Week 39 | Python Elective 2026 Fall**
 

@@ -1,4 +1,4 @@
-# Session 8: Async Python
+# Session 7: Async Python
 
 **Week 43 | Python Elective 2026 Fall**
 

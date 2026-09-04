@@ -1,4 +1,4 @@
-# Session 6: File I/O and pathlib
+# Session 5: File I/O and pathlib
 
 **Week 40 | Python Elective 2026 Fall**
 

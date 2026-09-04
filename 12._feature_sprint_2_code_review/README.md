@@ -1,4 +1,4 @@
-# Session 13: Feature Sprint II & Code Review
+# Session 12: Feature Sprint II & Code Review
 
 **Week 48 | Python Elective 2026 Fall**
 

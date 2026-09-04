@@ -57,7 +57,7 @@
 2. Clone your fork locally: `git clone git@github.com:<you>/mistral-vibe-ek-python-elective.git`
 3. That's it. Your clone is on `main` — the course's pinned base: mistral-vibe at release `v2.24.0`, plus the course's CI checks and a `tests/exam/` folder. Everyone starts on identical code, so the file and line references in later sessions match what you see on screen.
 
-> The course repo is itself a fork of the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe). You don't need to touch the original at all this semester — but if you later want to contribute your feature back to it, that's an optional path covered in [session 14](../14._pr_preparation/README.md).
+> The course repo is itself a fork of the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe). You don't need to touch the original at all this semester — but if you later want to contribute your feature back to it, that's an optional path covered in [session 13](../13._pr_preparation/README.md).
 
 ### Working on a branch — always
 **Never commit to `main`.** It's your stable base — the pinned release everyone shares, and the branch your exam feature is reviewed against. Keep it clean.
@@ -69,7 +69,7 @@ git checkout -b exercise/session-04   # one branch per exercise or experiment
 git checkout -b feature/my-experiment
 ```
 
-When an exercise is ready, open a pull request from your branch into your own `main` — **but do not merge it.** Opening the PR is a rehearsal for session 12, where this same motion happens for real: it gives you GitHub's diff view to review your own change, and it triggers the course's CI checks (ruff, pyright, pytest) automatically. Once you've looked it over, leave it open or close it — either way, don't click Merge. Because your work lives on its own branches and none of these PRs get merged, `main` stays pristine at the pinned release all semester, and can always be restored without touching anything you wrote.
+When an exercise is ready, open a pull request from your branch into your own `main` — **but do not merge it.** Opening the PR is a rehearsal for session 11, where this same motion happens for real: it gives you GitHub's diff view to review your own change, and it triggers the course's CI checks (ruff, pyright, pytest) automatically. Once you've looked it over, leave it open or close it — either way, don't click Merge. Because your work lives on its own branches and none of these PRs get merged, `main` stays pristine at the pinned release all semester, and can always be restored without touching anything you wrote.
 
 #### If `main` ever gets messed up
 You forked a pinned repo and you don't pull from anywhere else, so `main` shouldn't drift. If it ever does — a stray commit, a bad merge — reset it to the version you forked:

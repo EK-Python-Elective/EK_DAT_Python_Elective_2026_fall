@@ -1,4 +1,4 @@
-# Session 7: APIs and HTTP Clients — Talking to Mistral AI
+# Session 6: APIs and HTTP Clients — Talking to Mistral AI
 
 **Week 41 | Python Elective 2026 Fall**
 

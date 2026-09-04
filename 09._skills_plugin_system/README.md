@@ -1,4 +1,4 @@
-# Session 10: The Skills/Plugin System — Extensibility Patterns
+# Session 9: The Skills/Plugin System — Extensibility Patterns
 
 **Week 45 | Python Elective 2026 Fall**
 

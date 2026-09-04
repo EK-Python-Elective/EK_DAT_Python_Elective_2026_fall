@@ -1,4 +1,4 @@
-# Session 4: The Type System — Type Hints, Dataclasses, and Pydantic
+# Session 3: The Type System — Type Hints, Dataclasses, and Pydantic
 
 **Week 38 | Python Elective 2026 Fall**
 

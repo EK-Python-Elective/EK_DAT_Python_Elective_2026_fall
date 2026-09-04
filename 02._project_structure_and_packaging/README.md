@@ -1,19 +1,23 @@
-# Session 2: Project Structure & Python Packaging
+# Session 2: Project Structure, Packaging & Tooling
 
-**Week 36 | Python Elective 2026 Fall**
+**Week 37 | Python Elective 2026 Fall**
 
-> Build a tiny Python project from scratch — `pyproject.toml`, a package folder, a dependency, an entry point — then open the mistral-vibe fork and recognise the exact same anatomy at full scale.
+> Build a tiny Python project from scratch — `pyproject.toml`, a package folder, a dependency, an entry point — then open the mistral-vibe fork and recognise the exact same anatomy at full scale. Then configure that fork's tooling: `uv` beyond the basics, `ruff` for linting/formatting, `pyright` for type checking.
 
 ---
 
 ## Learning Goals
 
 - Build a minimal installable Python project from an empty folder using `uv`
-- Read and interpret a `pyproject.toml` file: `[project]`, `[project.scripts]`, `[build-system]`
+- Read and interpret a `pyproject.toml` file: `[project]`, `[project.scripts]`, `[build-system]`, `[tool.*]`
 - Know what entry points are and how they make a CLI command available after install
 - Understand what a lock file (`uv.lock`) is and why it isn't written by hand
 - Recognise `pip`, `requirements.txt`, and manual virtual environments when you meet them in other projects, and explain what problems `uv` solves over them
 - Navigate a real codebase (mistral-vibe) without getting lost
+- Use `uv` confidently beyond install: dev dependencies, running scripts, global tools
+- Use `ruff` to lint and auto-format Python code
+- Understand what static type checking is and how to run `pyright`
+- Configure these tools in your fork's `pyproject.toml`, and understand why consistent tooling matters in a team and open source project
 
 ---
 
@@ -21,7 +25,9 @@
 
 - Your fork of mistral-vibe must be cloned and running locally (from session 1)
 - Skim the `pyproject.toml` in your fork — note any fields you don't understand yet; bring questions
-- Optional: read [Python Packaging User Guide — pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+- Make sure `uv` is installed (`uv --version`), then verify `ruff` is available in the project: `uv run ruff --version`
+- Run `uv run ruff check .` inside your fork — what does it report?
+- Optional: read [Python Packaging User Guide — pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) and/or the [ruff docs](https://docs.astral.sh/ruff/) introduction
 
 ---
 
@@ -75,13 +81,65 @@ mistral-vibe/
 | 1 dependency (`segno`), nothing under it | ~60 dependencies, all `==`-pinned, hundreds of transitive |
 | `qr = "qr.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
 | `[build-system]` → hatchling | hatchling + hatch-vcs (version from git tags) |
-| no tool config yet | `[tool.ruff]`, `[tool.pyright]`, … (session 3) |
+| no tool config yet | `[tool.ruff]`, `[tool.pyright]`, … (part 3, below) |
 
 Pick a dependency in the fork's list that you'll actually meet later — `httpx`
-(session 7), `pydantic` (session 4) — and note it got there the same way you
+(session 6), `pydantic` (session 3) — and note it got there the same way you
 just added `segno`: `uv add`, then it's pinned in `uv.lock`.
 
 - Aside: `setup.py` is the legacy predecessor of `pyproject.toml` — you'll see it in older repos, but new projects declare everything in `pyproject.toml`.
+
+### Part 3 — Configure the tooling: uv, ruff, pyright
+
+Same fork, same `pyproject.toml` — now the `[tool.*]` sections.
+
+#### uv — beyond basic install
+
+```bash
+uv sync                        # install all deps from uv.lock
+uv add httpx                   # add a dependency
+uv add --dev pytest            # add a dev-only dependency
+uv run python script.py        # run a script in the project venv
+uv run vibe                    # run the CLI from source
+uv tool install ruff           # install a tool globally
+```
+
+#### ruff — linting and formatting in one
+
+- Replaces: `flake8`, `isort`, `black`, `pyupgrade` and more
+- Extremely fast (written in Rust)
+- Run linting: `ruff check .`
+- Auto-fix: `ruff check --fix .`
+- Format: `ruff format .`
+- Configure in `pyproject.toml`:
+```toml
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+```
+
+#### Type checking with pyright
+
+- Python is dynamically typed — but type hints + a checker catch bugs at "compile time"
+- `pyright` / `pylance`: fast, used by VS Code by default — and what mistral-vibe uses
+- `mypy`: the classic alternative, worth knowing about
+```bash
+uv run pyright
+```
+- How to read type errors and what they mean
+
+#### Configuring your fork's tooling
+
+- Add or adjust the `[tool.ruff]` and `[tool.pyright]` sections in your fork's `pyproject.toml`
+- Run a full lint pass and fix all warnings
+
+#### Pre-commit hooks (preview)
+
+- Brief intro to `pre-commit` — automatically run ruff before every commit
+- We will use this properly in a later session on testing and CI
 
 ### Entry points — the one trick
 
@@ -119,6 +177,10 @@ You won't use `pip` in this course — we use `uv` everywhere. This section is s
 - Find the function that is called first when you run `vibe` — trace it from the entry point
 - Add one dependency to your fork using `uv add <package>` and observe what changes in `pyproject.toml` and `uv.lock`
 - Come to next class ready to explain what `uv sync` does and why it matters
+- Run `uv run ruff check --fix .` and `uv run ruff format .` on your entire fork — commit the result
+- Inspect the existing `[tool.ruff]` section in `pyproject.toml` — find at least 3 configured rules and write a short comment (in your notes, not the file) explaining what each one does, then extend the ruff configuration with one new rule of your own
+- Try to introduce a deliberate type error and confirm that `pyright` catches it
+- Optional: set up the `ruff` VS Code extension (or equivalent for your editor)
 
 ---
 
@@ -131,3 +193,7 @@ For students who want to go further. None of this is required — pick whatever 
 - [optional] [PEP 517 / PEP 518](https://peps.python.org/pep-0518/) — why `pyproject.toml` exists at all, and what a "build backend" is.
 - [optional] [Entry points specification](https://packaging.python.org/en/latest/specifications/entry-points/) — the mechanism behind `[project.scripts]` and how typing `vibe` ends up calling Python code.
 - [optional] [Astral — uv blog post](https://astral.sh/blog/uv) — the design rationale for uv and how it compares to pip and Poetry.
+- [optional] [Ruff — Rules reference](https://docs.astral.sh/ruff/rules/) — every lint rule with a rationale and a before/after example; the menu you pick a `select` set from.
+- [optional] [uv — Concepts](https://docs.astral.sh/uv/concepts/) — projects, the lockfile, the resolver, and tools vs. project dependencies.
+- [optional] [pyright — Configuration](https://microsoft.github.io/pyright/#/configuration) — every `[tool.pyright]` setting and what each strictness level turns on.
+- [optional] [pre-commit.com](https://pre-commit.com/) — the hook framework we preview in class; the quickstart gets ruff running on every commit in a few minutes.

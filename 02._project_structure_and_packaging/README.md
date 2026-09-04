@@ -25,7 +25,7 @@
 
 - Your fork of mistral-vibe must be cloned and running locally (from session 1)
 - Skim the `pyproject.toml` in your fork — note any fields you don't understand yet; bring questions
-- Make sure `uv` is installed (`uv --version`), then verify `ruff` is available in the project `uv run ruff --version`
+- Make sure `uv` is installed (`uv --version`)
 - Optional: read [Python Packaging User Guide — pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) and/or the [ruff docs](https://docs.astral.sh/ruff/) introduction
 
 ---

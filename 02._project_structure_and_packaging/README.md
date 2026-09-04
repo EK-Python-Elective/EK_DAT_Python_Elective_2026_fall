@@ -29,23 +29,25 @@
 
 ### Part 1 — Build a project from scratch (live demo, then you follow)
 
-We build a one-command CLI called `dadjoke` from an empty folder. The app logic
-is three lines; the point is everything around it.
+We build a one-command CLI called `milspend` from an empty folder. It reports a
+country's military expenditure as a share of GDP, pulled live from the World
+Bank's open-data API (source: SIPRI). The app logic is a few lines; the point
+is everything around it.
 
 Demo project and full walkthrough:
 [demos_from_teachings / 02._project_structure_and_packaging](https://github.com/EK-Python-Elective/demos_from_teachings/tree/session-2-packaging-demo/02._project_structure_and_packaging)
 
 The build, step by step:
 
-1. `uv init --python 3.12 dadjoke` — what did `uv` create? (`pyproject.toml`, `README.md`, `.python-version`, a package folder)
+1. `uv init --python 3.12 milspend` — what did `uv` create? (`pyproject.toml`, `README.md`, `.python-version`, a package folder)
 2. Reshape to a **flat layout** (package folder next to `pyproject.toml`, no `src/`) — the same layout mistral-vibe uses
-3. Write `main()` — a tiny function that fetches a joke over HTTP
+3. Write `main()` — a small function that fetches JSON over HTTP and prints a table
 4. Wire up `pyproject.toml` by hand:
    - `[project]` — name, version, `requires-python`, `dependencies`
-   - `[project.scripts]` — `dadjoke = "dadjoke.cli:main"` — this is what makes `dadjoke` a terminal command
+   - `[project.scripts]` — `milspend = "milspend.cli:main"` — this is what makes `milspend` a terminal command
    - `[build-system]` — the build backend (we use `hatchling`, like mistral-vibe)
 5. `uv add httpx` — watch `pyproject.toml`, `uv.lock`, and `.venv/` change
-6. `uv run dadjoke` — the entry point runs
+6. `uv run milspend UKR` — the entry point runs (try `DNK`, `SWE`, `USA`, `RUS`)
 7. Optional: `uv build` — see the `.whl` that `pip install` would download
 
 By the end, every field we're about to see in mistral-vibe's `pyproject.toml`
@@ -53,7 +55,7 @@ has already appeared in miniature.
 
 ### Part 2 — The same anatomy in mistral-vibe
 
-Open your fork's `pyproject.toml` next to `dadjoke`'s and map it field by field:
+Open your fork's `pyproject.toml` next to `milspend`'s and map it field by field:
 
 ```
 mistral-vibe/
@@ -67,11 +69,11 @@ mistral-vibe/
 └── tests/
 ```
 
-| In `dadjoke` | In mistral-vibe |
+| In `milspend` | In mistral-vibe |
 |---|---|
-| `dadjoke/` next to `pyproject.toml` | `vibe/` next to `pyproject.toml` (same flat layout) |
-| 1 dependency | ~60 dependencies, all `==`-pinned |
-| `dadjoke = "dadjoke.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
+| `milspend/` next to `pyproject.toml` | `vibe/` next to `pyproject.toml` (same flat layout) |
+| 1 dependency (`httpx`) | ~60 dependencies, all `==`-pinned (`httpx` is one of them) |
+| `milspend = "milspend.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
 | `[build-system]` → hatchling | hatchling + hatch-vcs (version from git tags) |
 | no tool config yet | `[tool.ruff]`, `[tool.pyright]`, … (session 3) |
 
@@ -79,7 +81,7 @@ mistral-vibe/
 
 ### Entry points — the one trick
 
-- How does typing `vibe` (or `dadjoke`) in the terminal call Python code?
+- How does typing `vibe` (or `milspend`) in the terminal call Python code?
 - `<command> = "<module>:<function>"` in `[project.scripts]`. At install time the build backend writes a launcher script onto your `PATH` that imports the module and calls the function.
 - Trace it: shell → launcher script → `main()`.
 

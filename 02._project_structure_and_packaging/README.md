@@ -133,6 +133,8 @@ uv run pyright
 
 #### Configuring your fork's tooling
 
+> ⚠️ **Branch first.** Everything up to here (`qr`, reading your fork's `pyproject.toml`) didn't touch your fork. From this point on you're editing it — make sure you're on a branch off `main`, not `main` itself, before you change anything (see session 1, "Working on a branch — always"): `git checkout -b exercise/session-02`.
+
 - Add or adjust the `[tool.ruff]` and `[tool.pyright]` sections in your fork's `pyproject.toml`
 - Run a full lint pass and fix all warnings
 

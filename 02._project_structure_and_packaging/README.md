@@ -89,60 +89,6 @@ just added `segno`: `uv add`, then it's pinned in `uv.lock`.
 
 - Aside: `setup.py` is the legacy predecessor of `pyproject.toml` — you'll see it in older repos, but new projects declare everything in `pyproject.toml`.
 
-### Part 3 — Configure the tooling: uv, ruff, pyright
-
-Same fork, same `pyproject.toml` — now the `[tool.*]` sections.
-
-#### uv — beyond basic install
-
-```bash
-uv sync                        # install all deps from uv.lock
-uv add httpx                   # add a dependency
-uv add --dev pytest            # add a dev-only dependency
-uv run python script.py        # run a script in the project venv
-uv run vibe                    # run the CLI from source
-uv tool install ruff           # install a tool globally
-```
-
-#### ruff — linting and formatting in one
-
-- Replaces: `flake8`, `isort`, `black`, `pyupgrade` and more
-- Extremely fast (written in Rust)
-- Run linting: `ruff check .`
-- Auto-fix: `ruff check --fix .`
-- Format: `ruff format .`
-- Configure in `pyproject.toml`:
-```toml
-[tool.ruff]
-line-length = 100
-target-version = "py312"
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "UP"]
-```
-
-#### Type checking with pyright
-
-- Python is dynamically typed — but type hints + a checker catch bugs at "compile time"
-- `pyright` / `pylance`: fast, used by VS Code by default — and what mistral-vibe uses
-- `mypy`: the classic alternative, worth knowing about
-```bash
-uv run pyright
-```
-- How to read type errors and what they mean
-
-#### Configuring your fork's tooling
-
-> ⚠️ **Branch first.** Everything up to here (`qr`, reading your fork's `pyproject.toml`) didn't touch your fork. From this point on you're editing it — make sure you're on a branch off `main`, not `main` itself, before you change anything (see session 1, "Working on a branch — always"): `git checkout -b exercise/session-02`.
-
-- Add or adjust the `[tool.ruff]` and `[tool.pyright]` sections in your fork's `pyproject.toml`
-- Run a full lint pass and fix all warnings
-
-#### Pre-commit hooks (preview)
-
-- Brief intro to `pre-commit` — automatically run ruff before every commit
-- We will use this properly in a later session on testing and CI
-
 ### Entry points — the one trick
 
 - How does typing `vibe` (or `qr`) in the terminal call Python code?
@@ -166,6 +112,60 @@ You won't use `pip` in this course — we use `uv` everywhere. This section is s
 
 - Walk through the top-level modules in mistral-vibe together
 - Identify: where is the CLI defined? Where are API calls made? Where is config loaded?
+
+### Part 3 — Configure the tooling: uv, ruff, pyright
+
+**Everything from here on is about your mistral-vibe fork — not `qr`.** `cd` into your fork before running anything below. It's the same `pyproject.toml` you had open in Part 2; now it's the `[tool.*]` sections.
+
+> ⚠️ **Branch first.** Parts 1 and 2 didn't change any files. Some of what follows does (`ruff --fix`, `ruff format`, adding a dependency) — so before you run any of it, make sure you're on a branch off `main` in your fork, not `main` itself (see session 1, "Working on a branch — always"): `git checkout -b exercise/session-02`.
+
+#### uv — beyond basic install
+
+```bash
+uv sync                        # install all deps from uv.lock
+uv add httpx                   # add a dependency
+uv add --dev pytest            # add a dev-only dependency
+uv run python script.py        # run a script in the project venv
+uv run vibe                    # run the CLI from source
+uv tool install ruff           # install a tool globally (outside any project)
+```
+
+#### ruff — linting and formatting in one
+
+- Replaces: `flake8`, `isort`, `black`, `pyupgrade` and more
+- Extremely fast (written in Rust)
+- Run linting: `uv run ruff check .`
+- Auto-fix: `uv run ruff check --fix .`
+- Format: `uv run ruff format .`
+- Configure in `pyproject.toml`:
+```toml
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+```
+
+#### Type checking with pyright
+
+- Python is dynamically typed — but type hints + a checker catch bugs at "compile time"
+- `pyright` / `pylance`: fast, used by VS Code by default — and what mistral-vibe uses
+- `mypy`: the classic alternative, worth knowing about
+```bash
+uv run pyright
+```
+- How to read type errors and what they mean
+
+#### Configuring your fork's tooling
+
+- Add or adjust the `[tool.ruff]` and `[tool.pyright]` sections in your fork's `pyproject.toml`
+- Run a full lint pass and fix all warnings
+
+#### Pre-commit hooks (preview)
+
+- Brief intro to `pre-commit` — automatically run ruff before every commit
+- We will use this properly in a later session on testing and CI
 
 ### Exercise
 

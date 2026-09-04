@@ -29,25 +29,25 @@
 
 ### Part 1 — Build a project from scratch (live demo, then you follow)
 
-We build a one-command CLI called `milspend` from an empty folder. It reports a
-country's military expenditure as a share of GDP, pulled live from the World
-Bank's open-data API (source: SIPRI). The app logic is a few lines; the point
-is everything around it.
+We build a one-command CLI called `qr` from an empty folder. It prints a QR
+code for whatever text you give it, right in the terminal (scan it with your
+phone). No network, no files — the whole app is one call to a library. The
+point is everything around it.
 
 Demo project and full walkthrough:
 [demos_from_teachings / 02._project_structure_and_packaging](https://github.com/EK-Python-Elective/demos_from_teachings/tree/session-2-packaging-demo/02._project_structure_and_packaging)
 
 The build, step by step:
 
-1. `uv init --python 3.12 milspend` — what did `uv` create? (`pyproject.toml`, `README.md`, `.python-version`, a package folder)
+1. `uv init --python 3.12 qr` — what did `uv` create? (`pyproject.toml`, `README.md`, `.python-version`, a package folder)
 2. Reshape to a **flat layout** (package folder next to `pyproject.toml`, no `src/`) — the same layout mistral-vibe uses
-3. Write `main()` — a small function that fetches JSON over HTTP and prints a table
+3. Write `main()` — three lines: read the text from `sys.argv`, hand it to the `segno` library, print the code
 4. Wire up `pyproject.toml` by hand:
    - `[project]` — name, version, `requires-python`, `dependencies`
-   - `[project.scripts]` — `milspend = "milspend.cli:main"` — this is what makes `milspend` a terminal command
+   - `[project.scripts]` — `qr = "qr.cli:main"` — this is what makes `qr` a terminal command
    - `[build-system]` — the build backend (we use `hatchling`, like mistral-vibe)
-5. `uv add httpx` — watch `pyproject.toml`, `uv.lock`, and `.venv/` change
-6. `uv run milspend UKR` — the entry point runs (try `DNK`, `SWE`, `USA`, `RUS`)
+5. `uv add segno` — watch `pyproject.toml`, `uv.lock`, and `.venv/` change
+6. `uv run qr "https://kea.dk"` — the entry point runs
 7. Optional: `uv build` — see the `.whl` that `pip install` would download
 
 By the end, every field we're about to see in mistral-vibe's `pyproject.toml`
@@ -55,7 +55,7 @@ has already appeared in miniature.
 
 ### Part 2 — The same anatomy in mistral-vibe
 
-Open your fork's `pyproject.toml` next to `milspend`'s and map it field by field:
+Open your fork's `pyproject.toml` next to `qr`'s and map it field by field:
 
 ```
 mistral-vibe/
@@ -69,19 +69,23 @@ mistral-vibe/
 └── tests/
 ```
 
-| In `milspend` | In mistral-vibe |
+| In `qr` | In mistral-vibe |
 |---|---|
-| `milspend/` next to `pyproject.toml` | `vibe/` next to `pyproject.toml` (same flat layout) |
-| 1 dependency (`httpx`) | ~60 dependencies, all `==`-pinned (`httpx` is one of them) |
-| `milspend = "milspend.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
+| `qr/` next to `pyproject.toml` | `vibe/` next to `pyproject.toml` (same flat layout) |
+| 1 dependency (`segno`), nothing under it | ~60 dependencies, all `==`-pinned, hundreds of transitive |
+| `qr = "qr.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
 | `[build-system]` → hatchling | hatchling + hatch-vcs (version from git tags) |
 | no tool config yet | `[tool.ruff]`, `[tool.pyright]`, … (session 3) |
+
+Pick a dependency in the fork's list that you'll actually meet later — `httpx`
+(session 7), `pydantic` (session 4) — and note it got there the same way you
+just added `segno`: `uv add`, then it's pinned in `uv.lock`.
 
 - Aside: `setup.py` is the legacy predecessor of `pyproject.toml` — you'll see it in older repos, but new projects declare everything in `pyproject.toml`.
 
 ### Entry points — the one trick
 
-- How does typing `vibe` (or `milspend`) in the terminal call Python code?
+- How does typing `vibe` (or `qr`) in the terminal call Python code?
 - `<command> = "<module>:<function>"` in `[project.scripts]`. At install time the build backend writes a launcher script onto your `PATH` that imports the module and calls the function.
 - Trace it: shell → launcher script → `main()`.
 

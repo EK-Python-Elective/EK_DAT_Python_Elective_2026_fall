@@ -1,18 +1,19 @@
-# Session 2: Reading Code — Project Structure & Python Packaging
+# Session 2: Project Structure & Python Packaging
 
 **Week 36 | Python Elective 2026 Fall**
 
-> Explore `pyproject.toml`, `uv.lock`, folder layout, entry points. Understand how a Python package is installed and run. Compare to `pip`/`requirements.txt`.
+> Build a tiny Python project from scratch — `pyproject.toml`, a package folder, a dependency, an entry point — then open the mistral-vibe fork and recognise the exact same anatomy at full scale.
 
 ---
 
 ## Learning Goals
 
-- Understand how a modern Python project is structured on disk
-- Read and interpret a `pyproject.toml` file
+- Build a minimal installable Python project from an empty folder using `uv`
+- Read and interpret a `pyproject.toml` file: `[project]`, `[project.scripts]`, `[build-system]`
 - Know what entry points are and how they make a CLI command available after install
+- Understand what a lock file (`uv.lock`) is and why it isn't written by hand
 - Recognise `pip`, `requirements.txt`, and manual virtual environments when you meet them in other projects, and explain what problems `uv` solves over them
-- Be able to navigate a real codebase without getting lost
+- Navigate a real codebase (mistral-vibe) without getting lost
 
 ---
 
@@ -26,7 +27,34 @@
 
 ## Today's Teachings
 
-### Anatomy of a Python project
+### Part 1 — Build a project from scratch (live demo, then you follow)
+
+We build a one-command CLI called `dadjoke` from an empty folder. The app logic
+is three lines; the point is everything around it.
+
+Demo project and full walkthrough:
+[demos_from_teachings / 02._project_structure_and_packaging](https://github.com/EK-Python-Elective/demos_from_teachings/tree/session-2-packaging-demo/02._project_structure_and_packaging)
+
+The build, step by step:
+
+1. `uv init --python 3.12 dadjoke` — what did `uv` create? (`pyproject.toml`, `README.md`, `.python-version`, a package folder)
+2. Reshape to a **flat layout** (package folder next to `pyproject.toml`, no `src/`) — the same layout mistral-vibe uses
+3. Write `main()` — a tiny function that fetches a joke over HTTP
+4. Wire up `pyproject.toml` by hand:
+   - `[project]` — name, version, `requires-python`, `dependencies`
+   - `[project.scripts]` — `dadjoke = "dadjoke.cli:main"` — this is what makes `dadjoke` a terminal command
+   - `[build-system]` — the build backend (we use `hatchling`, like mistral-vibe)
+5. `uv add httpx` — watch `pyproject.toml`, `uv.lock`, and `.venv/` change
+6. `uv run dadjoke` — the entry point runs
+7. Optional: `uv build` — see the `.whl` that `pip install` would download
+
+By the end, every field we're about to see in mistral-vibe's `pyproject.toml`
+has already appeared in miniature.
+
+### Part 2 — The same anatomy in mistral-vibe
+
+Open your fork's `pyproject.toml` next to `dadjoke`'s and map it field by field:
+
 ```
 mistral-vibe/
 ├── pyproject.toml       # project metadata, dependencies, tool config
@@ -39,15 +67,21 @@ mistral-vibe/
 └── tests/
 ```
 
-### pyproject.toml deep dive
-- `[project]` — name, version, requires-python, dependencies
-- `[project.scripts]` — how `vibe` becomes a terminal command after install
-- `[tool.ruff]`, `[tool.pyright]` — tool configuration lives here too
-- Aside: `setup.py` is the legacy predecessor — you'll see it in older repos, but new projects declare everything in `pyproject.toml`
+| In `dadjoke` | In mistral-vibe |
+|---|---|
+| `dadjoke/` next to `pyproject.toml` | `vibe/` next to `pyproject.toml` (same flat layout) |
+| 1 dependency | ~60 dependencies, all `==`-pinned |
+| `dadjoke = "dadjoke.cli:main"` | `vibe = "vibe.cli.entrypoint:main"` (+ `vibe-acp`, `vibe-app-server`) |
+| `[build-system]` → hatchling | hatchling + hatch-vcs (version from git tags) |
+| no tool config yet | `[tool.ruff]`, `[tool.pyright]`, … (session 3) |
 
-### Entry points
-- How does typing `vibe` in the terminal call Python code?
-- Trace the call: shell → entry point → `__main__` or `main()` function
+- Aside: `setup.py` is the legacy predecessor of `pyproject.toml` — you'll see it in older repos, but new projects declare everything in `pyproject.toml`.
+
+### Entry points — the one trick
+
+- How does typing `vibe` (or `dadjoke`) in the terminal call Python code?
+- `<command> = "<module>:<function>"` in `[project.scripts]`. At install time the build backend writes a launcher script onto your `PATH` that imports the module and calls the function.
+- Trace it: shell → launcher script → `main()`.
 
 ### uv vs pip
 
@@ -63,12 +97,13 @@ You won't use `pip` in this course — we use `uv` everywhere. This section is s
 | Editable install | `uv pip install -e .` | `pip install -e .` |
 
 ### Exploring the module structure
+
 - Walk through the top-level modules in mistral-vibe together
 - Identify: where is the CLI defined? Where are API calls made? Where is config loaded?
 
 ### Exercise
 
-[Scavenger Hunt in pyproject.toml](exercise_scavenger_hunt.md)
+[Scavenger Hunt in pyproject.toml](exercise_scavenger_hunt.md) — you now know what `[project.scripts]` *is*, so "what function does `vibe` call?" is a lookup, not a mystery.
 
 ---
 

@@ -12,7 +12,6 @@
 - Read and interpret a `pyproject.toml` file: `[project]`, `[project.scripts]`, `[build-system]`, `[tool.*]`
 - Know what entry points are and how they make a CLI command available after install
 - Understand what a lock file (`uv.lock`) is and why it isn't written by hand
-- Recognise `pip`, `requirements.txt`, and manual virtual environments when you meet them in other projects, and explain what problems `uv` solves over them
 - Navigate a real codebase (mistral-vibe) without getting lost
 - Use `uv` confidently beyond install: dev dependencies, running scripts, global tools
 - Use `ruff` to lint and auto-format Python code
@@ -26,7 +25,6 @@
 - Your fork of mistral-vibe must be cloned and running locally (from session 1)
 - Skim the `pyproject.toml` in your fork — note any fields you don't understand yet; bring questions
 - Make sure `uv` is installed (`uv --version`)
-- Clone [miguelgrinberg/flasky at tag `7a`](https://github.com/miguelgrinberg/flasky/tree/7a) somewhere handy — read-only, you won't install or run it, just have it open for the "uv vs pip" section below
 - Optional: read [Python Packaging User Guide — pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) and/or the [ruff docs](https://docs.astral.sh/ruff/) introduction
 
 ---
@@ -94,21 +92,6 @@ just added `segno`: `uv add`, then it's pinned in `uv.lock`.
 - How does typing `vibe` (or `qr`) in the terminal call Python code?
 - `<command> = "<module>:<function>"` in `[project.scripts]`. At install time the build backend writes a launcher script onto your `PATH` that imports the module and calls the function.
 - Trace it: shell → launcher script → `main()`.
-
-### uv vs pip
-
-You won't use `pip` in this course — we use `uv` everywhere. This section is so you can read the many projects (and tutorials, Dockerfiles, CI configs) that still use `pip` and `requirements.txt`, and so you can see *why* uv exists: every row below is a pip pain point that uv removes.
-
-| | `uv` | `pip` |
-|---|---|---|
-| Speed | Very fast (Rust) | Slower |
-| Lock file | `uv.lock` (automatic, exact) | `requirements.txt` (hand-maintained) |
-| Virtualenv | Created and used automatically | You create and activate it yourself (`python -m venv .venv`, then `source .venv/bin/activate`) |
-| Install from lock | `uv sync` | `pip install -r requirements.txt` |
-| Add a dependency | `uv add httpx` (updates `pyproject.toml` + lock) | `pip install httpx`, then remember to edit `requirements.txt` |
-| Editable install | `uv pip install -e .` | `pip install -e .` |
-
-**See it in the wild:** [miguelgrinberg/flasky at tag `7a`](https://github.com/miguelgrinberg/flasky/tree/7a) — an early snapshot of the well-known Flask Mega-Tutorial's companion repo. One flat `requirements.txt` at the root, 22 lines, real hand-pinned `==` versions someone typed by hand (`Flask==0.12.2`, `SQLAlchemy==1.1.11`, …) — no lock file, no folders, nothing generated. Clone it and read it; you don't need to install it (the pins are from ~2017 and likely won't install cleanly on a modern Python — that staleness is itself the point: nothing here forces a revisit, unlike `uv.lock`).
 
 ### Exploring the module structure
 

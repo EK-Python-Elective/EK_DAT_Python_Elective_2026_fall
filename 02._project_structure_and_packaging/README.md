@@ -26,7 +26,7 @@
 - Your fork of mistral-vibe must be cloned and running locally (from session 1)
 - Skim the `pyproject.toml` in your fork — note any fields you don't understand yet; bring questions
 - Make sure `uv` is installed (`uv --version`)
-- Clone [miguelgrinberg/flasky](https://github.com/miguelgrinberg/flasky) somewhere handy — read-only, you won't install or run it, just have it open for the "uv vs pip" section below
+- Clone [miguelgrinberg/flasky at tag `7a`](https://github.com/miguelgrinberg/flasky/tree/7a) somewhere handy — read-only, you won't install or run it, just have it open for the "uv vs pip" section below
 - Optional: read [Python Packaging User Guide — pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) and/or the [ruff docs](https://docs.astral.sh/ruff/) introduction
 
 ---
@@ -108,7 +108,7 @@ You won't use `pip` in this course — we use `uv` everywhere. This section is s
 | Add a dependency | `uv add httpx` (updates `pyproject.toml` + lock) | `pip install httpx`, then remember to edit `requirements.txt` |
 | Editable install | `uv pip install -e .` | `pip install -e .` |
 
-**See it in the wild:** [miguelgrinberg/flasky](https://github.com/miguelgrinberg/flasky) — companion repo to the well-known Flask Mega-Tutorial. `requirements/common.txt` is a real, hand-pinned `requirements.txt` (`Flask==0.12.2` style `==` pins someone typed by hand, no lock file); the root `requirements.txt` just does `-r requirements/heroku.txt` — requirements files can include each other, another pattern you'll meet in the wild. Clone it and read it; you don't need to install it (the pins are from 2017 and likely won't install cleanly on a modern Python — that staleness is itself the point: nothing here forces a revisit, unlike `uv.lock`).
+**See it in the wild:** [miguelgrinberg/flasky at tag `7a`](https://github.com/miguelgrinberg/flasky/tree/7a) — an early snapshot of the well-known Flask Mega-Tutorial's companion repo. One flat `requirements.txt` at the root, 22 lines, real hand-pinned `==` versions someone typed by hand (`Flask==0.12.2`, `SQLAlchemy==1.1.11`, …) — no lock file, no folders, nothing generated. Clone it and read it; you don't need to install it (the pins are from ~2017 and likely won't install cleanly on a modern Python — that staleness is itself the point: nothing here forces a revisit, unlike `uv.lock`).
 
 ### Exploring the module structure
 

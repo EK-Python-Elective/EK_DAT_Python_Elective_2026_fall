@@ -39,7 +39,7 @@ phone). No network, no files — the whole app is one call to a library. The
 point is everything around it.
 
 Demo project and full walkthrough:
-[demos_from_teachings / 02._project_structure_and_packaging](https://github.com/EK-Python-Elective/demos_from_teachings/tree/session-2-packaging-demo/02._project_structure_and_packaging)
+[demos_from_teachings / 02._project_structure_and_packaging](https://github.com/EK-Python-Elective/demos_from_teachings/tree/main/02._project_structure_and_packaging)
 
 The build, step by step:
 
@@ -144,6 +144,21 @@ uv run pyright
 
 - Add or adjust the `[tool.ruff]` and `[tool.pyright]` sections in your fork's `pyproject.toml`
 - Run a full lint pass and fix all warnings
+
+#### Practice: fix a pile of deliberate errors
+
+Two ready-made broken files in the demo folder, one violation per rule the fork's config catches:
+
+- [`ruff_check_failures.py`](https://github.com/EK-Python-Elective/demos_from_teachings/blob/main/02._project_structure_and_packaging/ruff_check_failures.py) — trips every rule in `[tool.ruff]`
+- [`pyright_type_errors.py`](https://github.com/EK-Python-Elective/demos_from_teachings/blob/main/02._project_structure_and_packaging/pyright_type_errors.py) — eight deliberate type errors
+
+The folder is a small `uv` project with `ruff`/`pyright` pinned and configured like the fork, so:
+
+```bash
+uv sync
+uv run ruff check .          # then --fix, then fix the rest by hand
+uv run pyright               # each error is one small edit
+```
 
 #### Pre-commit hooks (preview)
 

@@ -165,9 +165,10 @@ uv run pyright               # each error is one small edit
 - Brief intro to `pre-commit` — automatically run ruff before every commit
 - We will use this properly in a later session on testing and CI
 
-### Exercise
+### Exercises
 
-[Scavenger Hunt in pyproject.toml](exercise_scavenger_hunt.md) — you now know what `[project.scripts]` *is*, so "what function does `vibe` call?" is a lookup, not a mystery.
+- [Scavenger Hunt in pyproject.toml](exercise_scavenger_hunt.md) — you now know what `[project.scripts]` *is*, so "what function does `vibe` call?" is a lookup, not a mystery.
+- [Change the Cat, Keep It Clean](exercise_change_the_cat.md) — find the animated cat in the welcome banner, turn it into an elephant, then run `ruff` and `pyright` to prove your change is still clean Python.
 
 ---
 

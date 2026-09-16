@@ -2,7 +2,7 @@
 
 **Week 38 | Python Elective 2026 Fall**
 
-> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, lists, tuples, dictionaries, and a first real Python `class`. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
+> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, functions, lists, tuples, dictionaries, and a first real Python `class`. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
 
 ---
 
@@ -10,6 +10,7 @@
 
 - Set up and use a Jupyter notebook in VS Code
 - Read and write variables of the basic types (`str`, `int`, `float`, `bool`, `None`) confidently
+- Write and call a function with parameters, a default value, and a return value
 - Build, index, slice, and mutate `list`s
 - Explain what makes a `tuple` different from a `list`, and when that difference matters
 - Build, look up, and iterate `dict`s; know `.get()` vs `[]`
@@ -101,7 +102,29 @@ advisor = None           # the absence of a value
 
 **Try it:** make four variables describing yourself (name, age, a float, a bool), print one sentence that uses all four with an f-string.
 
-### 2. Lists — ordered, mutable
+### 2. Functions — reusable blocks of code
+
+```python
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+greet("Ada")            # "Hello, Ada!"
+
+def add(a, b=0):         # b has a default value
+    return a + b
+
+add(3, 4)                # 7
+add(3)                   # 3 — b falls back to its default
+```
+
+- `def name(params):` defines it; call it by name with `()`
+- `return` sends a value back to the caller — no `return` means the function returns `None`
+- Parameters can have default values (`b=0`); call with positional args (`add(3, 4)`) or keyword args (`add(a=3, b=4)`)
+- A function is just a name bound to a reusable block of code — the same "name bound to a thing" idea as a variable, applied to behaviour instead of data
+
+**Try it:** write a function `is_even(n)` that returns whether `n` is even, and a function `shout(text)` that returns `text` upper-cased with an exclamation mark. Call each a few times and print the results.
+
+### 3. Lists — ordered, mutable
 
 ```python
 students = ["Ada", "Grace", "Alan"]
@@ -120,7 +143,7 @@ for s in students:
 
 **Try it:** build a list of 5 course topics, print the third one, add a 6th, remove the first, print the final list.
 
-### 3. Tuples — ordered, immutable
+### 4. Tuples — ordered, immutable
 
 ```python
 point = (3, 7)
@@ -131,11 +154,11 @@ point[0]                     # 3
 
 - Same ordering/indexing as lists, but **cannot be changed** after creation
 - Use a tuple when the shape is fixed and shouldn't be edited by accident — coordinates, RGB values, a `(name, age)` pair
-- Unpacking (`x, y = point`) is the move you'll use constantly, including in `for` loops over `dict.items()` (next section)
+- Unpacking (`x, y = point`) is the move you'll use constantly, including in `for` loops over `dict.items()` (coming up)
 
 **Try it:** make a tuple for a `(latitude, longitude)`, unpack it into two variables, print them. Then try to mutate the tuple and read the error.
 
-### 4. Dictionaries — key/value lookup
+### 5. Dictionaries — key/value lookup
 
 ```python
 student = {"name": "Ada", "age": 28, "enrolled": True}
@@ -153,7 +176,7 @@ for key, value in student.items():
 
 **Try it:** build a dict for a course session (title, week, topic list), look up one field with `[]`, look up a field that doesn't exist with `.get(..., default)`, then loop over `.items()` and print each pair.
 
-### 5. Classes — bundling data with behaviour
+### 6. Classes — bundling data with behaviour
 
 ```python
 class Counter:
@@ -175,7 +198,7 @@ print(c.value)         # read an attribute -> 11
 
 **Try it:** write a `BankAccount` class with `__init__(self, owner, balance=0)`, a `deposit(self, amount)` method, and a `withdraw(self, amount)` method. Create two accounts, deposit into one, withdraw from the other, print both balances.
 
-### 6. Putting it together
+### 7. Putting it together
 
 A class's attributes can be a list, a tuple, or a dict — everything from today combines:
 
@@ -222,6 +245,7 @@ Small, done in-class, in order — each builds on the section just taught:
 
 For students who want to go further. None of this is required — pick whatever looks interesting.
 
+- [optional] [Python docs — Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) — the official tutorial section on `def`, default values, and keyword arguments, going a bit further than today (`*args`, `**kwargs`, docstrings).
 - [optional] [Python docs — Data Structures](https://docs.python.org/3/tutorial/datastructures.html) — the official tutorial chapter on lists, tuples, dicts, sets, and comprehensions.
 - [optional] [Python docs — Classes](https://docs.python.org/3/tutorial/classes.html) — the official tutorial chapter on `class`, going further than today's session (inheritance, class vs instance variables).
 - [optional] [Real Python — Python Lists and Tuples](https://realpython.com/python-lists-tuples/) — a friendlier walkthrough with more examples.

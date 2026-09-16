@@ -2,7 +2,7 @@
 
 **Week 38 | Python Elective 2026 Fall**
 
-> Find and read all type annotations in mistral-vibe. Learn `TypedDict`, `dataclass`, `Optional`, `Union`. Students add type hints to an untyped part of the code.
+> Find and read all type annotations in mistral-vibe. Learn `dataclass`, `Optional`, `Union`. Students add type hints to an untyped part of the code.
 
 ---
 
@@ -10,7 +10,7 @@
 
 - Read and write Python type annotations confidently
 - Understand the most common types: `str`, `int`, `list`, `dict`, `Optional`, `Union`, `Any`
-- Use `TypedDict` and `dataclass` to define structured data
+- Use `dataclass` to define structured data
 - Understand when and why to use Pydantic for data validation
 - Find all type annotations in mistral-vibe and understand what they express
 
@@ -70,16 +70,6 @@ Two more pieces of syntax you will see in this session:
 
 You will rarely write a plain class like `Counter` in this course — mistral-vibe leans on `dataclass` and Pydantic instead — but you need to recognise the shape to read what follows.
 
-### TypedDict — typed dictionaries
-```python
-from typing import TypedDict
-
-class Config(TypedDict):
-    model: str
-    temperature: float
-    max_tokens: int
-```
-
 ### Dataclasses — lightweight data containers
 ```python
 from dataclasses import dataclass, field
@@ -106,7 +96,7 @@ cfg = Config(model="mistral-large", temperature=1.2)
 
 ### Reading types in mistral-vibe
 - Walk through the data structures used in the codebase
-- Identify where `TypedDict`, `dataclass`, or Pydantic is used
+- Identify where `dataclass` or Pydantic is used
 - Discuss: why would you choose one over another?
 
 ### Exercise: add type hints
@@ -119,7 +109,7 @@ cfg = Config(model="mistral-large", temperature=1.2)
 
 - Add a new typed function or small module to your fork — annotate it fully from the start
 - Run `pyright` and fix any errors
-- Write a short explanation (as a comment or in your notes): when would you use `TypedDict` vs `dataclass` vs `Pydantic`?
+- Write a short explanation (as a comment or in your notes): when would you use `dataclass` vs `Pydantic`?
 
 ---
 
@@ -130,4 +120,4 @@ For students who want to go further. None of this is required — pick whatever 
 - [optional] [mypy type-hints cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html) — a compact one-page reference for annotation syntax; applies to pyright too.
 - [optional] [Python docs — `typing`](https://docs.python.org/3/library/typing.html) — the fuller vocabulary: `Literal`, `Protocol`, `TypeAlias`, generics, `cast`.
 - [optional] [Pydantic docs — Models](https://docs.pydantic.dev/latest/concepts/models/) — validation, type coercion, and how `BaseModel` differs from a plain `dataclass`.
-- [optional] [PEP 557 — Data Classes](https://peps.python.org/pep-0557/) and [PEP 589 — TypedDict](https://peps.python.org/pep-0589/) — the rationale for each and when to reach for which.
+- [optional] [PEP 557 — Data Classes](https://peps.python.org/pep-0557/) — the rationale and design tradeoffs behind `@dataclass`.

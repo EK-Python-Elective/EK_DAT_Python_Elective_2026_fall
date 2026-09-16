@@ -9,7 +9,8 @@
 | 1 | 35 | [Kickoff: Open Source Culture & Project Setup](01._open_source_and_project_setup/README.md) |
 |  | 36 | _No session — merged into session 2 (week 37)_ |
 | 2 | 37 | [Project Structure, Packaging & Tooling](02._project_structure_and_packaging/README.md) |
-| 3 | 38 | [Type System: Type Hints, Dataclasses, and Pydantic](03._type_system/README.md) |
+| 3 | 38 | [Python Fundamentals: Variables, Collections & Classes](03._python_fundamentals/README.md) |
+| 3a | TBD | [Type System: Type Hints, Dataclasses, and Pydantic](03a._type_system/README.md) — *displaced, week not yet assigned* |
 | 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
 | 5 | 40 | [File I/O and pathlib](05._file_io_and_pathlib/README.md) |
 | 6 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](06._apis_and_http_clients/README.md) |

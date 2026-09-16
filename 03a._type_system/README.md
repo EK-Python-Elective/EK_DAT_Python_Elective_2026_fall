@@ -1,6 +1,8 @@
-# Session 3: The Type System — Type Hints, Dataclasses, and Pydantic
+# Session 3a: The Type System — Type Hints, Dataclasses, and Pydantic
 
-**Week 38 | Python Elective 2026 Fall**
+**Week TBD | Python Elective 2026 Fall**
+
+> ⚠️ **Displaced session.** This used to be session 3 (week 38). Session 3's slot is now [Python Fundamentals](../03._python_fundamentals/README.md); this content still needs a new week assigned — it hasn't been slotted in yet, and weeks 4–14 haven't moved to make room. Fix before this session is next needed.
 
 > Find and read all type annotations in mistral-vibe. Learn `dataclass`, `Optional`, `Union`. Students add type hints to an untyped part of the code.
 

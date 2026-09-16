@@ -8,6 +8,7 @@
 
 ## Learning Goals
 
+- Set up and use a Jupyter notebook in VS Code
 - Read and write variables of the basic types (`str`, `int`, `float`, `bool`, `None`) confidently
 - Build, index, slice, and mutate `list`s
 - Explain what makes a `tuple` different from a `list`, and when that difference matters
@@ -20,13 +21,69 @@
 ## Before Class
 
 - Nothing new to install — your editor and Python from session 1 is all you need
+- Optional, saves a few minutes in class: install the **Python** and **Jupyter** extensions for VS Code (Extensions panel, `Ctrl/Cmd+Shift+X`, search each, both published by *Microsoft*)
 - Come ready to type along on your own machine while we build things on the board
+
+---
+
+## Intro — Get Jupyter running in VS Code
+
+The first thing we do, before any Python content: set up a notebook. From here on today, you work in it — one cell per idea, one cell per exercise — instead of a plain `.py` file. Code, output, and quick notes side by side.
+
+### What you need
+- **VS Code**, with the **Python** and **Jupyter** extensions (Microsoft) — install from the Extensions panel if you skipped the Before Class step
+- **`uv`**, from session 1 (check with `uv --version`)
+
+### Step 1 — make a project with a notebook kernel
+
+A notebook runs Python through a "kernel." The kernel needs the `ipykernel` package available in the environment VS Code points at — we make a small `uv` project for that:
+
+```bash
+mkdir python-fundamentals && cd python-fundamentals
+uv init               # creates pyproject.toml
+uv add ipykernel      # the package that lets a notebook run in this environment
+```
+
+`uv` creates a `.venv` folder in the project — that's the environment (and kernel) VS Code will use.
+
+### Step 2 — create a notebook
+
+Open the project in VS Code (`code .` from the project folder, or File → Open Folder). Then either:
+
+- Command Palette (`Ctrl/Cmd+Shift+P`) → **"Create: New Jupyter Notebook"**, or
+- create a new file ending in `.ipynb` (e.g. `fundamentals.ipynb`) and open it
+
+### Step 3 — select the kernel
+
+Top-right of the notebook, click **"Select Kernel"** → **Python Environments** → choose the interpreter inside your project's `.venv` (it shows the project path). If VS Code offers to install `ipykernel`, say yes — though `uv add ipykernel` already handled it.
+
+### Step 4 — run a cell
+
+Type into a cell and press **`Shift+Enter`** to run it and move to the next:
+
+```python
+students = ["Ada", "Grace", "Alan"]
+students.append("Katherine")
+students        # the cell shows the repr: ['Ada', 'Grace', 'Alan', 'Katherine']
+```
+
+Useful basics:
+- **`Shift+Enter`** run cell and go to next; **`Ctrl/Cmd+Enter`** run cell and stay
+- The **`+ Code`** / **`+ Markdown`** buttons add cells — use a Markdown cell to label which exercise a code cell belongs to
+- **Restart** (circular arrow) clears all variables and starts the kernel fresh — do this whenever state gets confusing, which will happen
+- The **Variables** panel shows everything currently defined — useful all session, since today is mostly about inspecting what a list/dict/instance actually holds
+
+From here on: one cell per **Try it** below, a short Markdown cell above each labelling which one it is. By the end of class this notebook is your record of the whole session.
+
+### A note on `.ipynb` files and git
+
+A notebook is a JSON file that stores your code **and its output** — that makes it noisy in git diffs and not a good home for real project source code. Fine for today's exploration and exercises; once you're back working in the mistral-vibe fork, code goes in `.py` files as usual.
 
 ---
 
 ## Today's Teachings
 
-Each block is **short explanation → live demo on the board → your turn**. Don't skip ahead — the point of this session is that everyone's hands have typed every construct at least once before class ends.
+Each block is **short explanation → live demo on the board → your turn**. Don't skip ahead — the point of this session is that everyone's hands have typed every construct at least once before class ends. Build each demo and each "Try it" in your notebook.
 
 ### 1. Variables & basic types
 
@@ -169,3 +226,4 @@ For students who want to go further. None of this is required — pick whatever 
 - [optional] [Python docs — Classes](https://docs.python.org/3/tutorial/classes.html) — the official tutorial chapter on `class`, going further than today's session (inheritance, class vs instance variables).
 - [optional] [Real Python — Python Lists and Tuples](https://realpython.com/python-lists-tuples/) — a friendlier walkthrough with more examples.
 - [optional] [Real Python — Dictionaries in Python](https://realpython.com/python-dicts/) — deeper dict methods and patterns.
+- [optional] [VS Code docs — Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) — the full reference behind today's intro: variable explorer, debugging cells, exporting a notebook to a script, and more.

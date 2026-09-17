@@ -2,7 +2,7 @@
 
 **Week 38 | Python Elective 2026 Fall**
 
-> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, functions, lists, tuples, dictionaries, and a first real Python `class`. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
+> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, functions (your own and Python's built-in ones), lists, tuples, dictionaries, and a first real Python `class`. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
 
 ---
 
@@ -11,6 +11,7 @@
 - Set up and use a Jupyter notebook in VS Code
 - Read and write variables of the basic types (`str`, `int`, `float`, `bool`, `None`) confidently
 - Write and call a function with parameters, a default value, and a return value
+- Reach for the right built-in function (`len`, `sorted`, `sum`, `min`/`max`, `range`) instead of writing one yourself
 - Build, index, slice, and mutate `list`s
 - Explain what makes a `tuple` different from a `list`, and when that difference matters
 - Build, look up, and iterate `dict`s; know `.get()` vs `[]`
@@ -124,7 +125,24 @@ add(3)                   # 3 — b falls back to its default
 
 **Try it:** write a function `is_even(n)` that returns whether `n` is even, and a function `shout(text)` that returns `text` upper-cased with an exclamation mark. Call each a few times and print the results.
 
-### 3. Lists — ordered, mutable
+### 3. Built-in functions — Python's ready-made toolbox
+
+```python
+len("hello")                  # 5 — works on str, list, tuple, dict
+type(3.14)                     # <class 'float'>
+sorted([3, 1, 2])               # [1, 2, 3] — a new list, original unchanged
+sum([1, 2, 3])                  # 6
+min(4, 9, 2), max(4, 9, 2)       # (2, 9)
+list(range(2, 10, 2))            # [2, 4, 6, 8]
+```
+
+- Same call syntax as the functions you just wrote yourself — `name(args)` — except Python already wrote these for you, no `import` needed
+- You'll reach for `len`, `sorted`, `sum`, `min`, `max`, and `range` constantly from here on — they're what makes the collections in the next few sections useful rather than just storage
+- `help(sorted)` in a cell shows what any built-in expects, if you forget
+
+**Try it:** given a list of numbers, print its length (`len`), its total (`sum`), its largest value (`max`), and the same list sorted from biggest to smallest (`sorted(nums, reverse=True)`).
+
+### 4. Lists — ordered, mutable
 
 ```python
 students = ["Ada", "Grace", "Alan"]
@@ -143,7 +161,7 @@ for s in students:
 
 **Try it:** build a list of 5 course topics, print the third one, add a 6th, remove the first, print the final list.
 
-### 4. Tuples — ordered, immutable
+### 5. Tuples — ordered, immutable
 
 ```python
 point = (3, 7)
@@ -158,7 +176,7 @@ point[0]                     # 3
 
 **Try it:** make a tuple for a `(latitude, longitude)`, unpack it into two variables, print them. Then try to mutate the tuple and read the error.
 
-### 5. Dictionaries — key/value lookup
+### 6. Dictionaries — key/value lookup
 
 ```python
 student = {"name": "Ada", "age": 28, "enrolled": True}
@@ -176,7 +194,7 @@ for key, value in student.items():
 
 **Try it:** build a dict for a course session (title, week, topic list), look up one field with `[]`, look up a field that doesn't exist with `.get(..., default)`, then loop over `.items()` and print each pair.
 
-### 6. Classes — bundling data with behaviour
+### 7. Classes — bundling data with behaviour
 
 ```python
 class Counter:
@@ -198,7 +216,7 @@ print(c.value)         # read an attribute -> 11
 
 **Try it:** write a `BankAccount` class with `__init__(self, owner, balance=0)`, a `deposit(self, amount)` method, and a `withdraw(self, amount)` method. Create two accounts, deposit into one, withdraw from the other, print both balances.
 
-### 7. Putting it together
+### 8. Putting it together
 
 A class's attributes can be a list, a tuple, or a dict — everything from today combines:
 
@@ -246,6 +264,7 @@ Small, done in-class, in order — each builds on the section just taught:
 For students who want to go further. None of this is required — pick whatever looks interesting.
 
 - [optional] [Python docs — Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) — the official tutorial section on `def`, default values, and keyword arguments, going a bit further than today (`*args`, `**kwargs`, docstrings).
+- [optional] [Python docs — Built-in Functions](https://docs.python.org/3/library/functions.html) — the full A–Z reference: every built-in, `len` and `sorted` included, in one page.
 - [optional] [Python docs — Data Structures](https://docs.python.org/3/tutorial/datastructures.html) — the official tutorial chapter on lists, tuples, dicts, sets, and comprehensions.
 - [optional] [Python docs — Classes](https://docs.python.org/3/tutorial/classes.html) — the official tutorial chapter on `class`, going further than today's session (inheritance, class vs instance variables).
 - [optional] [Real Python — Python Lists and Tuples](https://realpython.com/python-lists-tuples/) — a friendlier walkthrough with more examples.

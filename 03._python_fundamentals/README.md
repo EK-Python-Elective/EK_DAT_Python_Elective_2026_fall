@@ -43,8 +43,8 @@ A notebook runs Python through a "kernel." The kernel needs the `ipykernel` pack
 
 ```bash
 mkdir python-fundamentals && cd python-fundamentals
-uv init               # creates pyproject.toml
-uv add ipykernel      # the package that lets a notebook run in this environment
+uv init --bare         # creates just pyproject.toml — no README/main.py/git init, we don't need them
+uv add ipykernel       # the package that lets a notebook run in this environment
 ```
 
 `uv` creates a `.venv` folder in the project — that's the environment (and kernel) VS Code will use.

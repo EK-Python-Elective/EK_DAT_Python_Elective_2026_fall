@@ -2,7 +2,7 @@
 
 **Week 38 | Python Elective 2026 Fall**
 
-> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, functions (your own and Python's built-in ones), lists, tuples, dictionaries, and a first real Python `class`. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
+> No mistral-vibe today, no live-demo project — just a blank editor. Variables and basic types, functions (your own and Python's built-in ones), lists, tuples, dictionaries, a first real Python `class`, and inheritance between classes. Every idea gets built on the board, then you rebuild it yourself in a small exercise before we move on. Repetition, not coverage.
 
 ---
 
@@ -16,6 +16,7 @@
 - Explain what makes a `tuple` different from a `list`, and when that difference matters
 - Build, look up, and iterate `dict`s; know `.get()` vs `[]`
 - Write a plain Python `class`: `__init__`, `self`, attributes, methods, creating instances
+- Share behaviour between classes with inheritance: `class Sub(Base):`, `super().__init__()`, overriding a method
 - Choose the right structure — list, tuple, dict, or class — for a small piece of data
 
 ---
@@ -221,7 +222,39 @@ print(c.value)         # read an attribute -> 11
 
 **Try it:** write a `BankAccount` class with `__init__(self, owner, balance=0)`, a `deposit(self, amount)` method, and a `withdraw(self, amount)` method. Create two accounts, deposit into one, withdraw from the other, print both balances.
 
-### 8. Putting it together
+### 8. Inheritance — sharing behaviour between classes
+
+```python
+class Animal:
+    def __init__(self, name: str):
+        self.name = name
+
+    def speak(self) -> str:
+        return f"{self.name} makes a sound"
+
+class Dog(Animal):                     # Dog is an Animal, plus more
+    def __init__(self, name: str, breed: str):
+        super().__init__(name)          # let Animal set up self.name
+        self.breed = breed
+
+    def speak(self) -> str:              # overrides the parent's method
+        return f"{self.name} says Woof!"
+
+a = Animal("Generic Animal")
+d = Dog("Rex", "Labrador")
+a.speak()          # "Generic Animal makes a sound"
+d.speak()           # "Rex says Woof!" — Dog's own speak() wins
+d.breed             # "Labrador"
+```
+
+- `class Dog(Animal):` — the name in parentheses is the parent class; `Dog` inherits everything `Animal` has
+- `super().__init__(name)` calls the parent's `__init__` — reuse it instead of repeating `self.name = name`
+- A subclass overrides a method by defining one with the same name — Python checks the instance's own class first, then the parent
+- `isinstance(d, Animal)` is `True` — a `Dog` *is an* `Animal`, just a more specific one
+
+**Try it:** add a `Cat` class that also inherits from `Animal`, overrides `speak()`, and adds its own attribute (e.g. `indoor: bool`). Put one `Dog` and one `Cat` in a list, then loop over it and call `speak()` on each.
+
+### 9. Putting it together
 
 A class's attributes can be a list, a tuple, or a dict — everything from today combines:
 
@@ -271,7 +304,7 @@ For students who want to go further. None of this is required — pick whatever 
 - [optional] [Python docs — Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) — the official tutorial section on `def`, default values, and keyword arguments, going a bit further than today (`*args`, `**kwargs`, docstrings).
 - [optional] [Python docs — Built-in Functions](https://docs.python.org/3/library/functions.html) — the full A–Z reference: every built-in, `len` and `sorted` included, in one page.
 - [optional] [Python docs — Data Structures](https://docs.python.org/3/tutorial/datastructures.html) — the official tutorial chapter on lists, tuples, dicts, sets, and comprehensions.
-- [optional] [Python docs — Classes](https://docs.python.org/3/tutorial/classes.html) — the official tutorial chapter on `class`, going further than today's session (inheritance, class vs instance variables).
+- [optional] [Python docs — Classes](https://docs.python.org/3/tutorial/classes.html) — the official tutorial chapter on `class`, going further than today's session (multiple inheritance, class vs instance variables, private variables).
 - [optional] [Real Python — Python Lists and Tuples](https://realpython.com/python-lists-tuples/) — a friendlier walkthrough with more examples.
 - [optional] [Real Python — Dictionaries in Python](https://realpython.com/python-dicts/) — deeper dict methods and patterns.
 - [optional] [VS Code docs — Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) — the full reference behind today's intro: variable explorer, debugging cells, exporting a notebook to a script, and more.

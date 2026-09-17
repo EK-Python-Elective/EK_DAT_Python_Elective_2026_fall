@@ -11,7 +11,7 @@
 - Set up and use a Jupyter notebook in VS Code
 - Read and write variables of the basic types (`str`, `int`, `float`, `bool`, `None`) confidently
 - Write and call a function with parameters, a default value, and a return value
-- Reach for the right built-in function (`len`, `sorted`, `sum`, `min`/`max`, `range`) instead of writing one yourself
+- Reach for the right built-in function (`len`, `type`, `round`, `min`/`max`, and later `sorted`/`sum`) instead of writing one yourself
 - Build, index, slice, and mutate `list`s
 - Explain what makes a `tuple` different from a `list`, and when that difference matters
 - Build, look up, and iterate `dict`s; know `.get()` vs `[]`
@@ -128,19 +128,24 @@ add(3)                   # 3 — b falls back to its default
 ### 3. Built-in functions — Python's ready-made toolbox
 
 ```python
-len("hello")                  # 5 — works on str, list, tuple, dict
-type(3.14)                     # <class 'float'>
-sorted([3, 1, 2])               # [1, 2, 3] — a new list, original unchanged
-sum([1, 2, 3])                  # 6
-min(4, 9, 2), max(4, 9, 2)       # (2, 9)
-list(range(2, 10, 2))            # [2, 4, 6, 8]
+name = "Ada Lovelace"
+gpa = 9.7
+
+len(name)                            # 19
+type(gpa)                             # <class 'float'>
+round(gpa)                             # 10 — nearest int
+round(gpa, 0)                           # 10.0 — 0 decimals, stays a float
+min(4, 9, 2), max(4, 9, 2)               # (2, 9) — any number of arguments
+str(42), int("42"), float("3.14")         # "42", 42, 3.14 — converting between types
 ```
 
 - Same call syntax as the functions you just wrote yourself — `name(args)` — except Python already wrote these for you, no `import` needed
-- You'll reach for `len`, `sorted`, `sum`, `min`, `max`, and `range` constantly from here on — they're what makes the collections in the next few sections useful rather than just storage
-- `help(sorted)` in a cell shows what any built-in expects, if you forget
+- `type()`, `str()`, `int()`, `float()` share their name with the type itself — calling one converts a value to that type
+- `min`/`max` take any number of arguments directly; `len`/`round` take one
+- `help(round)` in a cell shows what any built-in expects, if you forget
+- More built-ins — `sorted`, `sum`, `range` — become genuinely useful once there's a collection to point them at; you'll meet those over the next few sections
 
-**Try it:** given a list of numbers, print its length (`len`), its total (`sum`), its largest value (`max`), and the same list sorted from biggest to smallest (`sorted(nums, reverse=True)`).
+**Try it:** using your `name`, `age`, and `gpa` variables from section 1, print: the length of your name, your `gpa` rounded to a whole number, and the larger of `age` and any other number you pick.
 
 ### 4. Lists — ordered, mutable
 

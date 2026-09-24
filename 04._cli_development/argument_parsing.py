@@ -24,5 +24,4 @@ def main():
         print(f"Hello, {args.name}!")
 
 
-if __name__ == "__main__":
-    main()
+main()

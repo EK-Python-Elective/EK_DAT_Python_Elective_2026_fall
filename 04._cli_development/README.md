@@ -56,7 +56,7 @@ while True:
 
 ---
 
-## After Class
+## Exercises
 
 - On a branch off `main` (e.g. `exercise/session-05`), add at least one new CLI flag or option you wrote yourself — keep `main` clean, as always
 - Write a short description of the flag: what it does, how to use it, what code you changed

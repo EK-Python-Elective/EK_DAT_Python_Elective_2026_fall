@@ -54,11 +54,6 @@ while True:
 - mistral-vibe uses `rich` for colours, markdown rendering, and spinners
 - Brief intro: `Console`, `Markdown`, `Panel`, `Progress`
 
-### Exercise: add a new CLI flag
-- Add a `--verbose` flag that prints extra debug information during a session
-- Or add a `--no-color` flag that disables rich formatting
-- Make it configurable via `config.toml` as well
-
 ---
 
 ## After Class

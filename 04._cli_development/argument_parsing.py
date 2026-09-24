@@ -10,7 +10,7 @@ Try:
 import argparse
 
 
-def main() -> None:
+def main():
     parser = argparse.ArgumentParser(prog="greet", description="Greet someone from the command line.")
     parser.add_argument("name", help="who to greet")                                        # positional argument
     parser.add_argument("-n", "--count", type=int, default=1, help="how many times to greet")  # option with a value

@@ -3,10 +3,10 @@
 Kør:
     uv run --with flask python hello_api.py
 
-Prøv i en anden terminal:
-    curl http://127.0.0.1:5000/
-    curl http://127.0.0.1:5000/hello/Alice
-    curl "http://127.0.0.1:5000/add?a=2&b=3"
+Prøv i Postman (GET):
+    http://127.0.0.1:5000/
+    http://127.0.0.1:5000/hello/Alice
+    http://127.0.0.1:5000/add?a=2&b=3
 """
 
 from flask import Flask, request

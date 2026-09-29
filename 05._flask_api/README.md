@@ -31,19 +31,17 @@ Hvordan URL'erne ser ud, og hvad der sendes frem og tilbage, bestemmer I selv. B
 
 ## Kom i gang
 
-Kør startfilen [`hello_api.py`](hello_api.py) og kald den fra en anden terminal:
+Installér [Postman](https://www.postman.com/downloads/) før undervisningen.
+
+Kør startfilen [`hello_api.py`](hello_api.py):
 
 ```bash
 uv run --with flask python hello_api.py
 ```
 
-```bash
-curl http://127.0.0.1:5000/
-```
+Lav en `GET`-request i Postman til `http://127.0.0.1:5000/`.
 
 Byg videre derfra.
-
-> **Windows:** brug Git Bash til `curl`.
 
 ---
 
@@ -54,7 +52,7 @@ Tag dem, når I når dertil:
 - Hvad skal der ske, hvis nogen prøver at hente en bog, der ikke findes?
 - Hvad hvis nogen tilføjer en bog uden titel?
 - Genstart serveren. Hvor blev bøgerne af?
-- Hvordan beviser I, at API'en virker — uden at køre `curl` i hånden hver gang?
+- Hvordan beviser I, at API'en virker — uden at klikke rundt i Postman hver gang?
 
 ---
 

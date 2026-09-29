@@ -12,7 +12,8 @@
 | 3 | 38 | [Python Fundamentals: Variables, Collections & Classes](03._python_fundamentals/README.md) |
 | 3a | TBD | [Type System: Type Hints, Dataclasses, and Pydantic](03a._type_system/README.md) — *displaced, week not yet assigned* |
 | 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
-| 5 | 40 | [File I/O and pathlib](05._file_io_and_pathlib/README.md) |
+| 5 | 40 | [Byg en REST API med Flask](05._flask_api/README.md) |
+| 5x | TBD | [File I/O and pathlib](x05._file_io_and_pathlib/README.md) — *displaced, week not yet assigned* |
 | 6 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
 | 7 | 43 | [Async Python](07._async_python/README.md) |

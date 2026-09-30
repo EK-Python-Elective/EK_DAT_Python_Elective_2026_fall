@@ -9,6 +9,7 @@
 - Du kan bygge en simpel API i Flask
 - Du kan kalde og teste din API
 - Du kan forklare, hvad en route, en HTTP-metode og en statuskode er
+- Du kan dokumentere din API med Swagger
 
 ---
 
@@ -26,6 +27,8 @@ Appen skal kunne:
 4. Fjerne en bog
 
 Hvordan URL'erne ser ud, og hvad der sendes frem og tilbage, bestemmer I selv. Brug AI så meget I vil.
+
+Det andet hold har ikke adgang til jeres kode — de skal kunne bruge API'en alene ud fra jeres dokumentation. Lever derfor også en **`swagger.json`**, der beskriver præcis de endpoints, I har lavet. Om I skriver den selv eller får den genereret, bestemmer I.
 
 ---
 
@@ -53,6 +56,7 @@ Tag dem, når I når dertil:
 - Hvad hvis nogen tilføjer en bog uden titel?
 - Genstart serveren. Hvor blev bøgerne af?
 - Hvordan beviser I, at API'en virker — uden at klikke rundt i Postman hver gang?
+- I har ændret et endpoint. Passer `swagger.json` stadig? Tjek det ved at åbne filen i [Swagger Editor](https://editor.swagger.io/) eller importere den i Postman.
 
 ---
 
@@ -61,4 +65,5 @@ Tag dem, når I når dertil:
 Hver gruppe viser på 2 minutter:
 
 - Ét kald til jeres API, der virker
+- Jeres `swagger.json` åbnet i Swagger Editor
 - Ét problem, I løb ind i, og hvordan I løste det

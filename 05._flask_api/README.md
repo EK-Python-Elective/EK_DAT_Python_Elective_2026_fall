@@ -34,7 +34,7 @@ Det andet hold har ikke adgang til jeres kode — de skal kunne bruge API'en ale
 
 ## Kom i gang
 
-Installér [Postman](https://www.postman.com/downloads/) før undervisningen.
+Installér [Postman](https://www.postman.com/downloads/), eller [Insomnia](https://insomnia.rest/download), eller lign. før undervisningen.
 
 Kør startfilen [`hello_api.py`](hello_api.py):
 

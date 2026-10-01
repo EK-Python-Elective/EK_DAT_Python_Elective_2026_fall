@@ -7,7 +7,7 @@
 ## Læringsmål
 
 - Du kan bygge en simpel API i Flask
-- Du kan kalde og teste din API
+- Du kan kalde din API
 - Du kan forklare, hvad en route, en HTTP-metode og en statuskode er
 - Du kan dokumentere din API med Swagger
 

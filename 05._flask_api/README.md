@@ -55,7 +55,6 @@ Tag dem, når I når dertil:
 - Hvad skal der ske, hvis nogen prøver at hente en bog, der ikke findes?
 - Hvad hvis nogen tilføjer en bog uden titel?
 - Genstart serveren. Hvor blev bøgerne af?
-- Hvordan beviser I, at API'en virker — uden at klikke rundt i Postman hver gang?
 - I har ændret et endpoint. Passer `swagger.json` stadig? Tjek det ved at åbne filen i [Swagger Editor](https://editor.swagger.io/) eller importere den i Postman eller Insomnia.
 
 ---

@@ -38,7 +38,6 @@ def add():
         return {"error": "a og b skal være heltal"}, 400   # (body, statuskode)
     return {"result": a + b}
 
-
 if __name__ == "__main__":
     app.run(debug=True)                # debug=True: auto-reload når du gemmer filen
 ```

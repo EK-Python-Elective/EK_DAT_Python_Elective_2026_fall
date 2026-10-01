@@ -61,8 +61,6 @@ Tag dem, når I når dertil:
 
 ## Afslutning
 
-Hver gruppe viser på 2 minutter:
-
 - Ét kald til jeres API, der virker
 - Jeres `swagger.json` åbnet i Swagger Editor
 - Ét problem, I løb ind i, og hvordan I løste det

@@ -36,6 +36,12 @@ Det andet hold har ikke adgang til jeres kode — de skal kunne bruge API'en ale
 
 Installér [Postman](https://www.postman.com/downloads/), [Insomnia](https://insomnia.rest/download) eller lign. før undervisningen.
 
+Opret et nyt fladt projekt:
+
+```bash
+uv init --no-package library
+```
+
 Kør startfilen [`hello_api.py`](hello_api.py):
 
 ```bash

@@ -1,8 +1,8 @@
-# Session 6: API'er og HTTP-klienter — Tal med Mistral AI
+# Session 6: API'er og HTTP-klienter — Byg en klient til din API
 
 **Uge 41 | Python Elective 2026 Fall**
 
-> Find ud af, hvor API-kaldene sker. Lær `httpx`/`requests`, asynkron HTTP, API-nøgler, `.env`-filer og fejlhåndtering. De studerende udskifter eller udvider API-integrationen.
+> Skriv en Python-klient til jeres bog-API fra session 5. Lær `httpx`, asynkron HTTP, API-nøgler, `.env`-filer og fejlhåndtering.
 
 ---
 
@@ -42,22 +42,23 @@ data = response.json()
 
 # POST med JSON-body
 response = httpx.post(
-    "https://api.mistral.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {api_key}"},
-    json={"model": "mistral-small", "messages": [{"role": "user", "content": "Hello"}]},
+    "http://127.0.0.1:5000/books",
+    headers={"X-API-Key": api_key},
+    json={"title": "Dune", "author": "Frank Herbert"},
 )
+print(response.status_code)            # 201 Created
 ```
 
 ### Hold hemmeligheder ude af koden
 ```python
 # .env-fil (commit den aldrig!)
-# MISTRAL_API_KEY=sk-...
+# LIBRARY_API_KEY=skift-mig
 
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-api_key = os.environ["MISTRAL_API_KEY"]
+api_key = os.environ["LIBRARY_API_KEY"]
 ```
 - `.env` skal i `.gitignore`
 - Brug `.env.example` til at dokumentere, hvilke variabler der skal bruges
@@ -68,7 +69,7 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
     for chunk in response.iter_text():
         print(chunk, end="", flush=True)
 ```
-- Hvorfor streaming? Oplevet hastighed — de første tokens dukker op med det samme
+- Hvorfor streaming? Oplevet hastighed — de første data dukker op med det samme
 - Server-Sent Events (SSE)-formatet: `data: {...}\n\n`
 
 ### Opgave: en Python-klient til din bog-API
@@ -90,7 +91,7 @@ uv run --with httpx --with python-dotenv library_client.py  # terminal 2: klient
    Prøv `response.raise_for_status()`, og fang `httpx.HTTPStatusError`. Hvornår er det bedre end selv at tjekke `response.status_code`?
 3. **Tilføj en API-nøgle.** Beskyt de endpoints, der ændrer data. Flask-API'en læser `LIBRARY_API_KEY` fra `.env` og returnerer `401`, hvis requestens `X-API-Key`-header ikke matcher. Klienten læser den samme nøgle fra sin egen `.env` og sender den med. Tilføj en `.env.example`, tjek at `.env` er i `.gitignore`, og bekræft at en request uden nøglen får `401`.
 4. **Ekstra — async.** Tilføj 20 bøger, og hent derefter hver bog ud fra dens id: først i et almindeligt loop, derefter med `httpx.AsyncClient` og `asyncio.gather`. Tilføj `time.sleep(0.3)` til routen, der henter én bog, og tag tid på begge versioner. Hvorfor er den ene så meget hurtigere? (Det er en forsmag på session 7.)
-5. **Ekstra — streaming.** Tilføj et `GET /books/stream`-endpoint, der returnerer én JSON-linje pr. bog med en kort pause imellem (en Flask-generator, `mimetype="application/x-ndjson"`). Læs det med `httpx.stream(...)` og `response.iter_lines()`, så hver bog bliver printet, efterhånden som den kommer. Det er samme idé som token-streaming i mistral-vibe.
+5. **Ekstra — streaming.** Tilføj et `GET /books/stream`-endpoint, der returnerer én JSON-linje pr. bog med en kort pause imellem (en Flask-generator, `mimetype="application/x-ndjson"`). Læs det med `httpx.stream(...)` og `response.iter_lines()`, så hver bog bliver printet, efterhånden som den kommer. Det er samme idé, som når en AI-chat skriver sit svar ord for ord.
 
 ---
 
@@ -109,6 +110,5 @@ Til dig, der vil videre. Intet af det her er påkrævet — vælg det, der ser i
 
 - [valgfrit] [MDN — An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview) — metoder, headers og statuskoder fra bunden.
 - [valgfrit] [HTTPX-dokumentationen](https://www.python-httpx.org/) — synkrone vs. asynkrone klienter, streaming, timeouts og connection pooling.
-- [valgfrit] [MDN — Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) — `data: {...}`-formatet bag token-for-token-streaming.
-- [valgfrit] [Mistral API reference](https://docs.mistral.ai/api/) — chat completions-endpointet, som SDK'et pakker ind; skim request- og response-skemaet.
+- [valgfrit] [MDN — Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) — `data: {...}`-formatet bag streaming bid for bid.
 - [valgfrit] [`python-dotenv`](https://pypi.org/project/python-dotenv/) — `.env`-prioritetsregler og `.env.example`-konventioner.

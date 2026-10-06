@@ -14,7 +14,7 @@
 | 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
 | 5 | 40 | [Byg en REST API med Flask](05._flask_api/README.md) |
 | 5x | TBD | [File I/O and pathlib](x05._file_io_and_pathlib/README.md) — *displaced, week not yet assigned* |
-| 6 | 41 | [APIs and HTTP Clients: Talking to Mistral AI](06._apis_and_http_clients/README.md) |
+| 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
 | 7 | 43 | [Async Python](07._async_python/README.md) |
 | 8 | 44 | [Configuration Management: TOML, ENV, and Profiles](08._configuration_management/README.md) |

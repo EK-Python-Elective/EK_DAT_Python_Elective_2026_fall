@@ -11,16 +11,17 @@
 - Understand how HTTP APIs work (request/response, headers, JSON body)
 - Use `httpx` to make synchronous and asynchronous HTTP requests in Python
 - Know how to handle API keys securely using `.env` files
-- Understand streaming responses and how to consume them token by token
-- Find and understand all API calls in mistral-vibe
+- Handle errors when calling an API: error status codes, a server that isn't running, and timeouts
+- Understand streaming responses and how to consume them piece by piece
+- Write a Python client for an API you built yourself
 
 ---
 
 ## Before Class
 
-- Find the code in mistral-vibe that sends a request to the Mistral API
-- Note: what URL is called, what headers are sent, what is in the request body?
-- Optional: read the [Mistral API docs](https://docs.mistral.ai/api/) for the chat completions endpoint
+- Make sure your session 5 bookshelf API runs and that every endpoint works in Postman or Insomnia. If it's broken, fix it or arrange to use a classmate's. Today's exercise builds on it.
+- Pick one request in Postman and note what goes out (method, URL, headers, body) and what comes back (status code, headers, body). Today you'll write that same request in Python.
+- Optional: skim the [HTTPX quickstart](https://www.python-httpx.org/quickstart/)
 
 ---
 

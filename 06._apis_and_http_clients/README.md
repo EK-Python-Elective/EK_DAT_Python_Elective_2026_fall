@@ -81,6 +81,29 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
 - Add support for a second model (e.g. `mistral-large`) selectable via a CLI flag
 - Or: add a cost estimator that counts tokens and prints estimated cost after each response
 
+### Exercise: a Python client for your book API (no Mistral key needed)
+
+Last session you built the bookshelf API in Flask and tested it with Postman. Now write the **other team's side**: a Python program that talks to it with `httpx`. Run your session 5 API in one terminal and the client in another. If your API isn't working, use a classmate's, or have AI generate one from your `swagger.json`.
+
+```bash
+uv run --with flask python app.py                         # terminal 1: your session 5 API
+uv run --with httpx --with python-dotenv library_client.py  # terminal 2: the client
+```
+
+1. **Talk to it.** Write `library_client.py` so it lists all books, adds a book, borrows it, returns it, and deletes it. Print the status code and JSON for each call. Use a single `httpx.Client(base_url=...)` instead of repeating the full URL.
+2. **When things go wrong.** Make the client handle each case with a clear message, not a stack trace:
+   - a book that doesn't exist (404)
+   - a book with no title (400)
+   - the server isn't running (`httpx.ConnectError`)
+   - the server is too slow: add `time.sleep(5)` to one route and call it with `timeout=2`
+
+   Try `response.raise_for_status()` and catch `httpx.HTTPStatusError`. When is that better than checking `response.status_code` yourself?
+3. **Add an API key.** Protect the endpoints that change data. The Flask API reads `LIBRARY_API_KEY` from `.env` and returns `401` if the request's `X-API-Key` header doesn't match. The client reads the same key from its own `.env` and sends it. Add a `.env.example`, check that `.env` is in `.gitignore`, and confirm that a request without the key gets `401`.
+4. **Stretch — async.** Add 20 books, then fetch each one by id: first in a normal loop, then with `httpx.AsyncClient` and `asyncio.gather`. Add `time.sleep(0.3)` to the "get one book" route and time both versions. Why is one so much faster? (This is a preview of session 7.)
+5. **Stretch — streaming.** Add a `GET /books/stream` endpoint that returns one JSON line per book with a short pause between them (a Flask generator, `mimetype="application/x-ndjson"`). Consume it with `httpx.stream(...)` and `response.iter_lines()` so each book prints as it arrives. This is the same idea as token streaming in mistral-vibe.
+
+**Connect it back:** open `vibe/core/llm/backend/mistral.py` again and find where mistral-vibe does each of steps 2–5: error handling, the API key, async calls, and consuming a stream.
+
 ---
 
 ## After Class

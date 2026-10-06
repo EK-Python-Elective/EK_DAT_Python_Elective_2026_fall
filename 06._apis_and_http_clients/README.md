@@ -70,18 +70,7 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
 - Why streaming? Perceived speed — first tokens appear immediately
 - Server-Sent Events (SSE) format: `data: {...}\n\n`
 
-### How mistral-vibe handles the API
-- The project uses the **`mistralai` Python SDK** (`from mistralai.client import Mistral`) — not raw `httpx` calls. The SDK wraps the HTTP layer for you.
-- `httpx` is still a direct dependency (used for error handling and lower-level HTTP in some places), which is why it is worth knowing.
-- Walk through `vibe/core/llm/backend/mistral.py` together: where is the SDK client created? How is a streaming request sent? How are chunks yielded back?
-- **Bonus:** the backend supports multiple providers — `vibe/core/llm/backend/` has separate files for Mistral, a generic OpenAI-compatible API, and others. This is a good example of an abstraction layer.
-- Identify: where is the API key loaded? How is the request built? How is the stream consumed?
-
-### Exercise: extend the API integration
-- Add support for a second model (e.g. `mistral-large`) selectable via a CLI flag
-- Or: add a cost estimator that counts tokens and prints estimated cost after each response
-
-### Exercise: a Python client for your book API (no Mistral key needed)
+### Exercise: a Python client for your book API
 
 Last session you built the bookshelf API in Flask and tested it with Postman. Now write the **other team's side**: a Python program that talks to it with `httpx`. Run your session 5 API in one terminal and the client in another. If your API isn't working, use a classmate's, or have AI generate one from your `swagger.json`.
 
@@ -101,8 +90,6 @@ uv run --with httpx --with python-dotenv library_client.py  # terminal 2: the cl
 3. **Add an API key.** Protect the endpoints that change data. The Flask API reads `LIBRARY_API_KEY` from `.env` and returns `401` if the request's `X-API-Key` header doesn't match. The client reads the same key from its own `.env` and sends it. Add a `.env.example`, check that `.env` is in `.gitignore`, and confirm that a request without the key gets `401`.
 4. **Stretch — async.** Add 20 books, then fetch each one by id: first in a normal loop, then with `httpx.AsyncClient` and `asyncio.gather`. Add `time.sleep(0.3)` to the "get one book" route and time both versions. Why is one so much faster? (This is a preview of session 7.)
 5. **Stretch — streaming.** Add a `GET /books/stream` endpoint that returns one JSON line per book with a short pause between them (a Flask generator, `mimetype="application/x-ndjson"`). Consume it with `httpx.stream(...)` and `response.iter_lines()` so each book prints as it arrives. This is the same idea as token streaming in mistral-vibe.
-
-**Connect it back:** open `vibe/core/llm/backend/mistral.py` again and find where mistral-vibe does each of steps 2–5: error handling, the API key, async calls, and consuming a stream.
 
 ---
 

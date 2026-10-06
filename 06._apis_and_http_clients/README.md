@@ -95,10 +95,10 @@ uv run --with httpx --with python-dotenv library_client.py  # terminal 2: the cl
 
 ## After Class
 
-- Make sure you understand every line of the API call in mistral-vibe
-- Experiment: change the `temperature` or `max_tokens` parameter and observe the difference in responses
-- Add your API key to `.env` and verify `.env` is in `.gitignore` in your fork
-- Optional: read about [rate limiting](https://docs.mistral.ai/api/) and add basic retry logic on a branch off `main` (the `.env` work above is fine on `main` — it's gitignored, never committed)
+- Make sure you can explain every line of your `library_client.py`: what each request sends (method, URL, headers, body) and what comes back
+- Experiment: change the `timeout`, send a wrong API key, or send a malformed JSON body, and see what status code and error you get
+- Make sure your `LIBRARY_API_KEY` is only in `.env`, that `.env` is in `.gitignore`, and that `.env.example` documents the variable
+- Optional: read about [retries in HTTPX](https://www.python-httpx.org/advanced/transports/#http-transport) and make the client retry when the server isn't reachable, waiting a little longer each time
 
 ---
 

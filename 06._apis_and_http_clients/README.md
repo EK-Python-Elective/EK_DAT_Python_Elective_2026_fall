@@ -21,6 +21,7 @@
 
 - Sørg for, at din bogreols-API fra session 5 kører, og at alle endpoints virker i Postman eller Insomnia. Hvis den ikke virker, så ret den eller aftal at bruge en medstuderendes. Dagens opgave bygger videre på den.
 - Vælg én request i Postman, og notér, hvad der sendes afsted (metode, URL, headers, body), og hvad der kommer tilbage (statuskode, headers, body). I dag skriver du den samme request i Python.
+- Lav en GitHub-token (fine-grained, kun **Gists: Read and write**) — se "Hold hemmeligheder ude af koden" nedenfor. Du skal bruge den i dagens demo.
 - Valgfrit: skim [HTTPX quickstart](https://www.python-httpx.org/quickstart/)
 
 ---
@@ -33,43 +34,63 @@
 - REST API'er: ressourcer, endpoints, autentificering
 
 ### httpx — den moderne HTTP-klient
+
+Eksemplerne bruger [GitHub's REST API](https://docs.github.com/en/rest) — gratis, og I har allerede en konto.
+
 ```python
 import httpx
 
-# Synkront
-response = httpx.get("https://httpbin.org/get", headers={"Authorization": "Bearer TOKEN"})
+# GET — offentlige data, kræver ingen token
+response = httpx.get("https://api.github.com/users/octocat")
+print(response.status_code)            # 200
 data = response.json()
+print(data["name"], data["public_repos"])
 
-# POST med JSON-body
-response = httpx.post(
-    "https://api.mistral.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {api_key}"},
-    json={"model": "mistral-small-latest", "messages": [{"role": "user", "content": "Hello"}]},
+# GET med token — hvem er jeg?
+response = httpx.get(
+    "https://api.github.com/user",
+    headers={"Authorization": f"Bearer {token}"},
 )
+print(response.json()["login"])        # uden token: 401 Requires authentication
+
+# POST med JSON-body — opret en hemmelig gist
+response = httpx.post(
+    "https://api.github.com/gists",
+    headers={"Authorization": f"Bearer {token}"},
+    json={
+        "description": "Oprettet fra Python",
+        "public": False,
+        "files": {"hej.txt": {"content": "Hej fra httpx!"}},
+    },
+)
+print(response.status_code)            # 201 Created
+print(response.json()["html_url"])
 ```
 
 ### Hold hemmeligheder ude af koden
 ```python
 # .env-fil (commit den aldrig!)
-# MISTRAL_API_KEY=sk-...
+# GITHUB_TOKEN=github_pat_...
 
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-api_key = os.environ["MISTRAL_API_KEY"]
+token = os.environ["GITHUB_TOKEN"]
 ```
 - `.env` skal i `.gitignore`
 - Brug `.env.example` til at dokumentere, hvilke variabler der skal bruges
+- Lav din token på GitHub: **Settings → Developer settings → Personal access tokens → Fine-grained tokens**. Giv den kun den adgang, den skal bruge: **Gists: Read and write**.
 
 ### Streaming-svar
 ```python
-with httpx.stream("POST", url, json=payload, headers=headers) as response:
+# httpbin sender 10 bytes fordelt over 5 sekunder
+with httpx.stream("GET", "https://httpbin.org/drip?numbytes=10&duration=5") as response:
     for chunk in response.iter_text():
         print(chunk, end="", flush=True)
 ```
-- Hvorfor streaming? Oplevet hastighed — de første tokens dukker op med det samme
-- Server-Sent Events (SSE)-formatet: `data: {...}\n\n`
+- Hvorfor streaming? Oplevet hastighed — data vises, efterhånden som de ankommer, i stedet for først når hele svaret er færdigt. Det er sådan, en AI-chat skriver sit svar ord for ord.
+- Server-Sent Events (SSE)-formatet, som AI-chats bruger: `data: {...}\n\n`
 
 ### Opgave: en Python-klient til din bog-API
 
@@ -110,4 +131,5 @@ Til dig, der vil videre. Intet af det her er påkrævet — vælg det, der ser i
 - [valgfrit] [MDN — An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview) — metoder, headers og statuskoder fra bunden.
 - [valgfrit] [HTTPX-dokumentationen](https://www.python-httpx.org/) — synkrone vs. asynkrone klienter, streaming, timeouts og connection pooling.
 - [valgfrit] [MDN — Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) — `data: {...}`-formatet bag streaming bid for bid.
+- [valgfrit] [GitHub REST API — Gists](https://docs.github.com/en/rest/gists/gists) — de endpoints, demoen bruger; prøv også at hente, opdatere og slette en gist.
 - [valgfrit] [`python-dotenv`](https://pypi.org/project/python-dotenv/) — `.env`-prioritetsregler og `.env.example`-konventioner.

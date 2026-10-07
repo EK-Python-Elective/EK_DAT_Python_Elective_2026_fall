@@ -97,7 +97,7 @@ with httpx.stream("GET", "https://httpbin.org/drip?numbytes=10&duration=5") as r
 Sidste gang byggede du bogreols-API'en i Flask og testede den med Postman. Nu skal du skrive **det andet holds side**: et Python-program, der taler med den via `httpx`. Kør din API fra session 5 i én terminal og klienten i en anden. Hvis din API ikke virker, så brug en medstuderendes, eller få AI til at generere en ud fra jeres `swagger.json`.
 
 ```bash
-uv run --with flask python app.py                         # terminal 1: din API fra session 5
+uv run main.py                                              # terminal 1: din API fra session 5 (i library-mappen)
 uv run --with httpx --with python-dotenv library_client.py  # terminal 2: klienten
 ```
 

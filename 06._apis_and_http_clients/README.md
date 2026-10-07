@@ -22,7 +22,6 @@
 - Sørg for, at din bogreols-API fra session 5 kører, og at alle endpoints virker i Postman eller Insomnia. Hvis den ikke virker, så ret den eller aftal at bruge en medstuderendes. Dagens opgave bygger videre på den.
 - Vælg én request i Postman, og notér, hvad der sendes afsted (metode, URL, headers, body), og hvad der kommer tilbage (statuskode, headers, body). I dag skriver du den samme request i Python.
 - Lav en GitHub-token (fine-grained, kun **Account permissions → Gists: Read and write**) — se "Hold hemmeligheder ude af koden" nedenfor. Du skal bruge den i dagens demo.
-- Valgfrit: skim [HTTPX quickstart](https://www.python-httpx.org/quickstart/)
 
 ---
 
@@ -131,4 +130,3 @@ uv run library_client.py                                    # terminal 2: klient
 - Sørg for, at du kan forklare hver linje i din `library_client.py`: hvad hver request sender (metode, URL, headers, body), og hvad der kommer tilbage
 - Eksperimentér: ændr `timeout`, send en forkert API-nøgle, eller send en ugyldig JSON-body, og se, hvilken statuskode og fejl du får
 - Sørg for, at din `LIBRARY_API_KEY` kun står i `.env`, at `.env` er i `.gitignore`, og at `.env.example` dokumenterer variablen
-- Valgfrit: læs om [retries i HTTPX](https://www.python-httpx.org/advanced/transports/#http-transport), og få klienten til at prøve igen, når serveren ikke kan nås, og vente lidt længere hver gang

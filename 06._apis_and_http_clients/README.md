@@ -125,8 +125,7 @@ uv run library_client.py                                    # terminal 2: klient
 
    Skal nøglen med på alle requests, kan du i stedet sætte den én gang, når du opretter klienten: `httpx.Client(base_url=..., headers={"X-API-Key": api_key})`.
 
-4. **Ekstra — async.** Tilføj 20 bøger, og hent derefter hver bog ud fra dens id: først i et almindeligt loop, derefter med `httpx.AsyncClient` og `asyncio.gather`. Tilføj `time.sleep(0.3)` til routen, der henter én bog, og tag tid på begge versioner. Hvorfor er den ene så meget hurtigere? (Det er en forsmag på session 7.)
-5. **Ekstra — streaming.** Tilføj et `GET /books/stream`-endpoint, der returnerer én JSON-linje pr. bog med en kort pause imellem (en Flask-generator, `mimetype="application/x-ndjson"`). Læs det med `httpx.stream(...)` og `response.iter_lines()`, så hver bog bliver printet, efterhånden som den kommer. Det er samme idé, som når en AI-chat skriver sit svar ord for ord.
+4. **Ekstra — streaming.** Tilføj et `GET /books/stream`-endpoint, der returnerer én JSON-linje pr. bog med en kort pause imellem (en Flask-generator, `mimetype="application/x-ndjson"`). Læs det med `httpx.stream(...)` og `response.iter_lines()`, så hver bog bliver printet, efterhånden som den kommer. Det er samme idé, som når en AI-chat skriver sit svar ord for ord.
 
 ---
 

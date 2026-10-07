@@ -21,7 +21,7 @@
 
 - Sørg for, at din bogreols-API fra session 5 kører, og at alle endpoints virker i Postman eller Insomnia. Hvis den ikke virker, så ret den eller aftal at bruge en medstuderendes. Dagens opgave bygger videre på den.
 - Vælg én request i Postman, og notér, hvad der sendes afsted (metode, URL, headers, body), og hvad der kommer tilbage (statuskode, headers, body). I dag skriver du den samme request i Python.
-- Lav en GitHub-token (fine-grained, kun **Gists: Read and write**) — se "Hold hemmeligheder ude af koden" nedenfor. Du skal bruge den i dagens demo.
+- Lav en GitHub-token (fine-grained, kun **Account permissions → Gists: Read and write**) — se "Hold hemmeligheder ude af koden" nedenfor. Du skal bruge den i dagens demo.
 - Valgfrit: skim [HTTPX quickstart](https://www.python-httpx.org/quickstart/)
 
 ---
@@ -80,7 +80,7 @@ token = os.environ["GITHUB_TOKEN"]
 ```
 - `.env` skal i `.gitignore`
 - Brug `.env.example` til at dokumentere, hvilke variabler der skal bruges
-- Lav din token på GitHub: **Settings → Developer settings → Personal access tokens → Fine-grained tokens**. Giv den kun den adgang, den skal bruge: **Gists: Read and write**.
+- Lav din token på GitHub: **Settings → Developer settings → Personal access tokens → Fine-grained tokens**. Giv den kun den adgang, den skal bruge: under **Account permissions** sætter du **Gists** til **Read and write**. Den ligger *ikke* under Repository permissions — vælger du forkert, svarer GitHub `404 Not Found`, når du opretter en gist (GitHub svarer 404 i stedet for 403, så den ikke afslører, hvad der findes).
 
 ### Streaming-svar
 ```python

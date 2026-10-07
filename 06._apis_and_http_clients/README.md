@@ -42,23 +42,22 @@ data = response.json()
 
 # POST med JSON-body
 response = httpx.post(
-    "http://127.0.0.1:5000/books",
-    headers={"X-API-Key": api_key},
-    json={"title": "Dune", "author": "Frank Herbert"},
+    "https://api.mistral.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {api_key}"},
+    json={"model": "mistral-small", "messages": [{"role": "user", "content": "Hello"}]},
 )
-print(response.status_code)            # 201 Created
 ```
 
 ### Hold hemmeligheder ude af koden
 ```python
 # .env-fil (commit den aldrig!)
-# LIBRARY_API_KEY=skift-mig
+# MISTRAL_API_KEY=sk-...
 
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-api_key = os.environ["LIBRARY_API_KEY"]
+api_key = os.environ["MISTRAL_API_KEY"]
 ```
 - `.env` skal i `.gitignore`
 - Brug `.env.example` til at dokumentere, hvilke variabler der skal bruges
@@ -69,7 +68,7 @@ with httpx.stream("POST", url, json=payload, headers=headers) as response:
     for chunk in response.iter_text():
         print(chunk, end="", flush=True)
 ```
-- Hvorfor streaming? Oplevet hastighed — de første data dukker op med det samme
+- Hvorfor streaming? Oplevet hastighed — de første tokens dukker op med det samme
 - Server-Sent Events (SSE)-formatet: `data: {...}\n\n`
 
 ### Opgave: en Python-klient til din bog-API

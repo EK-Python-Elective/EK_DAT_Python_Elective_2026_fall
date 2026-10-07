@@ -111,26 +111,7 @@ uv run library_client.py                                    # terminal 2: klient
    Prøv `response.raise_for_status()`, og fang `httpx.HTTPStatusError`. Hvornår er det bedre end selv at tjekke `response.status_code`?
 3. **Tilføj en API-nøgle.** Lige nu kan alle tilføje og slette bøger i jeres API. Det løser vi med en hemmelig nøgle, som kun jeres klient kender. Start på serveren: læg nøglen i en `.env`-fil som `LIBRARY_API_KEY=...`, og lad Flask tjekke `X-API-Key`-headeren på de endpoints, der ændrer data. Passer nøglen ikke, svarer API'en `401 Unauthorized`. Giv derefter klienten sin egen `.env` med den samme nøgle, og send den med i headeren. Til sidst laver du en `.env.example`, så andre kan se, hvilken variabel de skal bruge, og tjekker, at `.env` står i `.gitignore`. Prøv så at sende en request uden nøglen — du skulle gerne få `401`.
 
-   Sådan modtager og læser Flask headeren:
-
-   ```python
-   import os
-   from dotenv import load_dotenv
-   from flask import Flask, request
-
-   app = Flask(__name__)
-
-   load_dotenv()
-   API_KEY = os.environ["LIBRARY_API_KEY"]
-
-   @app.post("/books")                                # brug jeres eget endpoint
-   def add_book():
-       if request.headers.get("X-API-Key") != API_KEY:   # None, hvis headeren mangler
-           return {"error": "Forkert eller manglende API-nøgle"}, 401
-       ...                                            # resten af jeres kode
-   ```
-
-   `request.headers` virker som en dict med alle requestens headers, og navnene er ligeglade med store og små bogstaver. Lav samme tjek i alle de routes, der ændrer data.
+   I Flask læser du headeren med `request.headers.get("X-API-Key")` — den giver `None`, hvis headeren mangler.
 
 4. **Ekstra — streaming.** Tilføj et `GET /books/stream`-endpoint, der returnerer én JSON-linje pr. bog med en kort pause imellem (en Flask-generator, `mimetype="application/x-ndjson"`). Læs det med `httpx.stream(...)` og `response.iter_lines()`, så hver bog bliver printet, efterhånden som den kommer. Det er samme idé, som når en AI-chat skriver sit svar ord for ord.
 

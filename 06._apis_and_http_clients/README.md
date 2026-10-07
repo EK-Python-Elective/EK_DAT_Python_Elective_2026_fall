@@ -37,14 +37,14 @@
 import httpx
 
 # Synkront
-response = httpx.get("https://api.example.com/data", headers={"Authorization": "Bearer TOKEN"})
+response = httpx.get("https://httpbin.org/get", headers={"Authorization": "Bearer TOKEN"})
 data = response.json()
 
 # POST med JSON-body
 response = httpx.post(
     "https://api.mistral.ai/v1/chat/completions",
     headers={"Authorization": f"Bearer {api_key}"},
-    json={"model": "mistral-small", "messages": [{"role": "user", "content": "Hello"}]},
+    json={"model": "mistral-small-latest", "messages": [{"role": "user", "content": "Hello"}]},
 )
 ```
 

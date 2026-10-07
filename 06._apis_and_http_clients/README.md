@@ -2,14 +2,14 @@
 
 **Uge 41 | Python Elective 2026 Fall**
 
-> Skriv en Python-klient til jeres bog-API fra session 5. Lær `httpx`, asynkron HTTP, API-nøgler, `.env`-filer og fejlhåndtering.
+> Skriv en Python-klient til jeres bog-API fra session 5. Lær `httpx`, API-nøgler, `.env`-filer og fejlhåndtering.
 
 ---
 
 ## Læringsmål
 
 - Du forstår, hvordan HTTP-API'er virker (request/response, headers, JSON-body)
-- Du kan bruge `httpx` til at lave synkrone og asynkrone HTTP-requests i Python
+- Du kan bruge `httpx` til at lave HTTP-requests i Python
 - Du ved, hvordan man håndterer API-nøgler sikkert med `.env`-filer
 - Du kan håndtere fejl, når du kalder en API: fejl-statuskoder, en server der ikke kører, og timeouts
 - Du forstår streaming-svar, og hvordan man læser dem bid for bid

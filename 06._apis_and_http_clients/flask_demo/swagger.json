@@ -1,0 +1,181 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Flask Demo API",
+    "description": "A small demo API that keeps a list of users in memory.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "general"
+    },
+    {
+      "name": "users"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["general"],
+        "summary": "Say hello",
+        "operationId": "index",
+        "responses": {
+          "200": {
+            "description": "A greeting",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["users"],
+        "summary": "List all users",
+        "operationId": "get_users",
+        "responses": {
+          "200": {
+            "description": "All users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["users"],
+        "summary": "Create a user",
+        "operationId": "set_users",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The user that was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{name}": {
+      "parameters": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "The name of the user",
+          "schema": {
+            "type": "string"
+          },
+          "example": "Claus"
+        }
+      ],
+      "put": {
+        "tags": ["users"],
+        "summary": "Update a user",
+        "description": "Replaces the name and age of the user with the given name. If no user matches, nothing changes.",
+        "operationId": "change_user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "All users after the update",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["users"],
+        "summary": "Delete a user",
+        "description": "Removes the user with the given name. If no user matches, nothing changes.",
+        "operationId": "remove_user",
+        "responses": {
+          "200": {
+            "description": "All users after the deletion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Message": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string",
+            "example": "Hello"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": ["name", "age"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Claus"
+          },
+          "age": {
+            "type": "integer",
+            "example": 33
+          }
+        }
+      },
+      "UserList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/User"
+        }
+      }
+    }
+  }
+}

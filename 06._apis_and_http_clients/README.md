@@ -98,7 +98,7 @@ Sidste gang byggede du bogreols-API'en i Flask og testede den med Postman. Nu sk
 
 ```bash
 uv run main.py                                              # terminal 1: din API fra session 5 (i library-mappen)
-uv run --with httpx --with python-dotenv library_client.py  # terminal 2: klienten
+uv run library_client.py                                    # terminal 2: klienten
 ```
 
 1. **Tal med den.** Skriv `library_client.py`, så den viser alle bøger, tilføjer en bog, låner den ud, afleverer den og sletter den. Print statuskoden og JSON for hvert kald. Brug én `httpx.Client(base_url=...)` i stedet for at gentage hele URL'en.

@@ -16,7 +16,8 @@
 | 5x | TBD | [File I/O and pathlib](x05._file_io_and_pathlib/README.md) — *displaced, week not yet assigned* |
 | 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
-| 7 | 43 | [Async Python](07._async_python/README.md) |
+| 7 | 43 | [Streamlit](07._streamlit/README.md) |
+| 7x | TBD | [Async Python](x07._async_python/README.md) — *displaced, week not yet assigned* |
 | 8 | 44 | [Configuration Management: TOML, ENV, and Profiles](08._configuration_management/README.md) |
 | 9 | 45 | [The Skills/Plugin System: Extensibility Patterns](09._skills_plugin_system/README.md) |
 | 10 | 46 | [Testing: pytest and How to Test CLI Tools](10._testing/README.md) |

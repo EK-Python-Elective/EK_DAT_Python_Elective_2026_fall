@@ -53,7 +53,7 @@ Kør den — Streamlit åbner selv browseren på `http://localhost:8501`:
 uv run streamlit run app.py
 ```
 
-Gem filen, og tryk **Rerun** i browseren (eller slå **Always rerun** til), så ser du ændringerne med det samme.
+Lad den køre, mens du arbejder. Prøv at ændre `name` i `app.py` til dit eget navn, og gem filen. Streamlit opdager ændringen og viser knapperne **Rerun** og **Always rerun** øverst til højre i browseren. Vælg **Always rerun**, så opdateres siden af sig selv, hver gang du gemmer — også når du prøver eksemplerne herunder.
 
 ### Tekst og Markdown
 

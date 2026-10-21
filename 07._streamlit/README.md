@@ -30,7 +30,7 @@
 ### Kom i gang
 
 ```bash
-uv init streamlit_demo
+uv init --no-package streamlit_demo
 cd streamlit_demo
 uv add streamlit httpx
 ```

@@ -20,7 +20,7 @@
 ## Før undervisningen
 
 - Dan dig et overblik over, hvad [Streamlit](https://streamlit.io/) er og kan — kig i [galleriet](https://streamlit.io/gallery) og [dokumentationen](https://docs.streamlit.io/).
-- Sørg for, at din bogreols-API fra session 5 kører, og at din `library_client.py` fra session 6 virker. I dag får de en brugerflade.
+- Sørg for, at din bogreols-API fra session 5 kører, og at din `library_client.py` fra session 6 virker.
 - Brainstorm: Hvilket lille værktøj kunne du tænke dig at bygge med Streamlit?
 
 ---

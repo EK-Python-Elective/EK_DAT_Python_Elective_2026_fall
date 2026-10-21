@@ -98,6 +98,39 @@ else:
 
 **Vigtigt:** Hver gang brugeren ændrer en widget, kører Streamlit **hele** `app.py` forfra, fra øverste linje. Widgets returnerer deres nuværende værdi — derfor kan du bruge dem som almindelige variabler. Vil du huske noget mellem kørsler (fx en liste, der vokser), skal det i `st.session_state`.
 
+Prøv det selv. Her er en app, der skal samle navne i en liste — men den virker ikke:
+
+```python
+import streamlit as st
+
+navne = []                                   # køres forfra ved hvert klik → altid tom
+
+navn = st.text_input("Navn")
+if st.button("Tilføj"):
+    navne.append(navn)
+
+st.write(navne)                              # viser kun det seneste navn
+```
+
+Tilføj "Anna" og derefter "Bo" — listen viser kun `["Bo"]`. Hvert klik kører scriptet forfra, så `navne = []` sletter listen hver gang.
+
+Med `st.session_state` overlever listen mellem kørslerne:
+
+```python
+import streamlit as st
+
+if "navne" not in st.session_state:          # kun første gang
+    st.session_state.navne = []
+
+navn = st.text_input("Navn")
+if st.button("Tilføj"):
+    st.session_state.navne.append(navn)
+
+st.write(st.session_state.navne)             # listen vokser: ["Anna", "Bo"]
+```
+
+`st.session_state` fungerer som en dict, der lever, så længe browserfanen er åben. `if "navne" not in ...` sørger for, at listen kun bliver oprettet første gang.
+
 ### Layout: kolonner og sidebar
 
 ```python

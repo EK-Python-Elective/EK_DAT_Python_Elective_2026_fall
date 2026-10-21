@@ -168,7 +168,7 @@ import streamlit as st
 
 st.title("GitHub-bruger")
 
-username = st.text_input("Brugernavn", "octocat")
+username = st.text_input("Brugernavn", "EK-Python-Elective")
 
 if st.button("Hent"):
     try:

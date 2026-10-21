@@ -40,7 +40,7 @@ Eksemplerne bruger [GitHub's REST API](https://docs.github.com/en/rest) — grat
 import httpx
 
 # GET — offentlige data, kræver ingen token
-response = httpx.get("https://api.github.com/users/octocat")
+response = httpx.get("https://api.github.com/users/EK-Python-Elective")
 print(response.status_code)            # 200
 data = response.json()
 print(data["name"], data["public_repos"])

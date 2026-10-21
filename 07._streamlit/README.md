@@ -98,7 +98,9 @@ else:
 
 **Vigtigt:** Hver gang brugeren ændrer en widget, kører Streamlit **hele** `app.py` forfra, fra øverste linje. Widgets returnerer deres nuværende værdi — derfor kan du bruge dem som almindelige variabler. Vil du huske noget mellem kørsler (fx en liste, der vokser), skal det i `st.session_state`.
 
-Prøv det selv. Her er en app, der skal samle navne i en liste — men den virker ikke:
+### Session state
+
+Her er en app, der skal samle navne i en liste — men den virker ikke:
 
 ```python
 import streamlit as st

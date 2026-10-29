@@ -43,4 +43,3 @@ The exam is an **individual oral examination** built on a **group feature**:
 - **Group hand-in:** each group submits one PR — their feature branch → their fork's `main` (pinned at `v2.24.0`). A CI workflow runs the checks on the PR, and the examiner evaluates it beforehand by checking it out and running it (it is reviewed, not merged).
 - **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
 
-The work is collaborative (sessions 11–13), but the grade is individual. The full exam page will follow. The binding exam regulations live in the course's official study programme (studieordning).

@@ -1,6 +1,6 @@
 # EK_DAT Python Elective 2026 Fall
 
-> 📌 **Course release: `v2.24.0`** — all materials this semester are written against mistral-vibe at release `v2.24.0`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal — see [session 13](13._pr_preparation/README.md).)
+> 📌 **Course release: `v2.24.0`** — all materials this semester are written against mistral-vibe at release `v2.24.0`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal.)
 
 ## Semester Plan: Fork of mistral-vibe
 
@@ -13,18 +13,16 @@
 | 3a | TBD | [Type System: Type Hints, Dataclasses, and Pydantic](03a._type_system/README.md) — *displaced, week not yet assigned* |
 | 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
 | 5 | 40 | [Byg en REST API med Flask](05._flask_api/README.md) |
-| 5x | TBD | [File I/O and pathlib](x05._file_io_and_pathlib/README.md) — *displaced, week not yet assigned* |
 | 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
 | 7 | 43 | [Streamlit](07._streamlit/README.md) |
-| 7x | TBD | [Async Python](x07._async_python/README.md) — *displaced, week not yet assigned* |
-| 8 | 44 | [Configuration Management: TOML, ENV, and Profiles](08._configuration_management/README.md) |
-| 9 | 45 | [The Skills/Plugin System: Extensibility Patterns](09._skills_plugin_system/README.md) |
-| 10 | 46 | [Testing: pytest and How to Test CLI Tools](10._testing/README.md) |
-| 11 | 47 | [Feature Sprint I](11._feature_sprint_1/README.md) |
-| 12 | 48 | [Feature Sprint II + Code Review](12._feature_sprint_2_code_review/README.md) |
-| 13 | 49 | [PR Preparation: Contributing Back](13._pr_preparation/README.md) |
-| 14 | — | [Exam — Feature Presentation & Defense](14._exam/README.md) |
+| 8 | 44 | Configuration Management: TOML, ENV, and Profiles |
+| 9 | 45 | The Skills/Plugin System: Extensibility Patterns |
+| 10 | 46 | Testing: pytest and How to Test CLI Tools |
+| 11 | 47 | Feature Sprint I |
+| 12 | 48 | Feature Sprint II + Code Review |
+| 13 | 49 | PR Preparation: Contributing Back |
+| 14 | — | Exam — Feature Presentation & Defense |
 
 
 ---
@@ -52,4 +50,4 @@ The exam is an **individual oral examination** built on a **group feature**:
 - **Group hand-in:** each group submits one PR — their feature branch → their fork's `main` (pinned at `v2.24.0`). A CI workflow runs the checks on the PR, and the examiner evaluates it beforehand by checking it out and running it (it is reviewed, not merged).
 - **Individual oral (≈25 min per student):** a 10-minute presentation (live demo + code walkthrough + reflection on AI use) followed by 15 minutes of examiner questions. You present your group's whole feature; the Q&A establishes your individual understanding, so students from the same group can be graded differently.
 
-The work is collaborative (sessions 11–13), but the grade is individual. See [the exam page](14._exam/README.md) for the full format. The binding exam regulations live in the course's official study programme (studieordning).
+The work is collaborative (sessions 11–13), but the grade is individual. The full exam page will follow. The binding exam regulations live in the course's official study programme (studieordning).

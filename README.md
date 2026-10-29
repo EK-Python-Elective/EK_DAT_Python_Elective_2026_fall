@@ -16,13 +16,6 @@
 | 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
 | 7 | 43 | [Streamlit](07._streamlit/README.md) |
-| 8 | 44 | Configuration Management: TOML, ENV, and Profiles |
-| 9 | 45 | The Skills/Plugin System: Extensibility Patterns |
-| 10 | 46 | Testing: pytest and How to Test CLI Tools |
-| 11 | 47 | Feature Sprint I |
-| 12 | 48 | Feature Sprint II + Code Review |
-| 13 | 49 | PR Preparation: Contributing Back |
-| 14 | — | Exam — Feature Presentation & Defense |
 
 
 ---

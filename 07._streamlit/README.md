@@ -27,6 +27,8 @@
 
 ## Dagens undervisning
 
+> 💡 Den færdige demo-app fra undervisningen ligger i [`demo/streamlit-demo/`](demo/streamlit-demo/) — kør den med `uv run streamlit run main.py` fra den mappe.
+
 ### Kom i gang
 
 ```bash

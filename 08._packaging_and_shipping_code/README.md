@@ -1,11 +1,5 @@
 # 08. Packaging and Shipping Code
 
-> 📚 **Kilde:** Dansk oversættelse af lektionen [*Packaging and Shipping Code*](https://missing.csail.mit.edu/2026/shipping-code/) fra MIT's kursus [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) (2026). Originalen er udgivet under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), og denne oversættelse deles under samme licens. Tekniske termer er bevidst bevaret på engelsk.
->
-> 🎥 **Video (engelsk):** [youtube.com/watch?v=KBMiB-8P4Ns](https://www.youtube.com/watch?v=KBMiB-8P4Ns)
-
----
-
 Det er svært at få kode til at virke efter hensigten; det er ofte endnu sværere at få den samme kode til at køre på en anden maskine end din egen.
 
 At *shippe* kode betyder at tage den kode, du har skrevet, og omdanne den til en brugbar form, som andre kan køre uden at have præcis samme opsætning som din computer.
@@ -610,3 +604,9 @@ At deploye en web service på internettet kræver yderligere infrastruktur: regi
 1. Skriv en Dockerfile til en simpel Python-applikation. Skriv derefter en `docker-compose.yml`, der kører din applikation sammen med en Redis-cache.
 1. Publicér en Python package til TestPyPI (publicér ikke til det rigtige PyPI, medmindre den er værd at dele!). Byg derefter et Docker image med den package og push det til `ghcr.io`.
 1. Lav en hjemmeside med [GitHub Pages](https://docs.github.com/en/pages/quickstart). Ekstra (ikke-)point: konfigurér den med et custom domain.
+
+---
+
+> 📚 **Kilde:** Dansk oversættelse af lektionen [*Packaging and Shipping Code*](https://missing.csail.mit.edu/2026/shipping-code/) fra MIT's kursus [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) (2026). Originalen er udgivet under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), og denne oversættelse deles under samme licens. Tekniske termer er bevidst bevaret på engelsk.
+>
+> 🎥 **Video (engelsk):** [youtube.com/watch?v=KBMiB-8P4Ns](https://www.youtube.com/watch?v=KBMiB-8P4Ns)

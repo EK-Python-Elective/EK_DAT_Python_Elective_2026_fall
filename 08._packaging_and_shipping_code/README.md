@@ -72,7 +72,12 @@ Her kan vi se, at `requests` har sine egne dependencies, såsom `certifi` eller 
 Når det er installeret, kan Python runtime finde library'et, når det importeres.
 
 ```console
-$ python -c 'import requests; print(requests.__path__)'
+$ cat check_requests.py
+import requests
+
+print(requests.__path__)
+
+$ python check_requests.py
 ['/usr/local/lib/python3.11/dist-packages/requests']
 
 $ pip list | grep requests
@@ -104,7 +109,7 @@ $ which python
 /home/missingsemester/venv/bin/python
 $ which pip
 /home/missingsemester/venv/bin/pip
-$ python -c 'import requests; print(requests.__path__)'
+$ python check_requests.py
 ['/home/missingsemester/venv/lib/python3.11/site-packages/requests']
 
 $ pip list
@@ -172,15 +177,21 @@ $ cat greet.py
 def greet(name):
     print(f"Hello, {name}!")
 
-$ python -c "from greet import greet; greet('World')"
+$ cat main.py
+from greet import greet
+
+greet("World")
+
+$ python main.py
 Hello, World!
 
+$ cp main.py /tmp
 $ cd /tmp
-$ python -c "from greet import greet; greet('World')"
+$ python main.py
 ModuleNotFoundError: No module named 'greet'
 ```
 
-Importen fejler, så snart vi skifter til en anden mappe, fordi Python kun leder efter modules bestemte steder (den aktuelle mappe, installerede packages og stierne i `PYTHONPATH`). Packaging løser dette ved at installere koden et kendt sted.
+Importen fejler, så snart `main.py` ligger i en anden mappe end `greet.py`, fordi Python kun leder efter modules bestemte steder (mappen med det script, der køres, installerede packages og stierne i `PYTHONPATH`). Packaging løser dette ved at installere koden et kendt sted.
 
 I Python handler packaging af et library om at producere et artifact, som package installers som `pip` eller `uv` kan bruge til at installere de relevante filer.
 Python-artifacts kaldes _wheels_ og indeholder al den information, der skal til for at installere en package: kodefilerne, metadata om package'en (navn, version, dependencies) og instruktioner om, hvor filerne skal placeres i environment'et.

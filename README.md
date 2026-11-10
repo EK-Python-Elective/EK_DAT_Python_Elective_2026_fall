@@ -16,6 +16,7 @@
 | 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
 |  | 42 | _Autumn Break — no session_ |
 | 7 | 43 | [Streamlit](07._streamlit/README.md) |
+| 8 | 44 | [Packaging and Shipping Code](08._packaging_and_shipping_code/README.md) |
 
 
 ---

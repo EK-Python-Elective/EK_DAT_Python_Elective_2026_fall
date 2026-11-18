@@ -113,7 +113,7 @@ uv tool install https://github.com/<sidemand>/<sidemand>-quote/releases/download
 
 Bemærk: Wheel-filnavnet bruger `_`, ikke `-`.
 
-**Tænk over:** Hvad skal modtageren kunne i hvert tilfælde? Og hvad mangler, som en pakke-index som PyPI giver jer?
+**Tænk over:** Hvad skal modtageren vide og have installeret i hvert tilfælde?
 
 ---
 
@@ -141,6 +141,8 @@ Bemærk: Wheel-filnavnet bruger `_`, ikke `-`.
 **Færdig når:** I har kørt sidemandens værktøj fra TestPyPI.
 
 **Prøv bagefter:** Kør `uv publish` igen uden at ændre noget. Hvorfor bliver den afvist?
+
+**Tænk over:** Sammenlign med GitHub i Runde 1. Hvad skulle sidemanden vide for at installere jeres pakke dengang, og hvad skal de vide nu?
 
 ---
 

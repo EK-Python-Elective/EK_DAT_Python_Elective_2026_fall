@@ -88,8 +88,12 @@ I dag prøver vi to af dem: **PyPI** (til udviklere og tekniske brugere) og **Do
 
    ```bash
    uv build
-   unzip -l dist/*.whl
+   unzip -l dist/*.whl                       # hvilke filer er med?
+   unzip -p dist/*.whl '*/METADATA'          # navn, version og dependencies
+   unzip -p dist/*.whl '*/entry_points.txt'  # [project.scripts]
    ```
+
+   Hvor i `pyproject.toml` kommer indholdet af `METADATA` og `entry_points.txt` fra? Hvilke filer fra projektet er **ikke** med?
 
 5. Installér wheel'et som et værktøj, og kør det fra en **anden mappe**:
 

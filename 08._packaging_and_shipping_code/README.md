@@ -63,7 +63,7 @@ Der findes mange måder at publicere en applikation på, og hver retter sig mod 
 | Executable/installer, app store | `.exe`, `.dmg`, App Store | Almindelige brugere | Ingenting |
 | Web app / SaaS | En URL | Almindelige brugere | En browser |
 
-**Tænk over:** Hvor ligger mistral-vibe i tabellen? Hvor ligger jeres bogreols-API?
+**Tænk over:** Hvor ligger mistral-vibe i tabellen? Hvor ligger jeres bogreols-API? Og jeres fredagsbar-system fra den obligatoriske opgave: hvem skal bruge det, og hvordan får de fat i det?
 
 I dag prøver vi to af dem: **PyPI** (til udviklere og tekniske brugere) og **Docker Hub** (til drift og servere).
 

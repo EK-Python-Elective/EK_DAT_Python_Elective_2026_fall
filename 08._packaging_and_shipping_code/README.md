@@ -2,131 +2,366 @@
 
 **Uge 44 | Python Elective 2026 Fall**
 
-> Din kode virker på din maskine — men virker den på alle andres? I dag ser vi på, hvordan man får Python-kode fra "det kører hos mig" til noget, andre kan installere, køre og deploye.
+> Jeres kode virker på jeres egen maskine. I dag får I den ud til andre: som en pakke på TestPyPI, som et Docker-image på Docker Hub og med *secrets*, der bliver hjemme.
 
 ---
 
-## Om dagens lektion
+## Dagens spørgsmål
 
-I dag gennemgår vi udvalgte elementer fra lektionen **[Packaging and Shipping Code](https://missing.csail.mit.edu/2026/shipping-code/)** fra MIT's kursus *The Missing Semester of Your CS Education* (2026). Lektionen bruger Python-økosystemet som eksempel, så den passer direkte ind i vores kursus.
-
-Læs lektionen hos MIT før eller under undervisningen — den indeholder alle forklaringer og kodeeksempler, som øvelserne nedenfor bygger på.
-
-Vi kommer omkring:
-
-- **Dependencies & Environments** — dependency conflicts, *dependency hell* og virtual environments med `uv venv`
-- **Artifacts & Packaging** — `pyproject.toml`, `[project.scripts]`, wheels og `uv build`
-- **Releases & Versioning** — Semantic Versioning (SemVer), version specifiers (`==`, `>=`, `~=`) og `uv tree`
-- **Reproducibility** — pinning, lock files (`uv.lock`) og forskellen på libraries og applications
-- **VMs & Containers** — Docker images vs. containers, layers, Dockerfiles og builder pattern
-- **Configuration** — environment variables, config files og secrets uden for version control
-- **Services & Orchestration** — Docker Compose og multi-container-applikationer
-- **Publishing** — PyPI, TestPyPI og `uv publish`
+**Hvem skal bruge jeres kode, og hvordan får de fat i den?**
 
 ---
 
 ## Læringsmål
 
-- Du kan forklare, hvad et virtual environment er, og hvorfor hvert projekt bør have sit eget
-- Du kan pakke et Python-projekt med `pyproject.toml` og bygge et wheel med `uv build`
-- Du kan læse og skrive version specifiers og forklare SemVer
-- Du forstår, hvad en lock file er, og hvornår man pinner versioner
-- Du kan konfigurere en applikation via environment variables og holde secrets ude af Git
-- Du kan skrive en Dockerfile og en `docker-compose.yml` til en Python-applikation
+Efter i dag kan du:
+
+- pakke et Python-projekt med `pyproject.toml` og `uv build`
+- læse og skrive version specifiers (`==`, `>=`, `~=`)
+- konfigurere en applikation via environment variables og holde *secrets* ude af Git
+- skrive en `Dockerfile` og en `docker-compose.yml` til en Python-applikation
+- pushe et image til Docker Hub
+- publicere en pakke på TestPyPI
 
 ---
 
-## Før undervisningen
+## Før timen
 
-- Læs [Packaging and Shipping Code](https://missing.csail.mit.edu/2026/shipping-code/) hos MIT.
-- Installér [Docker Desktop](https://www.docker.com/products/docker-desktop/) (eller Docker Engine på Linux), og tjek at `docker run hello-world` virker.
-- Opret en bruger på [TestPyPI](https://test.pypi.org/account/register/) (bruges i øvelse 2).
+- Læs [Packaging and Shipping Code](https://missing.csail.mit.edu/2026/shipping-code/) hos MIT. I skal ikke kunne det hele, bare have et overblik.
+- Installér [Docker Desktop](https://www.docker.com/products/docker-desktop/), og tjek at `docker run hello-world` virker.
+- Opret en bruger på [TestPyPI](https://test.pypi.org/account/register/) og på [Docker Hub](https://hub.docker.com/signup).
+- Hav jeres **bogreols-API** fra [session 5](../05._flask_api/README.md) klar. Virker jeres ikke, så brug [`hello_api.py`](../05._flask_api/hello_api.py).
 
 ---
 
-## Øvelser
+## Program
 
-> 💡 Brug gerne AI-værktøjer (mistral-vibe, Claude Code, Copilot …) til øvelserne — men sørg for, at du kan forklare hvert trin bagefter.
+1. Intro · Hvordan kommer kode ud til andre?
+2. Runde 1 · Pak et projekt
+3. Runde 2 · Publicér på TestPyPI
+4. Runde 3 · Version specifiers
+5. Runde 4 · Config og *secrets*
+6. Runde 5 · Dockerfile
+7. Runde 6 · Docker Compose
+8. Runde 7 · Push til Docker Hub
+9. Ekstra · Redis som ekstra service
+10. Opsamling
 
-### Øvelse 1 — Hvor kommer `python` fra?
+---
 
-Målet er at forstå, hvad der *faktisk* sker, når du aktiverer et virtual environment.
+## Intro · Hvordan kommer kode ud til andre?
 
-1. Skriv et lille script `where_am_i.py`, der printer:
-   - `sys.executable` (hvilken Python-fortolker kører?)
-   - `sys.prefix` og `sys.base_prefix` (er vi i et venv?)
-   - `sys.path` (hvor leder Python efter modules?)
-   - `sys.version`
-2. Kør scriptet med systemets Python.
-3. Opret to environments med forskellige Python-versioner:
-   ```console
-   $ uv venv --python 3.12 venv312
-   $ uv venv --python 3.13 venv313
+Der findes mange måder at publicere en applikation på, og hver retter sig mod en bestemt slags modtager.
+
+| Måde | Eksempel | Hvem er modtageren? | Hvad skal modtageren have? |
+|------|----------|--------------------|-----------------------------|
+| Kildekode på GitHub | `git clone` + `uv sync` | Udviklere, bidragydere | Git, Python, uv og tålmodighed |
+| Pakke på PyPI (library) | `uv add requests` | Python-udviklere, der bygger videre | Et Python-projekt |
+| Pakke på PyPI (CLI-værktøj) | `uvx mistral-vibe`, `uv tool install ruff` | Tekniske brugere | Python og uv/pipx |
+| System-pakkemanager | `brew install`, `apt install`, `choco install` / `winget install` | Tekniske brugere, sysadmins | Den rigtige pakkemanager |
+| Container-image | `docker run …` fra Docker Hub/GHCR | Drift, DevOps, servere | Docker, men ikke Python |
+| Executable/installer, app store | `.exe`, `.dmg`, App Store | Almindelige brugere | Ingenting |
+| Web app / SaaS | En URL | Almindelige brugere | En browser |
+
+**Tænk over:** Hvor ligger mistral-vibe i tabellen? Hvor ligger jeres bogreols-API? Og jeres fredagsbar-system fra den obligatoriske opgave: hvem skal bruge det, og hvordan får de fat i det?
+
+I dag prøver vi to af dem: **PyPI** (til udviklere og tekniske brugere) og **Docker Hub** (til drift og servere).
+
+---
+
+## Runde 1 · Pak et projekt
+
+**Demo:** Vi laver et lille CLI-værktøj, der printer et tilfældigt citat, og gør det installerbart.
+
+**I gør det samme:**
+
+1. Lav et projekt. Brug jeres navn, så navnet er unikt på TestPyPI:
+
+   ```bash
+   uv init --package <navn>-quote
+   cd <navn>-quote
    ```
-4. Aktivér hvert environment på skift og kør scriptet igen. Hvad ændrer sig?
-5. Gem output fra `printenv` før og efter `source venv312/bin/activate` i to filer og kør `diff before.txt after.txt`. Hvilke variabler har ændret sig, og hvorfor betyder det, at shell'en finder venv'ets `python`?
-6. Udvid scriptet, så det printer `"Du kører i et virtual environment"` eller `"Du kører med systemets Python"` ud fra `sys.prefix != sys.base_prefix`.
 
-### Øvelse 2 — Byg og ship dit eget CLI-værktøj
+2. Skriv `main()` i `src/<navn>_quote/__init__.py`, så den printer et tilfældigt citat fra en liste (`random.choice`).
+3. Kig i `pyproject.toml`. Find `[project.scripts]`. Hvad betyder `<navn>-quote = "<navn>_quote:main"`? (Sammenlign med `vibe` i mistral-vibes `pyproject.toml`.)
+4. Byg pakken, og kig ind i wheel'et:
 
-Lav et lille command-line tool fra bunden og gør det installerbart.
-
-1. Opret et nyt projekt med `uv init --package <dit-navn>-quote` (brug dit navn, så package-navnet er unikt på TestPyPI).
-2. Lav et CLI-værktøj med [`typer`](https://typer.tiangolo.com/), der printer et tilfældigt citat — fx `quote` og `quote --author "Ada Lovelace"`.
-3. Registrér kommandoen under `[project.scripts]` i `pyproject.toml`, ligesom `greet` i MIT-lektionen. (Kig også i mistral-vibes `pyproject.toml` — hvordan bliver kommandoen `vibe` defineret?)
-4. Byg projektet med `uv build` og inspicér wheel'et med `unzip -l dist/*.whl`. Hvilke filer er med? Hvad står der i `METADATA`?
-5. Opret et helt nyt venv i en **anden mappe**, installér wheel'et med `uv pip install sti/til/dit.whl`, og kør din kommando derfra.
-6. Publicér til TestPyPI med `uv publish --publish-url https://test.pypi.org/legacy/` og installér den igen fra TestPyPI:
-   ```console
-   $ uv pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ <dit-navn>-quote
+   ```bash
+   uv build
+   unzip -l dist/*.whl                       # hvilke filer er med?
+   unzip -p dist/*.whl '*/METADATA'          # navn, version og dependencies
+   unzip -p dist/*.whl '*/entry_points.txt'  # [project.scripts]
    ```
-   (Hvorfor skal vi bruge `--extra-index-url` her? Tip: hvor ligger `typer`?)
 
-### Øvelse 3 — Versioner, lock files og dependency hell
+   Hvor i `pyproject.toml` kommer indholdet af `METADATA` og `entry_points.txt` fra? Hvilke filer fra projektet er **ikke** med?
 
-1. Tilføj `requests`, `rich` og `httpx` til dit projekt fra øvelse 2 med `uv add`. Kig i `pyproject.toml` — hvilke version specifiers har `uv` valgt?
-2. Kør `uv tree`. Hvor mange **transitive** dependencies har du fået? Hvilke packages deles af flere af dine dependencies?
-3. Åbn `uv.lock` og find `certifi`. Hvilken eksakt version er låst, og hvad bruges `hash`-feltet til?
-4. Fremprovokér en dependency conflict: tilføj to constraints, der ikke kan opfyldes samtidig (fx `uv add "httpx<0.20" "httpx>=0.27"` eller en package, der kræver en nyere version end en anden tillader). Læs fejlbeskeden fra `uv` og forklar den med dine egne ord.
-5. Ret versionsnummeret på dit projekt efter SemVer for hver af disse ændringer, og skriv et kort `CHANGELOG.md`:
-   - du retter en stavefejl i et citat
-   - du tilføjer et `--count`-flag
-   - du omdøber kommandoen fra `quote` til `quotes`
-6. Kig i mistral-vibes `pyproject.toml` og `uv.lock`. Bruger projektet eksakte versioner (`==`) eller intervaller (`>=`) i `pyproject.toml`? Er mistral-vibe et *library* eller en *application* — og passer valget til MIT-lektionens anbefaling?
+5. Installér wheel'et som et værktøj, og kør det fra en **anden mappe**:
 
-### Øvelse 4 — Configuration og secrets
+   ```bash
+   uv tool install dist/*.whl
+   cd ~ && <navn>-quote
+   ```
 
-Gør din bogreols-API fra session 5 konfigurerbar uden at ændre i koden.
+**Færdig når:** `<navn>-quote` virker i en hvilken som helst mappe.
 
-1. Flyt alle hardcodede værdier (port, debug-mode, database-sti/filnavn …) ud i environment variables, som i MIT-eksemplet:
+**Prøv bagefter:** Del pakken via GitHub. Push projektet til et offentligt repo, og prøv to måder at installere sidemandens pakke på:
+
+```bash
+# 1. Direkte fra repoet (uv bygger selv wheel'et)
+uvx --from git+https://github.com/<sidemand>/<sidemand>-quote <sidemand>-quote
+
+# 2. Som færdigt wheel i en GitHub Release
+gh release create v0.1.0 dist/*          # sidemanden kører denne i sit repo
+uv tool install https://github.com/<sidemand>/<sidemand>-quote/releases/download/v0.1.0/<sidemand>_quote-0.1.0-py3-none-any.whl
+```
+
+Bemærk: Wheel-filnavnet bruger `_`, ikke `-`.
+
+**Tænk over:** Hvad skal modtageren vide og have installeret i hvert tilfælde?
+
+---
+
+## Runde 2 · Publicér på TestPyPI
+
+**Demo:** Vi publicerer citat-værktøjet på [TestPyPI](https://test.pypi.org/), PyPI's sandkasse.
+
+**I gør det samme:**
+
+1. Lav et API-token på TestPyPI under *Account settings → API tokens*.
+2. Læg tokenet i en environment variable, så det ikke står i jeres shell-historik eller kode:
+
+   ```bash
+   export UV_PUBLISH_TOKEN=pypi-...
+   uv publish --publish-url https://test.pypi.org/legacy/
+   ```
+
+3. Find jeres pakke på `https://test.pypi.org/project/<navn>-quote/`.
+4. Kør sidemandens pakke uden at installere den:
+
+   ```bash
+   uvx --index-url https://test.pypi.org/simple/ <sidemand>-quote
+   ```
+
+5. Fjern den version, I installerede fra det lokale wheel i Runde 1, og installér jeres egen fra TestPyPI i stedet:
+
+   ```bash
+   uv tool list
+   uv tool uninstall <navn>-quote
+   uv tool install --index-url https://test.pypi.org/simple/ <navn>-quote
+   uv tool list
+   ```
+
+**Færdig når:** I har kørt sidemandens værktøj fra TestPyPI, og jeres eget er installeret derfra.
+
+**Prøv bagefter:** Kør `uv publish` igen uden at ændre noget. Hvorfor bliver den afvist?
+
+**Tænk over:** Sammenlign med GitHub i Runde 1. Hvad skulle sidemanden vide for at installere jeres pakke dengang, og hvad skal de vide nu?
+
+---
+
+## Runde 3 · Version specifiers
+
+**Demo:** `uv add`, `pyproject.toml`, `uv tree` og `uv.lock`.
+
+| Specifier | Betyder | Typisk brug |
+|-----------|---------|-------------|
+| `==2.31.0` | præcis den version | lock files, applikationer |
+| `>=2.31` | den eller nyere | libraries |
+| `~=2.31` | `>=2.31, <3.0` | "nye features, men ingen breaking changes" |
+| `>=2.31,<3` | interval | det samme, skrevet ud |
+
+SemVer: `MAJOR.MINOR.PATCH`. Breaking change → MAJOR, ny feature → MINOR, bugfix → PATCH.
+
+**I gør det samme** i citat-projektet:
+
+1. Tilføj `rich`, og brug den til at printe citatet i farver:
+
+   ```bash
+   uv add rich
+   ```
+
+   Hvilken specifier skrev `uv` i `pyproject.toml`? Hvilken eksakt version står der i `uv.lock`?
+2. Kør `uv tree`. Hvor mange pakker fik I i alt, selv om I kun bad om én?
+3. Skriv en specifier for hvert krav, og prøv dem med `uv add`:
+   - `rich` version 13, men ikke 14
+   - mindst `httpx` 0.27
+   - præcis `typer` 0.12.5
+4. Hvilket nyt versionsnummer skal jeres pakke have, hvis I: (a) retter en stavefejl i et citat, (b) tilføjer et `--author`-flag, (c) omdøber kommandoen?
+
+**Færdig når:** I kan forklare forskellen på det, der står i `pyproject.toml`, og det, der står i `uv.lock`.
+
+**Prøv bagefter:** Bump versionen i `pyproject.toml`, byg og publicér den nye version på TestPyPI.
+
+---
+
+## Runde 4 · Config og *secrets*
+
+**Demo:** Vi flytter hardcodede værdier ud af `hello_api.py` og ind i environment variables og en `.env`-fil.
+
+**I gør det samme** i jeres bogreols-API:
+
+1. Har API'en ikke en `pyproject.toml`, så lav en: `uv init --app`, og `uv add flask python-dotenv`.
+2. Læs config fra environment variables:
+
    ```python
    import os
+   from dotenv import load_dotenv
 
+   load_dotenv()
+
+   HOST = os.environ.get("HOST", "127.0.0.1")
    PORT = int(os.environ.get("PORT", "5000"))
-   DEBUG = os.environ.get("DEBUG", "false").lower() == "true"
+   API_KEY = os.environ["API_KEY"]  # ingen default: crash, hvis den mangler
    ```
-2. Tilføj en "hemmelig" API key, som klienter skal sende i en header (`X-API-Key`). Læs den med `os.environ["API_KEY"]`, så applikationen fejler tydeligt ved opstart, hvis den mangler.
-3. Læg dine lokale værdier i en `.env`-fil og indlæs dem med [`python-dotenv`](https://pypi.org/project/python-dotenv/). Tilføj `.env` til `.gitignore`, og lav en `.env.example` uden rigtige secrets, som *må* committes.
-4. Supplér med en `config.toml`, der læses med standardbiblioteket `tomllib`. Beslut en rækkefølge: hvad vinder, hvis samme værdi står både i `config.toml` og som environment variable? Implementér det.
-5. Sammenlign med mistral-vibe: hvor gemmer den sin `config.toml`, og hvordan finder den din `MISTRAL_API_KEY`?
 
-### Øvelse 5 — Containerize din API med Docker og Redis
+   Brug `app.run(host=HOST, port=PORT)`.
+3. Kræv headeren `X-API-Key` på `POST`, `PUT` og `DELETE`, og svar `401`, hvis den er forkert.
+4. Lav en `.env`:
 
-1. Skriv en `Dockerfile` til bogreols-API'en fra øvelse 4. Brug det forbedrede eksempel fra MIT-lektionen som udgangspunkt:
-   - `python:3.12-slim` som base image
-   - kopiér `uv` ind med builder pattern (`COPY --from=ghcr.io/astral-sh/uv:latest ...`)
-   - kopiér `pyproject.toml` og `uv.lock` **før** resten af koden, så dependency-laget caches
-2. Byg og kør imaget:
-   ```console
-   $ docker build -t bookshelf-api .
-   $ docker run -p 5000:5000 -e API_KEY=hemmelig bookshelf-api
    ```
-   > ⚠️ Inde i en container skal Flask lytte på `0.0.0.0` og ikke kun `127.0.0.1` — ellers kan du ikke nå API'en fra din egen maskine. Gør `HOST` konfigurerbar ligesom `PORT`.
+   API_KEY=et-langt-tilfældigt-password
+   ```
 
-   Ændr en linje i din Python-kode og byg igen. Hvilke layers bliver genbrugt fra cachen?
-3. Tilføj et endpoint `/stats`, der tæller antal requests i [Redis](https://redis.io/) via [`redis`](https://pypi.org/project/redis/)-package'en. Læs forbindelsen fra `REDIS_URL`.
-4. Skriv en `docker-compose.yml` med to services, `web` og `cache` (`redis:7-alpine`), og start det hele med `docker compose up`. Bekræft, at tælleren overlever en genstart af `web`-containeren — men hvad med en genstart af `cache`? Tilføj et volume, så data overlever.
-5. **Ekstra:** Push dit image til GitHub Container Registry (`ghcr.io/<dit-github-navn>/bookshelf-api`), og få din Streamlit-app fra session 7 til at køre som en tredje service i samme `docker-compose.yml`.
+   Lav en tilfældig værdi med `python -c "import secrets; print(secrets.token_hex(32))"`.
+5. Tilføj `.env` til `.gitignore`. Lav en `.env.example` med `API_KEY=` uden værdi, og commit den.
+
+**Færdig når:** `git status` ikke viser `.env`, og `DELETE` giver `401` uden header og virker med den.
+
+**Tænk over:** mistral-vibe skal bruge `MISTRAL_API_KEY`. Hvor leder den efter den?
+
+---
+
+## Runde 5 · Dockerfile
+
+**Demo:** Vi bygger et image af API'en og kører det som en container.
+
+**I gør det samme:**
+
+1. Lav en `Dockerfile` ved siden af `pyproject.toml`:
+
+   ```dockerfile
+   FROM python:3.12-slim
+   COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+
+   WORKDIR /app
+   COPY pyproject.toml uv.lock ./
+   RUN uv sync --frozen --no-install-project
+   COPY . .
+
+   ENV PATH="/app/.venv/bin:$PATH" HOST=0.0.0.0
+   EXPOSE 5000
+   CMD ["python", "app.py"]
+   ```
+
+   Hedder jeres fil noget andet end `app.py`, så ret det i `CMD`.
+
+2. Lav en `.dockerignore`:
+
+   ```
+   .venv
+   .env
+   ```
+
+3. Byg og kør:
+
+   ```bash
+   docker build -t bookshelf-api .
+   docker run -p 5000:5000 -e API_KEY=hemmelig bookshelf-api
+   ```
+
+**Færdig når:** I kan kalde API'en på `http://localhost:5000` fra Postman.
+
+**Prøv bagefter:** Ret en linje i jeres Python-kode, og byg igen. Hvilke trin står der `CACHED` ved? Hvorfor kopierer vi `pyproject.toml` før resten?
+
+**Tænk over:** Hvad var der sket uden `.env` i `.dockerignore`?
+
+---
+
+## Runde 6 · Docker Compose
+
+**Demo:** Den lange `docker run`-kommando bliver til en fil.
+
+**I gør det samme:**
+
+1. Lav en `docker-compose.yml`:
+
+   ```yaml
+   services:
+     api:
+       build: .
+       ports:
+         - "5000:5000"
+       env_file: .env
+   ```
+
+2. Start og stop:
+
+   ```bash
+   docker compose up --build
+   docker compose down
+   ```
+
+**Færdig når:** API'en kører med `docker compose up`, og `API_KEY` kommer fra `.env`.
+
+**Prøv bagefter:** `docker compose config`. Hvem kan læse jeres *secret* nu?
+
+---
+
+## Runde 7 · Push til Docker Hub
+
+**Demo:** Vi pusher et image og kører det på en anden maskine.
+
+**I gør det samme:**
+
+```bash
+docker login
+docker build -t <dockerhub-bruger>/bookshelf-api:0.1.0 .
+docker push <dockerhub-bruger>/bookshelf-api:0.1.0
+```
+
+Giv sidemanden navnet på jeres image, og kør sidemandens:
+
+```bash
+docker run -p 5000:5000 -e API_KEY=test <sidemand>/bookshelf-api:0.1.0
+```
+
+> Har I en Mac med Apple Silicon og sidemanden en Windows-PC? Byg til begge:
+> `docker buildx build --platform linux/amd64,linux/arm64 -t <bruger>/bookshelf-api:0.1.0 --push .`
+
+**Færdig når:** I har kørt sidemandens API uden at have deres kode.
+
+**Tænk over:** Sammenlign med Runde 2. Hvad skal modtageren have installeret i hvert tilfælde?
+
+---
+
+## Ekstra · Redis som ekstra service
+
+1. Tilføj et endpoint `/stats`, der tæller requests i Redis (`uv add redis`, og læs forbindelsen fra `REDIS_URL`).
+2. Tilføj en service mere i `docker-compose.yml`:
+
+   ```yaml
+     cache:
+       image: redis:7-alpine
+   ```
+
+   og `REDIS_URL=redis://cache:6379` i `.env`.
+
+**Færdig når:** Tælleren stiger, og overlever `docker compose restart api`. Hvad med `docker compose down`?
+
+---
+
+## Opsamling
+
+Tilbage til dagens spørgsmål: **Hvem skal bruge jeres kode, og hvordan får de fat i den?** Hvilken måde passer til den feature, I bygger i mistral-vibe?
+
+---
+
+## Optional
+
+- [optional] MIT: [Packaging and Shipping Code](https://missing.csail.mit.edu/2026/shipping-code/)
+- [optional] uv docs: [Building and publishing a package](https://docs.astral.sh/uv/guides/package/)
+- [optional] uv docs: [Using uv in Docker](https://docs.astral.sh/uv/guides/integration/docker/)
+- [optional] Python Packaging: [Version specifiers](https://packaging.python.org/en/latest/specifications/version-specifiers/)
 
 ---
 

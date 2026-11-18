@@ -245,6 +245,8 @@ SemVer: `MAJOR.MINOR.PATCH`. Breaking change → MAJOR, ny feature → MINOR, bu
 
    WORKDIR /app
    COPY pyproject.toml uv.lock ./
+   # --frozen: installér præcis det, der står i uv.lock, uden at opdatere eller tjekke den
+   # --no-install-project: installér kun dependencies, ikke jeres egen kode (den er ikke kopieret endnu)
    RUN uv sync --frozen --no-install-project
    COPY . .
 

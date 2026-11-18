@@ -1,39 +1,5 @@
 # EK_DAT Python Elective 2026 Fall
 
-> 📌 **Course release: `v2.24.0`** — all materials this semester are written against mistral-vibe at release `v2.24.0`, and the whole semester stays on it: the feature sprint and the exam are all built on this release. You fork the course repo and work on its `main` branch, which is pinned to this tag; see [session 1](01._open_source_and_project_setup/README.md) for setup. (Contributing your feature back to the original [`mistralai/mistral-vibe`](https://github.com/mistralai/mistral-vibe) is an optional stretch goal.)
+Course material for the Python Elective, fall 2026. The semester is built around the open-source AI coding assistant [mistral-vibe](https://github.com/mistralai/mistral-vibe): students fork it, read it to learn Python and its tooling, and extend it with their own features.
 
-## Semester Plan: Fork of mistral-vibe
-
-| # | Week | Topic |
-|:-:|:----:|-------|
-| 1 | 35 | [Kickoff: Open Source Culture & Project Setup](01._open_source_and_project_setup/README.md) |
-|  | 36 | _No session — merged into session 2 (week 37)_ |
-| 2 | 37 | [Project Structure, Packaging & Tooling](02._project_structure_and_packaging/README.md) |
-| 3 | 38 | [Python Fundamentals: Variables, Collections & Classes](03._python_fundamentals/README.md) |
-| 3a | TBD | [Type System: Type Hints, Dataclasses, and Pydantic](03a._type_system/README.md) — *displaced, week not yet assigned* |
-| 4 | 39 | [CLI Development: How the CLI Works](04._cli_development/README.md) |
-| 5 | 40 | [Byg en REST API med Flask](05._flask_api/README.md) |
-| 6 | 41 | [API'er og HTTP-klienter: Byg en klient til din API](06._apis_and_http_clients/README.md) |
-|  | 42 | _Autumn Break — no session_ |
-| 7 | 43 | [Streamlit](07._streamlit/README.md) |
-| 8 | 44 | [Packaging and Shipping Code](08._packaging_and_shipping_code/README.md) |
-
-
----
-
-## About the Course
-
-This course focuses on contributing to an open-source Python project, [mistral-vibe](https://github.com/mistralai/mistral-vibe). Students will learn to analyze, improve, and extend the project using AI and CLI tools. Along the way, they will become familiar with Python syntax and programming concepts.
-
-## AI Policy
-
-**AI tools are 100% allowed — and actively encouraged.**
-
-This course is built around the reality that professional developers use AI tools every day. You are expected to use them too.
-
-We will use [mistral-vibe](https://github.com/mistralai/mistral-vibe) as the course's primary AI coding assistant — it is also the project you are studying, so you get to learn from it and with it at the same time. That said, you are free to use whichever AI tools you prefer. Other popular CLI-based AI coding assistants include [Claude Code](https://claude.ai/claude-code), [GitHub Copilot CLI](https://githubnext.com/projects/copilot-cli), and [Cursor](https://www.cursor.com/) — or any other tool you find useful.
-
-Using AI is not cheating. It is a skill. The goal is to learn how to use these tools effectively and critically — knowing when to trust them, when to question them, and how to take responsibility for the code you ship.
-
-You will be asked to reflect on your use of AI at the end of the semester: what helped, what misled you, and what you learned about working alongside these tools.
-
+Each session has its own folder (`01._…`, `02._…`, …) with a README describing the session and its exercises.

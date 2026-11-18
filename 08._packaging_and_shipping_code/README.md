@@ -142,7 +142,16 @@ Bemærk: Wheel-filnavnet bruger `_`, ikke `-`.
    uvx --index-url https://test.pypi.org/simple/ <sidemand>-quote
    ```
 
-**Færdig når:** I har kørt sidemandens værktøj fra TestPyPI.
+5. Fjern den version, I installerede fra det lokale wheel i Runde 1, og installér jeres egen fra TestPyPI i stedet:
+
+   ```bash
+   uv tool list
+   uv tool uninstall <navn>-quote
+   uv tool install --index-url https://test.pypi.org/simple/ <navn>-quote
+   uv tool list
+   ```
+
+**Færdig når:** I har kørt sidemandens værktøj fra TestPyPI, og jeres eget er installeret derfra.
 
 **Prøv bagefter:** Kør `uv publish` igen uden at ændre noget. Hvorfor bliver den afvist?
 

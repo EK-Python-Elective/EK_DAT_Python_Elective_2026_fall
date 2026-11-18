@@ -58,7 +58,7 @@ Der findes mange måder at publicere en applikation på, og hver retter sig mod 
 | Kildekode på GitHub | `git clone` + `uv sync` | Udviklere, bidragydere | Git, Python, uv og tålmodighed |
 | Pakke på PyPI (library) | `uv add requests` | Python-udviklere, der bygger videre | Et Python-projekt |
 | Pakke på PyPI (CLI-værktøj) | `uvx mistral-vibe`, `uv tool install ruff` | Tekniske brugere | Python og uv/pipx |
-| System-pakkemanager | `brew install`, `apt install`, `choco install` | Tekniske brugere, sysadmins | Den rigtige pakkemanager |
+| System-pakkemanager | `brew install`, `apt install`, `choco install` / `winget install` | Tekniske brugere, sysadmins | Den rigtige pakkemanager |
 | Container-image | `docker run …` fra Docker Hub/GHCR | Drift, DevOps, servere | Docker, men ikke Python |
 | Executable/installer, app store | `.exe`, `.dmg`, App Store | Almindelige brugere | Ingenting |
 | Web app / SaaS | En URL | Almindelige brugere | En browser |

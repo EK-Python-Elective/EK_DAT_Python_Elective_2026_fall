@@ -100,6 +100,21 @@ I dag prøver vi to af dem: **PyPI** (til udviklere og tekniske brugere) og **Do
 
 **Færdig når:** `<navn>-quote` virker i en hvilken som helst mappe.
 
+**Prøv bagefter:** Del pakken via GitHub. Push projektet til et offentligt repo, og prøv to måder at installere sidemandens pakke på:
+
+```bash
+# 1. Direkte fra repoet (uv bygger selv wheel'et)
+uvx --from git+https://github.com/<sidemand>/<sidemand>-quote <sidemand>-quote
+
+# 2. Som færdigt wheel i en GitHub Release
+gh release create v0.1.0 dist/*          # sidemanden kører denne i sit repo
+uv tool install https://github.com/<sidemand>/<sidemand>-quote/releases/download/v0.1.0/<sidemand>_quote-0.1.0-py3-none-any.whl
+```
+
+Bemærk: Wheel-filnavnet bruger `_`, ikke `-`.
+
+**Tænk over:** Hvad skal modtageren kunne i hvert tilfælde? Og hvad mangler, som en pakke-index som PyPI giver jer?
+
 ---
 
 ## Runde 2 · Publicér på TestPyPI

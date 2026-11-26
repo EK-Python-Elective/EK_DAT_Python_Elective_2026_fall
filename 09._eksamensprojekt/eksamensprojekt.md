@@ -52,6 +52,8 @@ Du bliver bedømt på to ting:
 
 **2. Din tekniske forståelse.** Hvor godt du forstår din egen applikation: hvad hver enkelt linje kode gør, og hvorfor den er der.
 
-## Spørgsmål
+## Spørgsmål og vejledning
 
-TODO: hvor og hvordan man stiller spørgsmål til projektet.
+Du kan få feedback og vejledning i undervisningsperioderne hver torsdag. Vejledningen foregår online på Teams: du ringer mig op (clbo).
+
+Du er også velkommen til at sende mig en mail med spørgsmål: [clbo@ek.dk](mailto:clbo@ek.dk)

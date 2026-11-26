@@ -1,11 +1,12 @@
 # Gode råd til eksamensprojekt og eksamen
 
-> Du får ikke karakter for den største app. Du får den for at kunne forklare den.
+> Byg en app, der løser et rigtigt problem, og som virker. Og kend den ud og ind.
 
 ---
 
 ## Mens du laver projektet
 
+- **Vælg et problem, der er værd at løse.** Find noget, der ikke findes i forvejen, eller som du kan løse bedre end det, der findes. Vær klar til at fortælle, hvad der allerede findes, og hvad din app gør anderledes.
 - **Start småt, og få det til at virke.** Lav den mindste version, der virker hele vejen igennem, før du bygger mere på.
 - **Commit ofte, med gode beskeder.** Din git-historik viser, hvordan projektet er blevet til, og hjælper dig med at huske dine valg.
 - **Hold styr på dine værktøjer.** `uv`, `pyproject.toml`, `uv.lock` og `ruff` skal være i orden. Et projekt, der ikke kan køre på en anden maskine, er ikke færdigt.

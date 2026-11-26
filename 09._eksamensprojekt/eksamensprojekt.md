@@ -39,7 +39,10 @@ AI-værktøjer er tilladt til alt. Du skal kunne forklare hver linje, du aflever
 
 ## Bedømmelseskriterier
 
-TODO
+Du bliver bedømt på, hvor god og velfungerende en applikation du afleverer. Herunder:
+
+- Løser applikationen et **relevant og interessant problem**?
+- Løser den noget, som **ikke findes i forvejen**, eller løser den det **bedre end noget, der allerede findes**?
 
 ## Spørgsmål
 

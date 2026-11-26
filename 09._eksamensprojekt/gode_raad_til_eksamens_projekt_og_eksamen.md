@@ -14,6 +14,8 @@
 - **Ingen hemmeligheder i git.** Brug `.env` og `.env.example`.
 - **Test fra en ren mappe.** Klon dit repo et nyt sted og følg din egen README. Starter det hele med `docker compose up` uden ekstra trin?
 - **Fravælg ting med vilje.** Hellere få features, der virker og som du forstår, end mange halve.
+- **Byg til production, ikke til en demo.** Du skal aflevere en færdig applikation, som en potentiel bruger kan tage i brug, uden at den fejler. Tænk som en bruger: hvad sker der ved forkert input, et tomt felt, en API, der ikke svarer, eller en database uden data? Applikationen skal give en forståelig besked, ikke crashe.
+- **Lad en anden prøve den.** Giv appen til en ven eller medstuderende uden at forklare noget. Hvor går de i stå, og hvad får den til at fejle?
 
 ## AI
 
@@ -41,6 +43,7 @@
 ## Tjekliste før aflevering
 
 - [ ] Projektet kan klones og startes med `docker compose up`
+- [ ] Applikationen er færdig og klar til production: en ny bruger kan bruge den, uden at den fejler
 - [ ] `ruff check` og `ruff format --check` er grønne
 - [ ] Ingen hemmeligheder eller `.env` i repoet
 - [ ] README forklarer, hvad, hvordan og hvorfor

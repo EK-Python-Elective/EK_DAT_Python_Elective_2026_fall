@@ -1,6 +1,6 @@
 # Eksamensprojekt
 
-> TODO: én linje om, hvad projektet går ud på.
+> Byg din egen applikation med det, du har lært i dette semester.
 
 Eksamen er **individuel** og **mundtlig**. Du laver et projekt, afleverer det og forsvarer det til eksamen.
 
@@ -8,7 +8,14 @@ Eksamen er **individuel** og **mundtlig**. Du laver et projekt, afleverer det og
 
 ## Projektet
 
-TODO: beskriv opgaven (domæne, frit valg eller fast emne).
+Du skal lave en applikation, der gør brug af elementer fra dette semesters undervisning. Det kan for eksempel være:
+
+- en ny feature til mistral-vibe
+- en applikation, der bruger Streamlit og/eller Flask
+- et CLI-tool, der bruger andre virksomheders API'er
+- noget helt andet, også selvom det indeholder elementer, vi ikke har kigget på i undervisningen
+
+Kort sagt: opgaven er helt fri, dog med enkelte krav, som er beskrevet herunder.
 
 ## Krav
 

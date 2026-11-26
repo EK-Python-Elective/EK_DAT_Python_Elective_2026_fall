@@ -22,7 +22,6 @@ Kort sagt: opgaven er helt fri, dog med enkelte krav, som er beskrevet herunder.
 ## Krav
 
 - Applikationen skal være skrevet i **Python**.
-- Den skal kunne køres lokalt med kommandoen `docker compose up`.
 - Du skal levere et **færdigt produkt**: en applikation, som potentielle brugere kan tage i brug, uden at den fejler. Den skal være klar til **production**, ikke en prototype eller en demo.
 
 ## Aflevering

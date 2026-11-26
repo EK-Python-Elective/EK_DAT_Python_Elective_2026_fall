@@ -1,0 +1,63 @@
+# Eksamensprojekt
+
+> Byg din egen applikation med det, du har lært i dette semester.
+
+Eksamen er **individuel** og **mundtlig**. Du laver et projekt, afleverer det og forsvarer det til eksamen.
+
+Du må lave dit projekt alene eller i en gruppe, men husk, at **det skal afleveres og forsvares individuelt**.
+
+---
+
+## Projektet
+
+Du skal lave en applikation, der gør brug af elementer fra dette semesters undervisning. Det kan for eksempel være:
+
+- en ny feature til mistral-vibe
+- en applikation, der bruger Streamlit og/eller Flask
+- et CLI-tool, der bruger andre virksomheders API'er
+- noget helt andet, også selvom det indeholder elementer, vi ikke har kigget på i undervisningen
+
+Kort sagt: opgaven er helt fri, dog med enkelte krav, som er beskrevet herunder.
+
+## Krav
+
+- Applikationen skal være skrevet i **Python**.
+- Du skal levere et **færdigt produkt**: en applikation, som potentielle brugere kan tage i brug, uden at den fejler. Den skal være klar til **production**, ikke en prototype eller en demo.
+
+## Aflevering
+
+Afleveringen er **individuel**.
+
+- **Deadline:** 16. december kl. 12.00
+- **Hvor:** Wiseflow
+- **Hvad afleveres:** link til dit GitHub-repository
+
+## Den mundtlige eksamen
+
+- **Varighed:** 30 minutter
+- **Forløb:**
+  - 10 minutters præsentation
+  - 15 minutters spørgsmål
+  - 5 minutters votering og karakter
+- **Bedømmelse:** 7-trinsskalaen
+
+## AI
+
+AI-værktøjer er tilladt til alt. Du skal kunne forklare hver linje, du afleverer.
+
+## Bedømmelseskriterier
+
+Du bliver bedømt på to ting:
+
+**1. Applikationen.** Hvor god og velfungerende en applikation du afleverer. Herunder:
+
+- Løser applikationen et **relevant og interessant problem**?
+- Løser den noget, som **ikke findes i forvejen**, eller løser den det **bedre end noget, der allerede findes**?
+
+**2. Din tekniske forståelse.** Hvor godt du forstår din egen applikation: hvad hver enkelt linje kode gør, og hvorfor den er der.
+
+## Spørgsmål og vejledning
+
+Du kan få feedback og vejledning i undervisningsperioderne hver torsdag. Vejledningen foregår online på Teams: du ringer mig op (clbo).
+
+Du er også velkommen til at sende mig en mail med spørgsmål: [clbo@ek.dk](mailto:clbo@ek.dk)

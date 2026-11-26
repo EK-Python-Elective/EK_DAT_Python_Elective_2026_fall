@@ -4,6 +4,8 @@
 
 Eksamen er **individuel** og **mundtlig**. Du laver et projekt, afleverer det og forsvarer det til eksamen.
 
+Du må lave dit projekt alene eller i en gruppe, men husk, at **det skal afleveres og forsvares individuelt**.
+
 ---
 
 ## Projektet

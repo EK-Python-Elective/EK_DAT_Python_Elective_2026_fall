@@ -26,6 +26,8 @@ Kort sagt: opgaven er helt fri, dog med enkelte krav, som er beskrevet herunder.
 
 ## Aflevering
 
+Afleveringen er **individuel**.
+
 - **Deadline:** 16. december kl. 12.00
 - **Hvor:** Wiseflow
 - **Hvad afleveres:** link til dit GitHub-repository

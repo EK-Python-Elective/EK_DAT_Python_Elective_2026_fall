@@ -12,7 +12,7 @@
 - **Hold styr på dine værktøjer.** `uv`, `pyproject.toml`, `uv.lock` og `ruff` skal være i orden. Et projekt, der ikke kan køre på en anden maskine, er ikke færdigt.
 - **Skriv en README**, der siger, hvad projektet er, hvordan man kører det, og hvordan det er bygget op.
 - **Ingen hemmeligheder i git.** Brug `.env` og `.env.example`.
-- **Test fra en ren mappe.** Klon dit repo et nyt sted og følg din egen README. Virker `uv sync` og/eller `docker compose up` uden ekstra trin?
+- **Test fra en ren mappe.** Klon dit repo et nyt sted og følg din egen README. Starter det hele med `docker compose up` uden ekstra trin?
 - **Fravælg ting med vilje.** Hellere få features, der virker og som du forstår, end mange halve.
 
 ## AI
@@ -40,7 +40,7 @@
 
 ## Tjekliste før aflevering
 
-- [ ] Projektet kan klones og køres med instruktionerne i README
+- [ ] Projektet kan klones og startes med `docker compose up`
 - [ ] `ruff check` og `ruff format --check` er grønne
 - [ ] Ingen hemmeligheder eller `.env` i repoet
 - [ ] README forklarer, hvad, hvordan og hvorfor

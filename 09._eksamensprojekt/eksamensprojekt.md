@@ -19,11 +19,8 @@ Kort sagt: opgaven er helt fri, dog med enkelte krav, som er beskrevet herunder.
 
 ## Krav
 
-TODO: hvad projektet skal indeholde. Fx:
-
-- [ ] TODO
-- [ ] TODO
-- [ ] TODO
+- Applikationen skal være skrevet i **Python**.
+- Den skal kunne køres lokalt med kommandoen `docker compose up`.
 
 ## Aflevering
 

@@ -28,7 +28,7 @@
 - **Kend dine svagheder.** Hvad ville du lave om med mere tid? Det er et godt svar at have klar.
 - **Øv demoen.** Hav projektet kørende og klar, før eksamen starter. Hav en plan B (skærmbilleder eller en optagelse), hvis noget driller.
 - **Kobl til pensum.** Kunne forklare de begreber, du bruger: type hints, HTTP-metoder og statuskoder, `st.session_state`, Docker-images vs. containere, SemVer, osv.
-- **Tag tid.** Øv præsentationen, så den holder sig inden for tiden.
+- **Tag tid.** Du har 10 minutter til præsentationen. Øv den, så den holder sig inden for tiden.
 
 ## Til eksamen
 

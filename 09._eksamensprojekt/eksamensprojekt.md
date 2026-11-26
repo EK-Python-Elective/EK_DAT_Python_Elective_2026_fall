@@ -20,15 +20,18 @@ TODO: hvad projektet skal indeholde. Fx:
 
 ## Aflevering
 
-- **Deadline:** TODO
-- **Hvor:** TODO
-- **Hvad afleveres:** TODO (fx link til repo, README, ...)
+- **Deadline:** 16. december kl. 12.00
+- **Hvor:** Wiseflow
+- **Hvad afleveres:** link til dit GitHub-repository
 
 ## Den mundtlige eksamen
 
-- **Varighed:** TODO
-- **Forløb:** TODO (fx præsentation/demo, spørgsmål til koden, spørgsmål til pensum)
-- **Bedømmelse:** TODO (7-trinsskala, intern/ekstern censur)
+- **Varighed:** 30 minutter
+- **Forløb:**
+  - 10 minutters præsentation
+  - 15 minutters spørgsmål
+  - 5 minutters votering og karakter
+- **Bedømmelse:** 7-trinsskalaen
 
 ## AI
 
